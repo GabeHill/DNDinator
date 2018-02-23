@@ -1,1 +1,2 @@
 multiple jars exported for player/DM
+autogen based on inputted class, race, level
