@@ -1,4 +1,1 @@
-network (not neccesarily internet)
 multiple jars exported for player/DM
-ask reggie about json stuff
-light encryption vs serialization
