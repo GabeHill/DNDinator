@@ -13,6 +13,15 @@ public class AES {
 	private static byte[] key;
 	private static SecretKeySpec secretKey;
 
+	/**
+	 *
+	 * @param toDec
+	 * @param secret
+	 * @return String
+	 *
+	 *         Takes in a String to be decrypted and a key String and returns the
+	 *         decrypted String.
+	 */
 	public static String decrypt(String toDec, String secret) {
 		try {
 			setKey(secret);
@@ -25,6 +34,15 @@ public class AES {
 		return null;
 	}
 
+	/**
+	 *
+	 * @param toEn
+	 * @param secret
+	 * @return String, encrypted
+	 *
+	 *         Takes in a String to be encrypted and a key String and returns the
+	 *         encrypted String.
+	 */
 	public static String encrypt(String toEn, String secret) {
 		try {
 			setKey(secret);
@@ -37,7 +55,7 @@ public class AES {
 		return null;
 	}
 
-	public static void setKey(String myKey) {
+	private static void setKey(String myKey) {
 		MessageDigest sha = null;
 		try {
 			key = myKey.getBytes("UTF-8");
