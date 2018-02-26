@@ -1,0 +1,14 @@
+multiple jars exported for player/DM 
+	or startup args to change
+auto-generate based on inputted class, race, level
+
+	Character creation	
+		*Race repo
+		*Class repo
+		*Spell repo
+		*Item repo
+		
+		*Leveling
+		*Dice Roller
+		*
+ 
