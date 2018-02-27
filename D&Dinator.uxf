@@ -4,7 +4,7 @@
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>792</x>
+      <x>808</x>
       <y>128</y>
       <w>144</w>
       <h>88</h>
@@ -17,7 +17,7 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>800</x>
+      <x>816</x>
       <y>152</y>
       <w>128</w>
       <h>56</h>
@@ -32,8 +32,8 @@ _+ main : void_
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>464</x>
-      <y>296</y>
+      <x>480</x>
+      <y>280</y>
       <w>112</w>
       <h>112</h>
     </coordinates>
@@ -45,8 +45,8 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>472</x>
-      <y>320</y>
+      <x>488</x>
+      <y>304</y>
       <w>96</w>
       <h>80</h>
     </coordinates>
@@ -60,7 +60,7 @@ _+ update() : void_</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>248</x>
+      <x>264</x>
       <y>416</y>
       <w>704</w>
       <h>360</h>
@@ -74,7 +74,7 @@ bg=green
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>256</x>
+      <x>272</x>
       <y>440</y>
       <w>248</w>
       <h>240</h>
@@ -100,7 +100,7 @@ bg=green
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>512</x>
+      <x>528</x>
       <y>440</y>
       <w>216</w>
       <h>240</h>
@@ -120,7 +120,7 @@ bg=green
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>672</x>
+      <x>688</x>
       <y>288</y>
       <w>424</w>
       <h>112</h>
@@ -133,7 +133,7 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>688</x>
+      <x>704</x>
       <y>312</y>
       <w>200</w>
       <h>80</h>
@@ -150,7 +150,7 @@ _- initializeData() : void_
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>0</x>
+      <x>16</x>
       <y>368</y>
       <w>216</w>
       <h>168</h>
@@ -164,7 +164,7 @@ bg=magenta
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>8</x>
+      <x>24</x>
       <y>392</y>
       <w>112</w>
       <h>136</h>
@@ -185,7 +185,7 @@ NEUTRAL_EVIL</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>128</x>
+      <x>144</x>
       <y>400</y>
       <w>80</w>
       <h>112</h>
@@ -205,7 +205,7 @@ EIGHT
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>464</x>
+      <x>480</x>
       <y>184</y>
       <w>168</w>
       <h>72</h>
@@ -218,7 +218,7 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>472</x>
+      <x>488</x>
       <y>208</y>
       <w>144</w>
       <h>40</h>
@@ -231,7 +231,7 @@ bg=cyan</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>872</x>
+      <x>888</x>
       <y>200</y>
       <w>56</w>
       <h>128</h>
@@ -243,7 +243,7 @@ bg=cyan</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>880</x>
+      <x>896</x>
       <y>328</y>
       <w>72</w>
       <h>32</h>
@@ -255,19 +255,19 @@ bg=cyan</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
+      <x>536</x>
       <y>264</y>
       <w>376</w>
-      <h>72</h>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 </panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0;450.0;10.0</additional_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0;450.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>736</x>
+      <x>752</x>
       <y>680</y>
       <w>208</w>
       <h>72</h>
@@ -281,7 +281,7 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>736</x>
+      <x>752</x>
       <y>560</y>
       <w>208</w>
       <h>112</h>
@@ -298,7 +298,7 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>936</x>
+      <x>952</x>
       <y>312</y>
       <w>152</w>
       <h>72</h>
@@ -314,7 +314,7 @@ _+ dieBag(d : DiceSides) : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>736</x>
+      <x>752</x>
       <y>440</y>
       <w>208</w>
       <h>112</h>
@@ -330,7 +330,7 @@ _+ dieBag(d : DiceSides) : int_
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>264</x>
+      <x>280</x>
       <y>192</y>
       <w>152</w>
       <h>104</h>
@@ -343,7 +343,7 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>272</x>
+      <x>288</x>
       <y>216</y>
       <w>136</w>
       <h>72</h>
@@ -357,18 +357,18 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>504</x>
+      <x>520</x>
       <y>240</y>
       <w>24</w>
-      <h>96</h>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>56</x>
+      <x>72</x>
       <y>520</y>
       <w>216</w>
       <h>104</h>
@@ -379,12 +379,12 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>168</x>
-      <y>336</y>
+      <x>184</x>
+      <y>344</y>
       <w>536</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>650.0;20.0;10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>650.0;10.0;560.0;10.0;560.0;80.0;190.0;80.0;190.0;30.0;10.0;30.0;10.0;70.0</additional_attributes>
   </element>
 </diagram>
