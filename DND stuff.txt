@@ -3,7 +3,7 @@
 		NPC
 		PC
 		Block vs sheet
-	Game options
+	Game options  *Gabe
 		Player list
 			Add
 			Remove
@@ -11,13 +11,15 @@
 		Save rules
 		Load rules
 	Player leveling
-	Loot
+	
+	Loot  ***Alice***
 		Distribution
 		Creation
 		Table
 			Add
 			Remove
-	Create notes
+			
+	Create notes  *Spencer
 		Story
 		Areas
 		Misc.
@@ -28,13 +30,13 @@
 		PC only
 		
 -- BOTH
-	Roll Dice
+	Roll Dice  *Gabe
 		Combat
 		General
 		Saving throws
 		Skill
 		Attribute
-	Create character
+	Create character  *AJ
 		Manual entry
 		Auto-generated
 	Save character
