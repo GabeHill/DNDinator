@@ -3,7 +3,7 @@
 		NPC
 		PC
 		Block vs sheet
-	Game options
+	Game options  *Gabe
 		Player list
 			Add
 			Remove
@@ -11,13 +11,15 @@
 		Save rules
 		Load rules
 	Player leveling
-	Loot
+	
+	Loot  ***Alice***
 		Distribution
 		Creation
 		Table
 			Add
 			Remove
-	Create notes
+			
+	Create notes  *Spencer
 		Story
 		Areas
 		Misc.
@@ -28,23 +30,76 @@
 		PC only
 		
 -- BOTH
-	Roll Dice
+	Roll Dice  *Gabe
 		Combat
 		General
 		Saving throws
 		Skill
 		Attribute
-	Create character
-		Manual entry
-		Auto-generated
+	Create character  *AJ
+	   -Manual entry
+	   -Auto-generated
+	   -Edit character
+		-- applies to creation
+			CHARACTER NAME
+			class
+			level
+			player name
+			race
+			BACKGROUND
+			Hit Point Maximum
+			CURRENT HIT POINTS
+			TEMPORARY HIT POINTS
+			Strength
+			Dexterity
+			Constitution
+			Intelligence
+			Wisdom
+			Charisma
+			CP
+			EP
+			PP
+			GP
+			SP
+			PASSIVE WISDOM (PERCEPTION)
+			OTHER PROFICIENCIES & LANGUAGES EQUIPMENT
+			ATTACKS & SPELLCASTING
+			FEATURES & TRAITS
+			Acrobatics (Dex)
+			Animal Handling (Wis)
+			Arcana (Int)
+			Athletics (Str)
+			Deception (Cha)
+			History (Int)
+			Insight (Wis)
+			Intimidation (Cha)
+			Investigation (Int)
+			Medicine (Wis)
+			Nature (Int)
+			Perception (Wis)
+			Performance (Cha)
+			Persuasion (Cha)
+			Religion (Int)
+			Sleight of Hand (Dex)
+			Stealth (Dex)
+			Survival (Wis)
+			HIT DICE 
+			SUCCESSES DEATH SAVES
+			FAILURES DEATH SAVES
+			IDEALS
+			BONDS
+			FLAWS
+			PERSONALITY TRAITS
+			ARMOR CLASS
+			PROFICIENCY BONUS 
+			INITIATIVE 
+			SPEED
+			STRENGTH SAVING THROWS
+			DEXTERITY SAVING THROWS
+			CONSTITUTION SAVING THROWS
+			INTELLIGENCE SAVING THROWS
+			WISDOM SAVING THROWS
+			CHARISMA SAVING THROWS
+			INSPIRATION	
 	Save character
 	Load character
-	Edit character
-		Level
-		Health
-		Spells
-		Equipment
-		Attributes
-		Alignment
-		Stats
-		
