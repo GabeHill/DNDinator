@@ -41,17 +41,17 @@
 			Add
 			Remove
 			
-	Create notes
-		Save notes
+	-Create notes
+		-Save notes
 			Encrypt or add to the saved JSON file
-		Load notes
+		-Load notes
 			Decrypt or pull the saved content from the JSON file
-		Create Notes with type specification
-			Story
+		-Create Notes with type specification
+			-Story
 				Create note with Story note type specification 
-			Areas
+			-Areas
 				Create note with Area note type specification
-			Misc.
+			-Misc.
 				Create note with Custom note type specification
 	
 
