@@ -36,10 +36,19 @@
 	
 	Loot  ***Alice***
 		Distribution
+			-prompt for a given table then rolls for x number of loot items on the table
 		Creation
+			-Allows the GM to create a new item to the list of items in the game 
 		Table
-			Add
-			Remove
+			-Create
+				-allows gm to create a new loot table from currently created items
+			-Edit
+				-add item(s)
+					-Prompts for given table and shows the list of items that are no already present on current table
+				-remove item(s)
+					-prompts for a given table and dispays all the items on that table in numeric order then prompts for an item(s) to delete
+			-Delete Table
+				-prompts for a table to delete
 			
 
 	-Create notes
