@@ -3,14 +3,36 @@
 		NPC
 		PC
 		Block vs sheet
-	Game options  *Gabe
-		Player list
-			Add
-			Remove
-		Level rule
-		Save rules
-		Load rules
-	Player leveling
+	-Game options  *Gabe
+		-Player list
+			-Add
+				Create
+				Pre-existing
+			-Remove
+				From game
+				Death
+		-Manage rules
+			Level rule
+			Add rule
+			Remove rule
+			Display rules	
+		-Save rules
+			Display path to file
+		-Load rules
+			Display path to file
+		-NPC
+			-Create recurring
+				Villain
+				Master
+				Other
+				
+	-Player leveling
+		-Add xp
+			Per player
+			Party
+		-Add level
+			Per player
+			Party
 	
 	Loot  ***Alice***
 		Distribution
@@ -30,12 +52,65 @@
 		PC only
 		
 -- BOTH
-	Roll Dice  *Gabe
-		Combat
-		General
-		Saving throws
-		Skill
-		Attribute
+	-Roll Dice  *Gabe
+		-Advantage
+		-Disadvantage
+		-Combat
+			-Initiative
+			-Grapple
+				Athletics check
+				Acrobatics check
+				Shove
+			-Hit
+				-Dodge
+				-Weapon
+					Effects
+					Crit
+				-Spell
+					Saving throws
+			-Checks
+				Skills
+				Stats
+			-Damage
+				-Weapon
+					-Primary attack
+						Damage
+						Saving throws
+					-Secondary attack
+						Damage
+						Saving throws
+					-Bonus Damage
+						Saving throws
+					-Effects
+					-Crit
+					-Melee attack
+				-Spell
+					Saving throws
+				-Other magic
+				-Environmental
+			-Spells
+				Healing
+				Stat buffs
+			-Other actions		
+			-Bonus actions
+			-Reactions
+		-General
+		-Saving throws
+			-Enemy
+				Stat check things
+				-Special NPC
+					Death
+			Ally
+			-Self
+				Death
+				Other checks
+		-Checks
+			Skill
+			Stats
+		-Attribute
+			Physical
+			Mental
+
 	Create character  *AJ
 	   -Manual entry
 	   -Auto-generated
