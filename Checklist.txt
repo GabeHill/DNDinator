@@ -1,5 +1,5 @@
 -- DM
-	Character
+	-Character
 		NPC
 		PC
 		Block vs sheet
@@ -42,34 +42,21 @@
 			Remove
 			
 
-	Create notes
-		Save notes
-			Add to the saved GSON file through GSONIfier
-		Load notes
-			Pull the saved content from the GSON file through DEGSONIfier
-		Create Notes with type specification
-			Story
-				Create text file integrated into the overall GSON
-				with Story note type specification 
-			Areas
-				Create text file integrated into the overall GSON
-				with Area note type specification
-			Misc.
-				Create text file integrated into the overall GSON
-				with Custom note type specification
-
 	-Create notes
 		-Save notes
-			Encrypt or add to the saved JSON file
+			Add to the saved GSON file through GSONIfier
 		-Load notes
-			Decrypt or pull the saved content from the JSON file
+			Pull the saved content from the GSON file through DEGSONIfier
 		-Create Notes with type specification
 			-Story
-				Create note with Story note type specification 
+				Create text file integrated into the overall GSON
+				with Story note type specification 
 			-Areas
-				Create note with Area note type specification
+				Create text file integrated into the overall GSON
+				with Area note type specification
 			-Misc.
-				Create note with Custom note type specification
+				Create text file integrated into the overall GSON
+				with Custom note type specification
 	
 -- PLAYER
 	-Character
@@ -124,7 +111,7 @@
 				Stat check things
 				-Special NPC
 					Death
-			Ally
+			-Ally
 			-Self
 				Death
 				Other checks
@@ -140,70 +127,70 @@
 	   -Auto-generated
 	   -Edit character
 		-- applies to creation
-			CHARACTER NAME
-			class
-			level
-			player name
-			race
-			BACKGROUND
-			Hit Point Maximum
-			CURRENT HIT POINTS
-			TEMPORARY HIT POINTS
-			Strength
-			Dexterity
-			Constitution
-			Intelligence
-			Wisdom
-			Charisma
-			CP
-			SP
-			GP
-			EP
-			PP
-			PASSIVE WISDOM (PERCEPTION)
-			OTHER PROFICIENCIES
-			LANGUAGES
-			EQUIPMENT
-			ATTACKS
-			SPELLCASTING
-			FEATURES
-			TRAITS
-			Acrobatics (Dex)
-			Animal Handling (Wis)
-			Arcana (Int)
-			Athletics (Str)
-			Deception (Cha)
-			History (Int)
-			Insight (Wis)
-			Intimidation (Cha)
-			Investigation (Int)
-			Medicine (Wis)
-			Nature (Int)
-			Perception (Wis)
-			Performance (Cha)
-			Persuasion (Cha)
-			Religion (Int)
-			Sleight of Hand (Dex)
-			Stealth (Dex)
-			Survival (Wis)
-			HIT DICE 
-			SUCCESSES DEATH SAVES
-			FAILURES DEATH SAVES
-			IDEALS
-			BONDS
-			FLAWS
-			PERSONALITY TRAITS
-			ARMOR CLASS
-			PROFICIENCY BONUS 
-			INITIATIVE 
-			SPEED
-			STRENGTH SAVING THROWS
-			DEXTERITY SAVING THROWS
-			CONSTITUTION SAVING THROWS
-			INTELLIGENCE SAVING THROWS
-			WISDOM SAVING THROWS
-			CHARISMA SAVING THROWS
-			INSPIRATION	
-
-	Save character
-	Load character
+			-CHARACTER NAME
+			-class
+			-level
+			-player name
+			-race
+			-BACKGROUND
+			-Hit Point Maximum
+			-CURRENT HIT POINTS
+			-TEMPORARY HIT POINTS
+			-Strength
+			-Dexterity
+			-Constitution
+			-Intelligence
+			-Wisdom
+			-Charisma
+			-CP
+			-SP
+			-GP
+			-EP
+			-PP
+			-PASSIVE WISDOM (PERCEPTION)
+			-OTHER PROFICIENCIES
+			-LANGUAGES
+			-EQUIPMENT
+			-ATTACKS
+			-SPELLCASTING
+			-FEATURES
+			-TRAITS
+			-Acrobatics (Dex)
+			-Animal Handling (Wis)
+			-Arcana (Int)
+			-Athletics (Str)
+			-Deception (Cha)
+			-History (Int)
+			-Insight (Wis)
+			-Intimidation (Cha)
+			-Investigation (Int)
+			-Medicine (Wis)
+			-Nature (Int)
+			-Perception (Wis)
+			-Performance (Cha)
+			-Persuasion (Cha)
+			-Religion (Int)
+			-Sleight of Hand (Dex)
+			-Stealth (Dex)
+			-Survival (Wis)
+			-HIT DICE 
+			-SUCCESSES DEATH SAVES
+			-FAILURES DEATH SAVES
+			-IDEALS
+			-BONDS
+			-FLAWS
+			-PERSONALITY TRAITS
+			-ARMOR CLASS
+			-PROFICIENCY BONUS 
+			-INITIATIVE 
+			-SPEED
+			-STRENGTH SAVING THROWS
+			-DEXTERITY SAVING THROWS
+			-CONSTITUTION SAVING THROWS
+			-INTELLIGENCE SAVING THROWS
+			-WISDOM SAVING THROWS
+			-CHARISMA SAVING THROWS
+			-INSPIRATION
+	
+	-Save character
+	-Load character
