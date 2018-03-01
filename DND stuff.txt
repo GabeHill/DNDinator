@@ -37,7 +37,6 @@
 		Skill
 		Attribute
 	Create character  *AJ
-<<<<<<< HEAD
 	   -Manual entry
 	   -Auto-generated
 	   -Edit character
@@ -105,6 +104,5 @@
 =======
 		Manual entry
 		Auto-generated
->>>>>>> 6d3f0028e622f18812b27dd5b52b5cc99380dd04
 	Save character
 	Load character
