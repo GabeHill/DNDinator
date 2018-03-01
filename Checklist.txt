@@ -140,14 +140,18 @@
 			Wisdom
 			Charisma
 			CP
+			SP
+			GP
 			EP
 			PP
-			GP
-			SP
 			PASSIVE WISDOM (PERCEPTION)
-			OTHER PROFICIENCIES & LANGUAGES EQUIPMENT
-			ATTACKS & SPELLCASTING
-			FEATURES & TRAITS
+			OTHER PROFICIENCIES
+			LANGUAGES
+			EQUIPMENT
+			ATTACKS
+			SPELLCASTING
+			FEATURES
+			TRAITS
 			Acrobatics (Dex)
 			Animal Handling (Wis)
 			Arcana (Int)
@@ -185,7 +189,5 @@
 			CHARISMA SAVING THROWS
 			INSPIRATION	
 =======
-		Manual entry
-		Auto-generated
 	Save character
 	Load character
