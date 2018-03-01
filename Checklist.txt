@@ -1,138 +1,138 @@
 -- DM
-	-Character
-		NPC
-		PC
-		Block vs sheet
+	-Character [1]
+		NPC 	*
+		PC		*
+		Block vs sheet [2]
 	-Game options  *Gabe
-		-Player list
-			-Add
-				Create
-				Pre-existing
-			-Remove
-				From game
-				Death
-		-Manage rules
-			Level rule
-			Add rule
-			Remove rule
-			Display rules	
-		-Save rules
-			Display path to file
-		-Load rules
-			Display path to file
-		-NPC
-			-Create recurring
-				Villain
-				Master
-				Other
+		-Player list[1]
+			-Add[1]
+				Create[2]
+				Pre-existing[2]
+			-Remove[1]
+				From game[2]
+				Death[2]
+		-Manage rules[1]
+			Level rule[2]
+			Add rule[2]
+			Remove rule[2]
+			Display rules[2]	
+		-Save rules[1]
+			Display path to file[2]
+		-Load rules[1]
+			Display path to file[2]
+		-NPC[2]
+			-Create recurring[3]
+				Villain[3]
+				Master[3]
+				Other[3]
 				
-	-Player leveling
-		-Add xp
-			Per player
-			Party
-		-Add level
-			Per player
-			Party
+	-Player leveling[1]
+		-Add xp[1]
+			Per player[2]
+			Party[2]
+		-Add level[1]
+			Per player[2]
+			Party[2]
 	
-	Loot  ***Alice***
-		Distribution
+	Loot[3]  ***Alice***
+		Distribution[3]
 			-prompt for a given table then rolls for x number of loot items on the table
-		Creation
+		Creation[3]
 			-Allows the GM to create a new item to the list of items in the game 
-		Table
-			-Create
+		Table[3]
+			-Create[3]
 				-allows gm to create a new loot table from currently created items
-			-Edit
+			-Edit[3]
 				-add item(s)
 					-Prompts for given table and shows the list of items that are no already present on current table
 				-remove item(s)
 					-prompts for a given table and dispays all the items on that table in numeric order then prompts for an item(s) to delete
-			-Delete Table
+			-Delete Table[3]
 				-prompts for a table to delete
 			
 
-	-Create notes
-		-Save notes
+	-Create notes[2]
+		-Save notes[2]
 			Add to the saved GSON file through GSONIfier
-		-Load notes
+		-Load notes[2]
 			Pull the saved content from the GSON file through DEGSONIfier
-		-Create Notes with type specification
-			-Story
+		-Create Notes with type specification[2]
+			-Story[2]
 				Create text file integrated into the overall GSON
 				with Story note type specification 
-			-Areas
+			-Areas[2]
 				Create text file integrated into the overall GSON
 				with Area note type specification
-			-Misc.
+			-Misc.[2]
 				Create text file integrated into the overall GSON
 				with Custom note type specification
 	
 -- PLAYER
-	-Character
+	-Character[1]
 		-PC only
 		
 -- BOTH
-	-Roll Dice  *Gabe
-		-Advantage
-		-Disadvantage
-		-Combat
-			-Initiative
-			-Grapple
+	-Roll Dice[1]  *Gabe
+		-Advantage[3]
+		-Disadvantage[3]
+		-Combat[1]
+			-Initiative[2]
+			-Grapple[3]
 				Athletics check
 				Acrobatics check
 				Shove
-			-Hit
-				-Dodge
-				-Weapon
+			-Hit[2]
+				-Dodge[2]
+				-Weapon[2]
 					Effects
 					Crit
-				-Spell
+				-Spell[2]
 					Saving throws
-			-Checks
-				Skills
-				Stats
-			-Damage
-				-Weapon
-					-Primary attack
+			-Checks[2]
+				Skills[2]
+				Stats[2]
+			-Damage[2]
+				-Weapon[2]
+					-Primary attack[2]
 						Damage
 						Saving throws
-					-Secondary attack
+					-Secondary attack[3]
 						Damage
 						Saving throws
-					-Bonus Damage
+					-Bonus Damage[3]
 						Saving throws
-					-Effects
-					-Crit
-					-Melee attack
-				-Spell
+					-Effects[3]
+					-Crit[2]
+					-Melee attack[2]
+				-Spell[2]
 					Saving throws
-				-Other magic
-				-Environmental
-			-Spells
-				Healing
-				Stat buffs
-			-Other actions		
-			-Bonus actions
-			-Reactions
-		-General
-		-Saving throws
-			-Enemy
+				-Other magic[2]
+				-Environmental[3]
+			-Spells[2]
+				Healing[2]
+				Stat buffs[2]
+			-Other actions	[3]	
+			-Bonus actions[3]
+			-Reactions[3]
+		-General[2]
+		-Saving throws[2]
+			-Enemy[2]
 				Stat check things
 				-Special NPC
 					Death
-			-Ally
-			-Self
+			-Ally[2]
+			-Self[2]
 				Death
 				Other checks
-		-Checks
+		-Checks[2]
 			Skill
 			Stats
-		-Attribute
+		-Attribute[2]
 			Physical
 			Mental
 
-	Create character  *AJ
-	   -Manual entry
+	Create character[1]  *AJ
+	   -Manual entry[2]
 	   -Auto-generated
 	   -Edit character
 		-- applies to creation
@@ -201,5 +201,5 @@
 			-CHARISMA SAVING THROWS
 			-INSPIRATION
 	
-	-Save character
-	-Load character
+	-Save character[1]
+	-Load character[1]
