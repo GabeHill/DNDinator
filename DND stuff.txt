@@ -1,0 +1,50 @@
+-- DM
+	Character
+		NPC
+		PC
+		Block vs sheet
+	Game options
+		Player list
+			Add
+			Remove
+		Level rule
+		Save rules
+		Load rules
+	Player leveling
+	Loot
+		Distribution
+		Creation
+		Table
+			Add
+			Remove
+	Create notes
+		Story
+		Areas
+		Misc.
+	
+
+-- PLAYER
+	Character
+		PC only
+		
+-- BOTH
+	Roll Dice
+		Combat
+		General
+		Saving throws
+		Skill
+		Attribute
+	Create character
+		Manual entry
+		Auto-generated
+	Save character
+	Load character
+	Edit character
+		Level
+		Health
+		Spells
+		Equipment
+		Attributes
+		Alignment
+		Stats
+		
