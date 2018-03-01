@@ -41,7 +41,7 @@
 			Add
 			Remove
 			
-<<<<<<< HEAD
+
 	Create notes
 		Save notes
 			Add to the saved GSON file through GSONIfier
@@ -57,7 +57,7 @@
 			Misc.
 				Create text file integrated into the overall GSON
 				with Custom note type specification
-=======
+
 	-Create notes
 		-Save notes
 			Encrypt or add to the saved JSON file
@@ -70,7 +70,6 @@
 				Create note with Area note type specification
 			-Misc.
 				Create note with Custom note type specification
->>>>>>> 8df8275aa542e2cddcbc6fc00805b4b4a82d5dd2
 	
 -- PLAYER
 	-Character
@@ -205,9 +204,6 @@
 			WISDOM SAVING THROWS
 			CHARISMA SAVING THROWS
 			INSPIRATION	
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 8df8275aa542e2cddcbc6fc00805b4b4a82d5dd2
+
 	Save character
 	Load character
