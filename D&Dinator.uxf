@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>7</zoom_level>
+  <zoom_level>20</zoom_level>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>623</x>
-      <y>98</y>
-      <w>168</w>
-      <h>84</h>
+      <x>1780</x>
+      <y>280</y>
+      <w>480</w>
+      <h>240</h>
     </coordinates>
     <panel_attributes>Master
 --
@@ -18,10 +18,10 @@ layer=-1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>630</x>
-      <y>119</y>
-      <w>154</w>
-      <h>49</h>
+      <x>1800</x>
+      <y>340</y>
+      <w>440</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>MasterView
 --
@@ -32,10 +32,10 @@ _+ start : void &lt;&lt;override&gt;&gt;_</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>854</x>
-      <y>112</y>
-      <w>469</w>
-      <h>203</h>
+      <x>2440</x>
+      <y>320</y>
+      <w>1340</w>
+      <h>580</h>
     </coordinates>
     <panel_attributes>View
 --
@@ -46,10 +46,10 @@ layer=-1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>875</x>
-      <y>133</y>
-      <w>329</w>
-      <h>147</h>
+      <x>2500</x>
+      <y>380</y>
+      <w>940</w>
+      <h>420</h>
     </coordinates>
     <panel_attributes>Show
 --
@@ -68,10 +68,10 @@ _displayListForEdit(Map&lt;k,v&gt;): v_</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>217</x>
-      <y>574</y>
-      <w>777</w>
-      <h>364</h>
+      <x>620</x>
+      <y>1640</y>
+      <w>2220</w>
+      <h>1320</h>
     </coordinates>
     <panel_attributes>Models
 --
@@ -83,20 +83,21 @@ layer=-1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>224</x>
-      <y>595</y>
-      <w>217</w>
-      <h>336</h>
+      <x>640</x>
+      <y>1700</y>
+      <w>620</w>
+      <h>1120</h>
     </coordinates>
-    <panel_attributes>Character
+    <panel_attributes>CharSheet
 --
 - milestoneLeveling : boolean
 - alignment : Alignment 
-- occupation : Profession
+- occupation : String
 - playerName : String
 - characterName : String
 - background : String
-- stats : StatsMap&lt;String, int&gt;
+- stats : StatsMap
+- bonuses : StatsMap
 - race : String
 - spells : Map&lt;String, String&gt;
 - items : Map&lt;String, String&gt;
@@ -104,10 +105,9 @@ layer=-1</panel_attributes>
 - level : int
 - money : Map &lt;String,int&gt;
 - otherData : Map&lt;String,String&gt;
-- deathSaves : ? counters?
-- savingThrows : ?counters?
+- counters : Map&lt;String, Integer&gt;
 -
-+ Player() &lt;&lt;ctor&gt;&gt;
++ CharSHeet() &lt;&lt;ctor&gt;&gt;
 + accessStat(key : String) : int
 + modifyStat(key : String, mod : int) : void
 + getName() : String
@@ -126,10 +126,10 @@ layer=-1</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>588</x>
-      <y>315</y>
-      <w>623</w>
-      <h>245</h>
+      <x>1680</x>
+      <y>900</y>
+      <w>1780</w>
+      <h>700</h>
     </coordinates>
     <panel_attributes>logic
 --
@@ -140,10 +140,10 @@ layer=-1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>602</x>
-      <y>336</y>
-      <w>294</w>
-      <h>168</h>
+      <x>1720</x>
+      <y>960</y>
+      <w>840</w>
+      <h>480</h>
     </coordinates>
     <panel_attributes>PlayerUIController
 -
@@ -164,9 +164,9 @@ layer=-1</panel_attributes>
     <id>UMLPackage</id>
     <coordinates>
       <x>0</x>
-      <y>385</y>
-      <w>189</w>
-      <h>147</h>
+      <y>1100</y>
+      <w>540</w>
+      <h>420</h>
     </coordinates>
     <panel_attributes>Enums
 --
@@ -178,10 +178,10 @@ layer=-1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>7</x>
-      <y>406</y>
-      <w>98</w>
-      <h>119</h>
+      <x>20</x>
+      <y>1160</y>
+      <w>280</w>
+      <h>340</h>
     </coordinates>
     <panel_attributes>Alignment
 -
@@ -199,10 +199,10 @@ NEUTRAL_EVIL</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>112</x>
-      <y>413</y>
-      <w>70</w>
-      <h>98</h>
+      <x>320</x>
+      <y>1180</y>
+      <w>200</w>
+      <h>280</h>
     </coordinates>
     <panel_attributes>DiceSides
 -
@@ -219,10 +219,10 @@ EIGHT
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>511</x>
+      <x>1460</x>
       <y>0</y>
-      <w>189</w>
-      <h>91</h>
+      <w>540</w>
+      <h>260</h>
     </coordinates>
     <panel_attributes>Interfaces
 --
@@ -233,10 +233,10 @@ layer=-1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>889</x>
-      <y>350</y>
-      <w>84</w>
-      <h>28</h>
+      <x>2540</x>
+      <y>1000</y>
+      <w>240</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;uses&gt;&gt;</panel_attributes>
@@ -245,10 +245,10 @@ layer=-1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>777</x>
-      <y>126</y>
-      <w>112</w>
-      <h>28</h>
+      <x>2220</x>
+      <y>360</y>
+      <w>320</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 </panel_attributes>
@@ -257,10 +257,10 @@ layer=-1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>448</x>
-      <y>595</y>
-      <w>231</w>
-      <h>105</h>
+      <x>1280</x>
+      <y>1700</y>
+      <w>660</w>
+      <h>300</h>
     </coordinates>
     <panel_attributes>StatsMap 
 --
@@ -277,10 +277,10 @@ Stats &lt;&lt;enum&gt;&gt;
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>959</x>
-      <y>336</y>
-      <w>245</w>
-      <h>63</h>
+      <x>2740</x>
+      <y>960</y>
+      <w>700</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>RollDie
 -
@@ -294,9 +294,9 @@ _+ roll(num : int, d : DiceSides) : int_
     <id>UMLPackage</id>
     <coordinates>
       <x>0</x>
-      <y>224</y>
-      <w>294</w>
-      <h>91</h>
+      <y>640</y>
+      <w>840</w>
+      <h>260</h>
     </coordinates>
     <panel_attributes>Gson
 --
@@ -307,10 +307,10 @@ layer=-1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>7</x>
-      <y>245</y>
-      <w>280</w>
-      <h>63</h>
+      <x>20</x>
+      <y>700</y>
+      <w>800</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>GSONifier
 -
@@ -323,10 +323,10 @@ _+ unGSONify (s : String, className : Class&lt;?&gt;) : Object_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>49</x>
-      <y>518</y>
-      <w>189</w>
-      <h>238</h>
+      <x>140</x>
+      <y>1480</y>
+      <w>540</w>
+      <h>680</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>250.0;320.0;10.0;320.0;10.0;10.0</additional_attributes>
@@ -334,10 +334,10 @@ _+ unGSONify (s : String, className : Class&lt;?&gt;) : Object_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>147</x>
-      <y>308</y>
-      <w>469</w>
-      <h>56</h>
+      <x>420</x>
+      <y>880</y>
+      <w>1340</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;uses&gt;&gt;</panel_attributes>
@@ -346,10 +346,10 @@ _+ unGSONify (s : String, className : Class&lt;?&gt;) : Object_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>686</x>
-      <y>595</y>
-      <w>203</w>
-      <h>105</h>
+      <x>1960</x>
+      <y>1700</y>
+      <w>720</w>
+      <h>300</h>
     </coordinates>
     <panel_attributes>GameData
 -
@@ -364,10 +364,10 @@ _+ unGSONify (s : String, className : Class&lt;?&gt;) : Object_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>728</x>
-      <y>161</y>
-      <w>77</w>
-      <h>182</h>
+      <x>2080</x>
+      <y>460</y>
+      <w>260</w>
+      <h>520</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;instanceOf&gt;&gt;</panel_attributes>
@@ -376,10 +376,10 @@ _+ unGSONify (s : String, className : Class&lt;?&gt;) : Object_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>917</x>
-      <y>434</y>
-      <w>294</w>
-      <h>112</h>
+      <x>2620</x>
+      <y>1240</y>
+      <w>840</w>
+      <h>320</h>
     </coordinates>
     <panel_attributes>DungeonMasterUIController
 -
@@ -394,10 +394,10 @@ _+ unGSONify (s : String, className : Class&lt;?&gt;) : Object_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>889</x>
-      <y>434</y>
-      <w>42</w>
-      <h>21</h>
+      <x>2540</x>
+      <y>1240</y>
+      <w>120</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;40.0;10.0</additional_attributes>
@@ -405,10 +405,10 @@ _+ unGSONify (s : String, className : Class&lt;?&gt;) : Object_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>518</x>
-      <y>21</y>
-      <w>175</w>
-      <h>56</h>
+      <x>1480</x>
+      <y>60</y>
+      <w>500</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>IMenu
 &lt;&lt;interface&gt;&gt;
@@ -419,10 +419,10 @@ menu() : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>602</x>
-      <y>70</y>
-      <w>21</w>
-      <h>280</h>
+      <x>1720</x>
+      <y>200</y>
+      <w>60</w>
+      <h>800</h>
     </coordinates>
     <panel_attributes>lt=.&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;380.0;10.0;90.0;10.0;10.0</additional_attributes>
@@ -430,10 +430,10 @@ menu() : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>147</x>
-      <y>350</y>
-      <w>469</w>
-      <h>77</h>
+      <x>420</x>
+      <y>1000</y>
+      <w>1340</w>
+      <h>220</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;instanceOf&gt;&gt;</panel_attributes>
