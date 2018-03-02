@@ -53,17 +53,16 @@ layer=-1</panel_attributes>
     </coordinates>
     <panel_attributes>Show
 --
-_- player : Player_
-_- viewNode : Node_
+characterSheet: ImageView
 --
-displayMenuOption(): void
-displayCharacterSheet(Character): void
-displayList(Map&lt;k,v&gt;): void
-displayPrompt(String prompt, String result, Boolean allowEmpty): String
-displayDiceRoll(String,int): void
-diplayCharacterSheetForEdit(Character): Character
-displayNotes(String notes): void
-displayListForEdit(Map&lt;k,v&gt;): v</panel_attributes>
+_displayCleanCharacterSheet(): Character_
+_displayCharacterSheet(Character): void_
+_displayList(Map&lt;k,v&gt;): void_
+_displayPrompt(String prompt, String result, Boolean allowEmpty): String_
+_displayDiceRoll(String,int): void_
+_displayCharacterSheetForEdit(Character): Character_
+_displayNotes(String notes): void_
+_displayListForEdit(Map&lt;k,v&gt;): v_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
