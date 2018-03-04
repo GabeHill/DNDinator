@@ -1,0 +1,298 @@
+STRENGTH
+
+DEXTERITY
+
+CONSTITUTION
+
+INTELLIGENCE
+
+WISDOM
+
+CHARISMA
+
+INSPIRATION
+
+PROFICIENCY BONUS
+
+
+StrengthDexterityConstitutionIntelligenceWisdomCharisma
+
+SAVING THROWS
+
+
+Acrobatics(Dex)
+Animal Handling(Wis)
+Arcana (Int)
+Athletics(Str)
+Deception(Cha)
+History (Int)
+Insight(Wis)
+Intimidation(Cha)
+Investigation(Int)
+Medicine(Wis)
+Nature(Int)
+Perception(Wis)
+Performance(Cha)
+Persuasion(Cha)
+Religion(Int)
+Sleight of Hand (Dex)
+Stealth(Dex)
+Survival(Wis)
+
+SKILLS
+
+PASSIVE WISDOM (PERCEPTION)
+
+
+ARMORCLASS
+
+INITIATIVESPEED
+
+PERSONALITY TRAITS
+
+Hit Point Maximum
+
+CURRENT HIT POINTSIDEALS
+
+TEMPORARY HIT POINTS
+
+BONDS
+
+Total
+
+SUCCESSESFAILURESHIT DICEDEATH SAVESFLAWS
+
+NAMEATK BONUSDAMAGE/TYPE
+
+ATTACKS & SPELLCASTING
+
+CP
+
+SP
+
+EP
+
+GP
+
+PP
+
+OTHER PROFICIENCIES & LANGUAGESEQUIPMENTFEATURES & TRAITS
+
+
+(text) 
+(text) 
+(text) 
+(text) 
+(text) 
+(text) 
+(text) 
+(text) 
+(text) 
+(text) 
+(checkbox) Unchecked
+(text) 
+(text) 
+(text) 
+(text) 
+(checkbox) Unchecked
+(text) 
+(text) 
+(checkbox) Unchecked
+(text) 
+(text) 
+(checkbox) Unchecked
+(text) 
+(text) 
+(checkbox) Unchecked
+(checkbox) Unchecked
+(text) 
+(checkbox) Unchecked
+(checkbox) Unchecked
+(text) 
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(text) 
+(text) 
+(text) 
+(text) 
+(checkbox) Unchecked
+(text) 
+(checkbox) Unchecked
+(text) 
+(checkbox) Unchecked
+(text) 
+(checkbox) Unchecked
+(checkbox) Unchecked
+(text) 
+(checkbox) Unchecked
+(text) 
+(text) 
+(text) 
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(text) 
+(text) 
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(text) 
+(text) 
+(checkbox) Unchecked
+(checkbox) Unchecked
+(text) 
+(text) 
+(text) 
+(checkbox) Unchecked
+(text) 
+(text) 
+(text) 
+(text) 
+(text) 
+(text) 
+(text) 
+(text) 
+(text) 
+(text) 
+(text) 
+(text) 
+(text) 
+(checkbox) Unchecked
+(text) 
+(text) 
+(text) 
+(text) 
+(checkbox) Unchecked
+(text) 
+(checkbox) Unchecked
+(checkbox) Unchecked
+(text) 
+(text) 
+(text) 
+(text) 
+(text) 
+(text) 
+
+CHARACTER NAMEEYESAGEWEIGHTHEIGHTHAIRSKIN
+CHARACTER BACKSTORYCHARACTER APPEARANCE
+(button) 
+(button) 
+(button) 
+NAMETREASUREADDITIONAL FEATURES & TRAITSALLIES & ORGANIZATIONSSYMBOL
+(button) 
+
+SPELLCASTINGSPELL SAVE DCSPELL ATTACKSPELLCASTINGABILITYBONUSCLASS
+
+0CANTRIPS36
+
+SPELLLEVELSLOTS TOTALSLOTS EXPENDED
+
+7
+
+SPELL NAME
+
+4
+
+SPELLS KNOWN
+
+
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+(checkbox) Unchecked
+8
+
+5
+
+9
+
+
