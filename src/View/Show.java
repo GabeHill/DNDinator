@@ -1,47 +1,43 @@
 package View;
 
-import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class Show extends Application
+public class Show
 {
+	private static BorderPane bPane = new BorderPane();
+	private static Pane thePane = new Pane();
+	private static int[] windowSize = {800,800};
+	private static Scene theScene = new Scene(bPane,windowSize[1],windowSize[0]);
 	
-	private  BorderPane thePane = new BorderPane();
-	private int[] windowSize = {800,800};
-	private Image characterSheet = new Image("file:DnDinatorSheetOne.jpg",300,300,false,false);
-	private Scene theScene = new Scene(thePane,windowSize[1],windowSize[0]);
-	public static void run(String[] args)
+	//Initializes the GUI Display by setting up window and adding buttons
+	//that lead to the Player Menu and Dungeon Master Menu
+	public static void initDnDinatorDisplay(Stage primaryStage)
 	{
-		launch(args);
-	}
-	@Override
-	public void start(Stage primaryStage) throws Exception 
-	{
-		initDnDinatorDisplay(primaryStage);
-		
-	}
-	public void initDnDinatorDisplay(Stage primaryStage)
-	{
+		bPane.setCenter(thePane);
 		primaryStage.setTitle("DnDinator");
 		primaryStage.setScene(theScene);
 		primaryStage.show();
 	}
 	
-	
-	public void updateDisplay(Stage primaryStage)
+	//Initializes the Display of a fresh character sheet for new Character entry;
+	// returns the character created by the field
+	public static void displayCleanCharacterSheet(Stage primaryStage)
 	{
-	}
-	public void displayCleanCharacterSheet(Stage primaryStage)
-	{
-		ImageView showSheet = new ImageView();
-		showSheet.setImage(characterSheet);
-		thePane.setCenter(showSheet);
+		TextField characterNameField = new TextField();
+		characterNameField.setPromptText("Character Name");
+		characterNameField.setLayoutY(10);
+		
+		TextField characterRaceField = new TextField();
+		characterRaceField.setPromptText("Character Race");
+		characterRaceField.setLayoutX(150);
+		characterRaceField.setLayoutY(10);
+		
+		thePane.getChildren().addAll(characterNameField,characterRaceField);
 		primaryStage.setScene(theScene);
-		primaryStage.sizeToScene();
 		primaryStage.show();
 	}
 }
