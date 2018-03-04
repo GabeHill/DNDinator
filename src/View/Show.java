@@ -13,8 +13,8 @@ public class Show
 	private static int[] windowSize = {800,800};
 	private static Scene theScene = new Scene(bPane,windowSize[1],windowSize[0]);
 	
-	//Initializes the GUI Display by setting up window and adding buttons
-	//that lead to the Player Menu and Dungeon Master Menu
+	//Initializes the GUI Display by setting up window and adds buttons
+	//that call the Logic methods for Player menu and DM Menu
 	public static void initDnDinatorDisplay(Stage primaryStage)
 	{
 		bPane.setCenter(thePane);
