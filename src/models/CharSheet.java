@@ -4,21 +4,36 @@ import java.util.Map;
 import java.util.Set;
 
 import enums.Alignment;
+import enums.Currency;
 
 public class CharSheet {
 	private Alignment alignment;
+	private Map<String, Integer> counters;
 	private boolean milestoneLeveling = false;
-	private Map<String, Integer> money, counters;
+	private Map<Currency, Integer> money;
 	private String occupation, playerName, characterName, background, race;
 	private Map<String, String> spells, items, otherData;
 	private StatsMap stats, bonuses;
 	private int xp = 0, level = 1;
 
 	/**
-	 * Creates the object. Does nothing more.
+	 * Creates the object. Sets default values.
 	 */
 	public CharSheet() {
+		for (Currency c : Currency.values()) {
+			money.put(c, 0);
+		}
+	}
 
+	/**
+	 *
+	 * @param itemName
+	 * @param desc
+	 *
+	 *            Assigns itemName as the key to desc in the items Hashmap.
+	 */
+	public void addItem(String itemName, String desc) {
+		items.put(itemName, desc);
 	}
 
 	/**
@@ -43,13 +58,28 @@ public class CharSheet {
 
 	/**
 	 *
+	 * @param counter
+	 * @param changeBy
+	 *
+	 *            Uses counter parameter to access the appropriate counter and
+	 *            change it by changeBy.
+	 */
+	public void changeCounter(String counter, int changeBy) {
+		Integer a = counters.get(counter);
+		a += changeBy;
+		counters.remove(counter);
+		counters.put(counter, a);
+	}
+
+	/**
+	 *
 	 * @param piece
 	 * @param money
 	 *
 	 *            String (eg. "CP") is used to determine the piece. Money is by how
 	 *            much you change it.
 	 */
-	public void changeMoney(String piece, int money) {
+	public void changeMoney(Currency piece, int money) {
 		Integer i = this.money.get(piece).intValue();
 		i += money;
 		if (i < 0) {
@@ -162,6 +192,10 @@ public class CharSheet {
 		return spells.get(spell);
 	}
 
+	/**
+	 *
+	 * @return Set of spell name Strings.
+	 */
 	public Set<String> getSpellsList() {
 		return spells.keySet();
 	}
@@ -201,6 +235,16 @@ public class CharSheet {
 
 	/**
 	 *
+	 * @param itemName
+	 *
+	 *            Removes itemName from the Items HashMap.
+	 */
+	public void removeItem(String itemName) {
+		items.remove(itemName);
+	}
+
+	/**
+	 *
 	 * @param background
 	 *
 	 *            Sets character's background to the provided background parameter.
@@ -209,9 +253,18 @@ public class CharSheet {
 		this.background = background;
 	}
 
-	public void setBonuses(StatsMap bonuses) {
-		// TODO
-		this.bonuses = bonuses;
+	/**
+	 *
+	 * @param bonus
+	 * @param changeBy
+	 *
+	 *            Uses bonus to change the appropriate bonus by changeBy.
+	 */
+	public void setBonus(String bonus, int changeBy) {
+		Integer a = bonuses.get(bonus);
+		a += changeBy;
+		stats.remove(bonus);
+		stats.put(bonus, a);
 	}
 
 	/**
@@ -222,17 +275,6 @@ public class CharSheet {
 	 */
 	public void setCharacterName(String characterName) {
 		this.characterName = characterName;
-	}
-
-	public void setCounters(Map<String, Integer> counters) {
-		this.counters = counters;
-		// TODO
-
-	}
-
-	public void setItems(Map<String, String> items) {
-		// TODO
-		this.items = items;
 	}
 
 	/**
@@ -275,9 +317,18 @@ public class CharSheet {
 		this.race = race;
 	}
 
-	public void setStats(StatsMap stats) {
-		// TODO
-		this.stats = stats;
+	/**
+	 *
+	 * @param statName
+	 * @param changeBy
+	 *
+	 *            Uses statName to change the appropriate stat by changeBy.
+	 */
+	public void setStats(String statName, int changeBy) {
+		Integer a = stats.get(statName);
+		a += changeBy;
+		stats.remove(statName);
+		stats.put(statName, a);
 	}
 
 }
