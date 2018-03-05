@@ -74,11 +74,49 @@ public class Show
 		playerName.setLayoutY(47);
 		playerName.setPrefWidth(100);
 		
+		TextField perTraits = new TextField();
+		perTraits.setPromptText("Personality Traits");
+		perTraits.setLayoutX(420);
+		perTraits.setLayoutY(140);
+		perTraits.setPrefHeight(55);
+		
+		TextField perIdeals = new TextField();
+		perIdeals.setPromptText("Ideals");
+		perIdeals.setLayoutX(420);
+		perIdeals.setLayoutY(207);
+		perIdeals.setPrefHeight(45);
+		
+		TextField perBonds = new TextField();
+		perBonds.setPromptText("Bonds");
+		perBonds.setLayoutX(420);
+		perBonds.setLayoutY(264);
+		perBonds.setPrefHeight(45);
+		
+		TextField perFlaws = new TextField();
+		perFlaws.setPromptText("Flaws");
+		perFlaws.setLayoutX(420);
+		perFlaws.setLayoutY(321);
+		perFlaws.setPrefHeight(45);
+		
+		TextField additionalTraits = new TextField();
+		additionalTraits.setPromptText("Additional Traits");
+		additionalTraits.setLayoutX(410);
+		additionalTraits.setLayoutY(380);
+		additionalTraits.setPrefHeight(382);
+		additionalTraits.setPrefWidth(170);
+		
+		TextField profBns = new TextField();
+		profBns.setPromptText("Prof");
+		profBns.setLayoutX(90);
+		profBns.setLayoutY(165);
+		profBns.setPrefWidth(35);
+		
 		TextField str = new TextField();
 		str.setPromptText("Str");
 		str.setLayoutX(40);
 		str.setLayoutY(155);
 		str.setPrefWidth(35);
+		
 		
 		TextField dex = new TextField();
 		dex.setPromptText("Dex");
@@ -110,16 +148,128 @@ public class Show
 		chr.setLayoutY(514);
 		chr.setPrefWidth(35);
 		
+		TextField otherPnL = new TextField();
+		otherPnL.setPromptText("Other Profficiencies and Languages");
+		otherPnL.setLayoutX(35);
+		otherPnL.setLayoutY(625);
+		otherPnL.setPrefHeight(138);
+		otherPnL.setPrefWidth(165);
+		
+		TextField equipment = new TextField();
+		equipment.setPromptText("Equipment");
+		equipment.setLayoutX(268);
+		equipment.setLayoutY(590);
+		equipment.setPrefHeight(173);
+		equipment.setPrefWidth(115);
+		
+		
 		TextField armClass = new TextField();
 		armClass.setPromptText("AC");
 		armClass.setLayoutX(232);
 		armClass.setLayoutY(142);
 		armClass.setPrefWidth(30);
 		
+		TextField spd = new TextField();
+		spd.setPromptText("Spd");
+		spd.setLayoutX(345);
+		spd.setLayoutY(142);
+		spd.setPrefWidth(35);
 		
-		thePane.getChildren().addAll(viewSheet,characterNameField,characterRaceField,charClassLevel,charAlign,charEXP,charBG,playerName,str,dex,con,intel,wis,chr,armClass);
+		TextField initiative = new TextField();
+		initiative.setPromptText("Init");
+		initiative.setLayoutX(285);
+		initiative.setLayoutY(142);
+		initiative.setPrefWidth(35);
+		
+		TextField hp = new TextField();
+		hp.setPromptText("Hp");
+		hp.setLayoutX(230);
+		hp.setLayoutY(200);
+		
+		TextField tempHp = new TextField();
+		tempHp.setPromptText("Temporary HP");
+		tempHp.setLayoutX(230);
+		tempHp.setLayoutY(270);
+		
+		TextField hd = new TextField();
+		hd.setPromptText("Hit Dice");
+		hd.setLayoutX(230);
+		hd.setLayoutY(320);
+		hd.setPrefWidth(65);
+		
+		
+		//Sets an array for creating textfields within the equipment box for "currency" column
+		//230 x, 590y (+30 for each iteration), 25 prefWidth 
+		TextField[] currency = new TextField[5];
+		int currencyY = 590;
+		for(int i = 0; i < currency.length; i++)
+		{
+			currency[i] = new TextField();
+			currency[i].setLayoutX(220);
+			currency[i].setLayoutY(currencyY);
+			currency[i].setPrefWidth(47);
+			currencyY += 26;
+		}
+		
+		//Sets an array for creating textfields within the attack box for "attack names" column
+		//220 x, 385 y (+25 for each iteration), 70 prefWidth 
+		TextField[] attackNames = new TextField[7];
+		int atkNamesY = 385;
+		for(int i = 0; i < attackNames.length; i++)
+		{
+			attackNames[i] = new TextField();
+			attackNames[i].setPromptText("Atk Name");
+			attackNames[i].setLayoutX(220);
+			attackNames[i].setPrefWidth(70);
+			attackNames[i].setLayoutY(atkNamesY);
+			atkNamesY += 25;
+		}
+		
+		//Sets an array for creating textfields within the attack box for "attack bonus" column
+		//290 x, 385 y (+25 for each iteration), 32 prefWidth 
+		TextField[] attackBonus = new TextField[7];
+		int atkBnsY = 385;
+		for(int i = 0; i < attackBonus.length; i++)
+		{
+			attackBonus[i] = new TextField();
+			attackBonus[i].setPromptText("BNS");
+			attackBonus[i].setLayoutX(290);
+			attackBonus[i].setPrefWidth(32);
+			attackBonus[i].setLayoutY(atkBnsY);
+			atkBnsY += 25;
+		}
+		
+		//Sets an array for creating textfields within the attack box for "attack damage" column
+		//322 x, 385 y (+25 for each iteration), 70 prefWidth 
+		TextField[] attackDamage = new TextField[7];
+		int atkDmgY = 385;
+		for(int i = 0; i < attackDamage.length; i++)
+		{
+			attackDamage[i] = new TextField();
+			attackDamage[i].setPromptText("Atk Damage");
+			attackDamage[i].setLayoutX(322);
+			attackDamage[i].setPrefWidth(70);
+			attackDamage[i].setLayoutY(atkDmgY);
+			atkDmgY += 25;
+		}
+		
+		thePane.getChildren().addAll(viewSheet,characterNameField,characterRaceField,charClassLevel,charAlign,charEXP,charBG,playerName,str,dex,con,intel,wis,chr,armClass,spd, initiative,hp,hd,profBns,tempHp,perTraits,perIdeals,perBonds,perFlaws,additionalTraits, otherPnL,equipment);
+		
+		//adds each individual TextField[] inside of attack box to screen, as the arrays are all the same size as each other
+		for(int i = 0; i < attackNames.length; i++)
+		{
+			thePane.getChildren().addAll(attackNames[i],attackBonus[i],attackDamage[i]);
+		}
+		
+		//adds TextField[] currency to screen as it is smaller than the other arrays
+		for(int i = 0; i < currency.length; i++)
+		{
+			thePane.getChildren().add(currency[i]);
+		}
 		primaryStage.setScene(theScene);
 		primaryStage.sizeToScene();
 		primaryStage.show();
+		
+		
 	}
 }
