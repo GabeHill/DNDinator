@@ -5,34 +5,51 @@ import java.util.Set;
 
 import enums.Alignment;
 
-public class CharSheet
-{
+public class CharSheet {
 	private Alignment alignment;
 	private boolean milestoneLeveling = false;
 	private Map<String, Integer> money, counters;
 	private String occupation, playerName, characterName, background, race;
 	private Map<String, String> spells, items, otherData;
 	private StatsMap stats, bonuses;
-
 	private int xp = 0, level = 1;
 
-	public CharSheet() 
-	{
+	/**
+	 * Creates the object. Does nothing more.
+	 */
+	public CharSheet() {
 
 	}
 
-	public void addXp(int xp) 
-	{
+	/**
+	 *
+	 * @param xp
+	 *
+	 *            Takes in the XP amount to add.
+	 */
+	public void addXp(int xp) {
 		this.xp += xp;
 	}
 
-	public void changeAlignment(Alignment alignment) 
-	{
+	/**
+	 *
+	 * @param alignment
+	 *
+	 *            Changes the alignment of the character to the inputted alignment.
+	 */
+	public void changeAlignment(Alignment alignment) {
 		this.alignment = alignment;
 	}
 
-	public void changeMoney(String piece, int money) 
-	{
+	/**
+	 *
+	 * @param piece
+	 * @param money
+	 *
+	 *            String (eg. "CP") is used to determine the piece. Money is by how
+	 *            much you change it.
+	 */
+	public void changeMoney(String piece, int money) {
 		Integer i = this.money.get(piece).intValue();
 		i += money;
 		if (i < 0) {
@@ -42,152 +59,223 @@ public class CharSheet
 		this.money.put(piece, i);
 	}
 
-	public Alignment getAlignment() 
-	{
+	/**
+	 *
+	 * @return Character's alignment
+	 */
+	public Alignment getAlignment() {
 		return alignment;
 	}
 
-	public String getBackground() 
-	{
+	/**
+	 *
+	 * @return Character's background
+	 */
+	public String getBackground() {
 		return background;
 	}
 
-	public StatsMap getBonuses() 
-	{
+	/**
+	 *
+	 * @return bonuses StatsMap
+	 */
+	public StatsMap getBonuses() {
 		return bonuses;
 	}
 
-	public String getCharacterName() 
-	{
+	/**
+	 *
+	 * @return Character's name
+	 */
+	public String getCharacterName() {
 		return characterName;
 	}
 
-	public Map<String, Integer> getCounters() 
-	{
+	public Map<String, Integer> getCounters() {
 		// TODO
 		return counters;
 	}
 
-	public Map<String, String> getItems() 
-	{
+	public Map<String, String> getItems() {
 		// TODO
 
 		return items;
 	}
 
-	public int getLevel() 
-	{
+	/**
+	 *
+	 * @return Character's level
+	 */
+	public int getLevel() {
 		return level;
 	}
 
-	public int getMoney(String piece) 
-	{
+	/**
+	 *
+	 * @param piece
+	 * @return number of pieces
+	 *
+	 *         Uses piece to access the number of that piece of currency.
+	 */
+	public int getMoney(String piece) {
 		return money.get(piece);
 	}
 
-	public String getOccupation() 
-	{
+	/**
+	 *
+	 * @return Character's occupation
+	 */
+	public String getOccupation() {
 		return occupation;
 	}
 
-	public Map<String, String> getOtherData() 
-	{
+	public Map<String, String> getOtherData() {
 		// TODO
 
 		return otherData;
 	}
 
-	public String getPlayerName() 
-	{
+	/**
+	 *
+	 * @return Player's name
+	 */
+	public String getPlayerName() {
 		return playerName;
 	}
 
-	public String getRace() 
-	{
+	/**
+	 *
+	 * @return Character's race
+	 */
+	public String getRace() {
 		return race;
 	}
 
-	public String getSpell(String spell) 
-	{
+	/**
+	 *
+	 * @param spell
+	 * @return Spell data
+	 *
+	 *         Takes in a spell name and return the description for that spell.
+	 */
+	public String getSpell(String spell) {
 		return spells.get(spell);
 	}
 
-	public Set<String> getSpellsList() 
-	{
+	public Set<String> getSpellsList() {
 		return spells.keySet();
 	}
 
-	public StatsMap getStats() 
-	{
+	public StatsMap getStats() {
 		// TODO
 		return stats;
 	}
 
-	public int getXp() 
-	{
+	/**
+	 *
+	 * @return Character's XP
+	 */
+	public int getXp() {
 		return xp;
 	}
 
-	public boolean isMilestoneLeveling() 
-	{
+	/**
+	 *
+	 * @return
+	 *
+	 * 		Returns whether character is milestone based or not.
+	 */
+	public boolean isMilestoneLeveling() {
 		return milestoneLeveling;
 	}
 
-	public void levelUp(int levelBy) 
-	{
+	/**
+	 *
+	 * @param levelBy
+	 *
+	 *            Levels character up by the levelBy parameter.
+	 */
+	public void levelUp(int levelBy) {
 		level += level;
 	}
 
-	public void setBackground(String background) 
-	{
+	/**
+	 *
+	 * @param background
+	 *
+	 *            Sets character's background to the provided background parameter.
+	 */
+	public void setBackground(String background) {
 		this.background = background;
 	}
 
-	public void setBonuses(StatsMap bonuses) 
-	{
+	public void setBonuses(StatsMap bonuses) {
+		// TODO
 		this.bonuses = bonuses;
 	}
 
-	public void setCharacterName(String characterName) 
-	{
+	/**
+	 *
+	 * @param characterName
+	 *
+	 *            Sets character's name to the provided parameter.
+	 */
+	public void setCharacterName(String characterName) {
 		this.characterName = characterName;
 	}
 
-	public void setCounters(Map<String, Integer> counters) 
-	{
+	public void setCounters(Map<String, Integer> counters) {
 		this.counters = counters;
 		// TODO
 
 	}
 
-	public void setItems(Map<String, String> items) 
-	{
+	public void setItems(Map<String, String> items) {
 		// TODO
 		this.items = items;
 	}
 
-	public void setMilestoneLeveling(boolean milestoneLeveling) 
-	{
+	/**
+	 *
+	 * @param milestoneLeveling
+	 *
+	 *            Sets the character to milestone leveling.
+	 */
+	public void setMilestoneLeveling(boolean milestoneLeveling) {
 		this.milestoneLeveling = milestoneLeveling;
 	}
 
-	public void setOccupation(String occupation) 
-	{
+	/**
+	 *
+	 * @param occupation
+	 *
+	 *            Sets the character's occupation to the provided parameter.
+	 */
+	public void setOccupation(String occupation) {
 		this.occupation = occupation;
 	}
 
-	public void setPlayerName(String playerName) 
-	{
+	/**
+	 *
+	 * @param playerName
+	 *
+	 *            Sets the character's player name to the provided parameter.
+	 */
+	public void setPlayerName(String playerName) {
 		this.playerName = playerName;
 	}
 
-	public void setRace(String race) 
-	{
+	/**
+	 *
+	 * @param race
+	 *
+	 *            Sets the character's race to the provided parameter.
+	 */
+	public void setRace(String race) {
 		this.race = race;
 	}
 
-	public void setStats(StatsMap stats) 
-	{
+	public void setStats(StatsMap stats) {
 		// TODO
 		this.stats = stats;
 	}
