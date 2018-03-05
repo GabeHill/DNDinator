@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
@@ -12,8 +12,14 @@ public class Show
 {
 	private static BorderPane bPane = new BorderPane();
 	private static Pane thePane = new Pane();
-	private static int[] windowSize = {800,800};
+	private static int[] windowSize = {800,1200};
 	private static Scene theScene = new Scene(bPane,windowSize[1],windowSize[0]);
+	
+	private static TextField characterNameField;
+	
+	public static String charNameGetter() {
+		return characterNameField.getText();
+	}
 	
 	//Initializes the GUI Display by setting up window and adds buttons
 	//that call the Logic methods for Player menu and DM Menu
@@ -33,7 +39,7 @@ public class Show
 		ImageView viewSheet = new ImageView();
 		viewSheet.setImage(new Image("file:Character Sheet (Official) - Copy_Page_1.png",790,790,true,true));
 		
-		TextField characterNameField = new TextField();
+		characterNameField = new TextField();
 		characterNameField.setPromptText("Name");
 		characterNameField.setLayoutY(59);
 		characterNameField.setLayoutX(50);

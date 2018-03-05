@@ -1,8 +1,8 @@
 package main;
 
-import View.Show;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import view.Show;
 
 public class Main extends Application
 {
