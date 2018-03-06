@@ -5,6 +5,7 @@ import java.util.Set;
 
 import enums.Alignment;
 import enums.Currency;
+import enums.Stat;
 
 public class CharSheet {
 	private Alignment alignment;
@@ -34,6 +35,17 @@ public class CharSheet {
 	 */
 	public void addItem(String itemName, String desc) {
 		items.put(itemName, desc);
+	}
+
+	/**
+	 *
+	 * @param name
+	 * @param desc
+	 *
+	 *            Adds data with name as the key and desc as the value.
+	 */
+	public void addOtherData(String name, String desc) {
+		otherData.put(name, desc);
 	}
 
 	/**
@@ -121,15 +133,26 @@ public class CharSheet {
 		return characterName;
 	}
 
-	public Map<String, Integer> getCounters() {
-		// TODO
-		return counters;
+	/**
+	 * 
+	 * @param name
+	 * @return counter value
+	 * 
+	 *         Returns the value associated with name.
+	 */
+	public int getCounter(String name) {
+		return counters.get(name);
 	}
 
-	public Map<String, String> getItems() {
-		// TODO
-
-		return items;
+	/**
+	 *
+	 * @param name
+	 * @return desc.
+	 *
+	 *         Returns the description of the item associated with name.
+	 */
+	public String getItem(String name) {
+		return items.get(name);
 	}
 
 	/**
@@ -159,10 +182,15 @@ public class CharSheet {
 		return occupation;
 	}
 
-	public Map<String, String> getOtherData() {
-		// TODO
-
-		return otherData;
+	/**
+	 *
+	 * @param name
+	 * @return desc.
+	 *
+	 *         Returns the data associated with the inputted string.
+	 */
+	public String getOtherData(String name) {
+		return otherData.get(name);
 	}
 
 	/**
@@ -200,9 +228,16 @@ public class CharSheet {
 		return spells.keySet();
 	}
 
-	public StatsMap getStats() {
-		// TODO
-		return stats;
+	/**
+	 *
+	 * @param s
+	 * @return Stat value
+	 *
+	 *         Takes in a Stat and returns the value associated with it for the
+	 *         character.
+	 */
+	public int getStats(Stat s) {
+		return stats.get(s.toString());
 	}
 
 	/**
@@ -235,12 +270,47 @@ public class CharSheet {
 
 	/**
 	 *
+	 * @param name
+	 * @param changeBy
+	 *
+	 *            Modifies counter name by changeBy.
+	 */
+	public void modifyCounter(String name, int changeBy) {
+
+		Integer a = counters.get(name);
+		a += changeBy;
+		counters.remove(name);
+		counters.put(name, a);
+	}
+
+	/**
+	 *
+	 * @param name
+	 *
+	 *            Removes counter name.
+	 */
+	public void removeCounter(String name) {
+		counters.remove(name);
+	}
+
+	/**
+	 *
 	 * @param itemName
 	 *
 	 *            Removes itemName from the Items HashMap.
 	 */
 	public void removeItem(String itemName) {
 		items.remove(itemName);
+	}
+
+	/**
+	 *
+	 * @param name
+	 *
+	 *            Removes the desc. associated with name.
+	 */
+	public void removeOtherData(String name) {
+		otherData.remove(name);
 	}
 
 	/**

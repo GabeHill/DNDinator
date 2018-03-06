@@ -1,0 +1,5 @@
+package enums;
+
+public enum Stat {
+	CHARISMA, CONSTITUTION, DEXTERITY, INTELLIGENCE, STRENGTH, WISDOM
+}
