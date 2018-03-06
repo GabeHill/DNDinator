@@ -62,14 +62,16 @@ public class Show
 		return charAlign.getText();
 	}
 
-	public String getCharEXP() 
+	public int getCharEXP() 
 	{
-		return charEXP.getText();
+		int returnXP = Integer.parseInt(charEXP.getText());
+		return returnXP;
 	}
 
-	public String getCharClassLevel() 
+	public int getCharClassLevel() 
 	{
-		return charClassLevel.getText();
+		int ClassLevel = Integer.parseInt(charClassLevel.getText());
+		return ClassLevel;
 	}
 
 	public String getCharBG() 
@@ -102,39 +104,46 @@ public class Show
 		return perFlaws.getText();
 	}
 
-	public String getProfBns() 
+	public int getProfBns() 
 	{
-		return profBns.getText();
+		int ProfBns = Integer.parseInt(profBns.getText());
+		return ProfBns;
 	}
 
-	public String getStr() 
+	public int getStr() 
 	{
-		return str.getText();
+		int Str = Integer.parseInt(str.getText());
+		return Str;
 	}
 
-	public String getDex() 
+	public int getDex() 
 	{
-		return dex.getText();
+		int Dex = Integer.parseInt(dex.getText());
+		return Dex;
 	}
 
-	public String getCon() 
+	public int getCon() 
 	{
-		return con.getText();
+		int Con = Integer.parseInt(con.getText());
+		return Con;
 	}
 
-	public String getIntel() 
+	public int getIntel() 
 	{
-		return intel.getText();
+		int Intelligence = Integer.parseInt(intel.getText());
+		return Intelligence;
 	}
 
-	public String getWis() 
+	public int getWis() 
 	{
-		return wis.getText();
+		int Wis = Integer.parseInt(wis.getText());
+		return Wis;
 	}
 
-	public String getChr() 
+	public int getChr() 
 	{
-		return chr.getText();
+		int Chr = Integer.parseInt(chr.getText());
+		return Chr;
 	}
 
 	public String getOtherPnL() 
@@ -147,29 +156,34 @@ public class Show
 		return equipment.getText();
 	}
 
-	public String getSpd() 
+	public int getSpd() 
 	{
-		return spd.getText();
+		int Spd = Integer.parseInt(spd.getText());
+		return Spd;
 	}
 
-	public String getInitiative() 
+	public int getInitiative() 
 	{
-		return initiative.getText();
+		int Init = Integer.parseInt(initiative.getText());
+		return Init;
 	}
 
-	public String getHp() 
+	public int getHp() 
 	{
-		return hp.getText();
+		int MaxHealth = Integer.parseInt(hp.getText());
+		return MaxHealth;
 	}
 
-	public String getTempHp() 
+	public int getTempHp() 
 	{
-		return tempHp.getText();
+		int TempHp = Integer.parseInt(tempHp.getText());
+		return TempHp;
 	}
 
-	public String getHd() 
+	public int getHd() 
 	{
-		return hd.getText();
+		int MaxHp = Integer.parseInt(hd.getText());
+		return MaxHp;
 	}
 
 	//Initializes the GUI Display by setting up window and adds buttons
