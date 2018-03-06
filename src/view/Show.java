@@ -47,7 +47,8 @@ public class Show
 	private TextField[] attackBonus;
 	private TextField[] attackDamage;
 	
-	public String getCharacterNameField() {
+	public String getCharacterNameField() 
+	{
 		return characterNameField.getText();
 	}
 
