@@ -5,9 +5,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class StatsMap implements Map<String, Integer> {
+import enums.Stat;
 
-	private Map<String, Integer> m;
+public class StatsMap implements Map<Stat, Integer> {
+
+	private Map<Stat, Integer> m;
 
 	public StatsMap() {
 		m = new HashMap<>();
@@ -29,7 +31,7 @@ public class StatsMap implements Map<String, Integer> {
 	}
 
 	@Override
-	public Set<Entry<String, Integer>> entrySet() {
+	public Set<Entry<Stat, Integer>> entrySet() {
 		return m.entrySet();
 	}
 
@@ -44,17 +46,17 @@ public class StatsMap implements Map<String, Integer> {
 	}
 
 	@Override
-	public Set<String> keySet() {
+	public Set<Stat> keySet() {
 		return m.keySet();
 	}
 
 	@Override
-	public Integer put(String key, Integer value) {
+	public Integer put(Stat key, Integer value) {
 		return m.put(key, value);
 	}
 
 	@Override
-	public void putAll(Map<? extends String, ? extends Integer> m) {
+	public void putAll(Map<? extends Stat, ? extends Integer> m) {
 		this.m.putAll(m);
 	}
 

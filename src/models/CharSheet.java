@@ -134,10 +134,10 @@ public class CharSheet {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param name
 	 * @return counter value
-	 * 
+	 *
 	 *         Returns the value associated with name.
 	 */
 	public int getCounter(String name) {
@@ -330,7 +330,7 @@ public class CharSheet {
 	 *
 	 *            Uses bonus to change the appropriate bonus by changeBy.
 	 */
-	public void setBonus(String bonus, int changeBy) {
+	public void setBonus(Stat bonus, int changeBy) {
 		Integer a = bonuses.get(bonus);
 		a += changeBy;
 		stats.remove(bonus);
@@ -394,7 +394,7 @@ public class CharSheet {
 	 *
 	 *            Uses statName to change the appropriate stat by changeBy.
 	 */
-	public void setStats(String statName, int changeBy) {
+	public void setStat(Stat statName, int changeBy) {
 		Integer a = stats.get(statName);
 		a += changeBy;
 		stats.remove(statName);
