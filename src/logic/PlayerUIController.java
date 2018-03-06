@@ -25,7 +25,7 @@ public class PlayerUIController implements iMenu.IMenu {
 
 		steve.setRace(null);
 
-		steve.setStats(null, 0);
+		steve.setStat(null, 0);
 		return steve;
 	}
 
