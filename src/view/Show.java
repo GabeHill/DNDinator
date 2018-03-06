@@ -52,99 +52,123 @@ public class Show
 		return characterNameField.getText();
 	}
 
-	public String getCharacterRaceField() {
+	public String getCharacterRaceField() 
+	{
 		return characterRaceField.getText();
 	}
 
-	public String getCharAlign() {
+	public String getCharAlign() 
+	{
 		return charAlign.getText();
 	}
 
-	public String getCharEXP() {
+	public String getCharEXP() 
+	{
 		return charEXP.getText();
 	}
 
-	public String getCharClassLevel() {
+	public String getCharClassLevel() 
+	{
 		return charClassLevel.getText();
 	}
 
-	public String getCharBG() {
+	public String getCharBG() 
+	{
 		return charBG.getText();
 	}
 
-	public String getPlayerName() {
+	public String getPlayerName() 
+	{
 		return playerName.getText();
 	}
 
-	public String getPerTraits() {
+	public String getPerTraits() 
+	{
 		return perTraits.getText();
 	}
 
-	public String getPerIdeals() {
+	public String getPerIdeals() 
+	{
 		return perIdeals.getText();
 	}
 
-	public String getPerBonds() {
+	public String getPerBonds() 
+	{
 		return perBonds.getText();
 	}
 
-	public String getPerFlaws() {
+	public String getPerFlaws() 
+	{
 		return perFlaws.getText();
 	}
 
-	public String getProfBns() {
+	public String getProfBns() 
+	{
 		return profBns.getText();
 	}
 
-	public String getStr() {
+	public String getStr() 
+	{
 		return str.getText();
 	}
 
-	public String getDex() {
+	public String getDex() 
+	{
 		return dex.getText();
 	}
 
-	public String getCon() {
+	public String getCon() 
+	{
 		return con.getText();
 	}
 
-	public String getIntel() {
+	public String getIntel() 
+	{
 		return intel.getText();
 	}
 
-	public String getWis() {
+	public String getWis() 
+	{
 		return wis.getText();
 	}
 
-	public String getChr() {
+	public String getChr() 
+	{
 		return chr.getText();
 	}
 
-	public String getOtherPnL() {
+	public String getOtherPnL() 
+	{
 		return otherPnL.getText();
 	}
 
-	public String getEquipment() {
+	public String getEquipment() 
+	{
 		return equipment.getText();
 	}
 
-	public String getSpd() {
+	public String getSpd() 
+	{
 		return spd.getText();
 	}
 
-	public String getInitiative() {
+	public String getInitiative() 
+	{
 		return initiative.getText();
 	}
 
-	public String getHp() {
+	public String getHp() 
+	{
 		return hp.getText();
 	}
 
-	public String getTempHp() {
+	public String getTempHp() 
+	{
 		return tempHp.getText();
 	}
 
-	public String getHd() {
+	public String getHd() 
+	{
 		return hd.getText();
 	}
 
@@ -167,7 +191,8 @@ public class Show
 		viewSheet.setImage(new Image("file:Character Sheet (Official) - Copy_Page_1.png",790,790,true,true));
 		
 		characterNameField = new TextField();
-		characterNameField.setPromptText("Name");
+		characterNameField.setEditable(false);
+		//characterNameField.setPromptText("Name");
 		characterNameField.setLayoutY(59);
 		characterNameField.setLayoutX(50);
 		
@@ -402,7 +427,6 @@ public class Show
 		primaryStage.setScene(theScene);
 		primaryStage.sizeToScene();
 		primaryStage.show();
-		
 		
 	}
 }
