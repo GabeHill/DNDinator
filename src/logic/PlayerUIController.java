@@ -1,29 +1,22 @@
 package logic;
 
-import java.util.Map;
-
-import iMenu.IMenu;
+import enums.Currency;
 import models.CharSheet;
-import models.StatsMap;
 
 public class PlayerUIController implements iMenu.IMenu {
-	static void updateLevel(PlayerUIController charr) {
-		createCharacter();
-	}
-
 	private static CharSheet createCharacter() {
 		CharSheet steve = new CharSheet();
 		steve.changeAlignment(enums.Alignment.CHAOTIC_EVIL);
-		steve.changeMoney("PP", 9001);
+		steve.changeMoney(Currency.PP, 9001);
 		steve.setBackground(null);
 
-		steve.setBonuses(null);
+		steve.setBonus(null, 0);
 
 		steve.setCharacterName(null);
 
-		steve.setCounters(null, 0);
+		steve.changeCounter(null, 0);
 
-		steve.setItems(null, null);
+		steve.addItem(null, null);
 
 		steve.setMilestoneLeveling(true);
 
@@ -34,6 +27,10 @@ public class PlayerUIController implements iMenu.IMenu {
 
 		steve.setStats(null, 0);
 		return steve;
+	}
+
+	static void updateLevel(PlayerUIController charr) {
+		createCharacter();
 	}
 
 	@Override
