@@ -22,12 +22,12 @@ public class AES {
 	 *         Takes in a String to be decrypted and a key String and returns the
 	 *         decrypted String.
 	 */
-	public static String decrypt(String toDec, String secret) {
+	public static String decrypt(String toDecrypt, String secret) {
 		try {
 			setKey(secret);
 			Cipher c = Cipher.getInstance("AES/ECB/PKCS5PADDING");
 			c.init(Cipher.DECRYPT_MODE, secretKey);
-			return new String(c.doFinal(Base64.getDecoder().decode(toDec)));
+			return new String(c.doFinal(Base64.getDecoder().decode(toDecrypt)));
 		} catch (Exception e) {
 
 		}
@@ -43,12 +43,12 @@ public class AES {
 	 *         Takes in a String to be encrypted and a key String and returns the
 	 *         encrypted String.
 	 */
-	public static String encrypt(String toEn, String secret) {
+	public static String encrypt(String toEncrypt, String secret) {
 		try {
 			setKey(secret);
 			Cipher c = Cipher.getInstance("AES/ECB/PKCS5PADDING");
 			c.init(Cipher.ENCRYPT_MODE, secretKey);
-			return Base64.getEncoder().encodeToString(c.doFinal(toEn.getBytes("UTF-8")));
+			return Base64.getEncoder().encodeToString(c.doFinal(toEncrypt.getBytes("UTF-8")));
 		} catch (Exception e) {
 
 		}

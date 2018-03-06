@@ -10,7 +10,7 @@ public class GSONifier {
 	 * @param o
 	 * @return String in JSON object format
 	 *
-	 *         Takes in an Object and turns it into a JSON string.
+	 *         Takes in an Object and returns a JSON string.
 	 */
 	public static String GSONify(Object o) {
 		Gson g = new Gson();
