@@ -147,7 +147,7 @@ public class CharSheet {
 	 *
 	 *         Uses piece to access the number of that piece of currency.
 	 */
-	public int getMoney(String piece) {
+	public int getMoney(Currency piece) {
 		return money.get(piece);
 	}
 
