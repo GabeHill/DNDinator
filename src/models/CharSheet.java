@@ -118,11 +118,13 @@ public class CharSheet {
 	}
 
 	/**
+	 * @param s
+	 * @return bonus value
 	 *
-	 * @return bonuses StatsMap
+	 *         Returns the bonus value assigned to the stat.
 	 */
-	public StatsMap getBonuses() {
-		return bonuses;
+	public int getBonus(Stat s) {
+		return bonuses.get(s);
 	}
 
 	/**
