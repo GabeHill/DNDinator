@@ -2,7 +2,7 @@ package logic;
 
 
 import models.GameData;
-public class DungeonMasterUIController extends PlayerUIController implements Imenu.IMenu{
+public class DungeonMasterUIController extends PlayerUIController implements iMenu.IMenu{
 	private GameData options = new GameData();
 
 	private void setRules() {

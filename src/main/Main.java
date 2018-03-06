@@ -1,5 +1,6 @@
 package main;
 
+import controller.ShowController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import view.Show;
@@ -15,8 +16,10 @@ public class Main extends Application
 	@Override
 	public void start(Stage primaryStage) throws Exception 
 	{
-		Show.initDnDinatorDisplay(primaryStage);
-		Show.displayCleanCharacterSheet(primaryStage);
+		Show primaryShow = new Show();
+		primaryShow.initDnDinatorDisplay(primaryStage);
+		primaryShow.displayCleanCharacterSheet(primaryStage);
+		ShowController primarySController = new ShowController();
 	}
 
 

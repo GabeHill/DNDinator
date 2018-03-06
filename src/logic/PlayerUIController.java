@@ -6,34 +6,34 @@ import iMenu.IMenu;
 import models.CharSheet;
 import models.StatsMap;
 
-public class PlayerUIController implements Imenu.IMenu {
+public class PlayerUIController implements iMenu.IMenu {
 	static void updateLevel(PlayerUIController charr) {
 		createCharacter();
 	}
 
 	private static CharSheet createCharacter() {
-		CharSheet kirito = new CharSheet();
-		kirito.changeAlignment(enums.Alignment.CHAOTIC_EVIL);
-		kirito.changeMoney("PP", 9001);
-		kirito.setBackground(null);
+		CharSheet steve = new CharSheet();
+		steve.changeAlignment(enums.Alignment.CHAOTIC_EVIL);
+		steve.changeMoney("PP", 9001);
+		steve.setBackground(null);
 
-		kirito.setBonuses(null);
+		steve.setBonuses(null);
 
-		kirito.setCharacterName(null);
+		steve.setCharacterName(null);
 
-		kirito.setCounters(null, 0);
+		steve.setCounters(null, 0);
 
-		kirito.setItems(null, null);
+		steve.setItems(null, null);
 
-		kirito.setMilestoneLeveling(true);
+		steve.setMilestoneLeveling(true);
 
-		kirito.setOccupation(null);
-		kirito.setPlayerName(null);
+		steve.setOccupation(null);
+		steve.setPlayerName(null);
 
-		kirito.setRace(null);
+		steve.setRace(null);
 
-		kirito.setStats(null, 0);
-		return kirito;
+		steve.setStats(null, 0);
+		return steve;
 	}
 
 	@Override
