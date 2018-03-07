@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
@@ -455,6 +456,7 @@ public class Show
 		primaryStage.sizeToScene();
 		primaryStage.show();
 		
+		displayDice(DiceSides.TWENTY,primaryStage);
 	}
 	
 	//Takes in a character and displays available data based on that character
@@ -737,8 +739,19 @@ public class Show
 		
 	}
 	
-	public void displayDice(RollDie rd, DiceSides ds)
+	public void displayDice(DiceSides ds, Stage primaryStage)
 	{
-		Circle c = new Circle();
+		Circle c = new Circle(900,400,50,Paint.valueOf("Purple"));
+		RollDie rd = new RollDie();
+		
+		TextField diceFace = new TextField(""+rd.roll(ds));
+		diceFace.setEditable(false);
+		diceFace.setLayoutX(875);
+		diceFace.setLayoutY(389.5);
+		diceFace.setPrefWidth(50);
+		thePane.getChildren().addAll(c,diceFace);
+		primaryStage.setScene(theScene);
+		primaryStage.sizeToScene();
+		primaryStage.show();
 	}
 }
