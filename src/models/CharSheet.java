@@ -4,8 +4,9 @@ import java.util.Map;
 import java.util.Set;
 
 import enums.Alignment;
+import enums.Bonus;
 import enums.Currency;
-import enums.Stat;
+import enums.Primary;
 
 public class CharSheet {
 
@@ -94,7 +95,7 @@ public class CharSheet {
 	 *
 	 *         Returns the bonus value assigned to the stat.
 	 */
-	public int getBonus(Stat s) {
+	public int getBonus(Primary s) {
 		return bonuses.get(s);
 	}
 
@@ -209,7 +210,7 @@ public class CharSheet {
 	 *         Takes in a Stat and returns the value associated with it for the
 	 *         character.
 	 */
-	public int getStats(Stat s) {
+	public int getStats(Primary s) {
 		return stats.get(s);
 	}
 
@@ -288,7 +289,7 @@ public class CharSheet {
 	 *
 	 *            Uses bonus to change the appropriate bonus by changeBy.
 	 */
-	public void setBonus(Stat bonus, int num) {
+	public void setBonus(Bonus bonus, int num) {
 		if (bonuses.putIfAbsent(bonus, num) != null) {
 			bonuses.remove(bonus);
 			bonuses.put(bonus, num);
@@ -380,14 +381,20 @@ public class CharSheet {
 	 *
 	 *            Uses statName to change the appropriate stat by changeBy.
 	 */
-	public void setStat(Stat statName, int num) {
+	public void setStat(Primary statName, int num) {
 		num = num > 20 ? 20 : num;
 		if (stats.putIfAbsent(statName, num) != null) {
 			stats.remove(statName);
 			stats.put(statName, num);
 		}
-		num = (num - 1) > 0 ? num - 1 : 1;
-		setBonus(statName, mods[num]);
+		if (statName.ordinal() < 6) {
+			for (Bonus b : Bonus.values()) {
+				if (statName.ordinal() == b.ordinal()) {
+					num = (num - 1) > 0 ? num - 1 : 1;
+					setBonus(b, mods[num]);
+				}
+			}
+		}
 	}
 
 }

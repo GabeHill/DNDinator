@@ -1,7 +1,7 @@
 package view;
 
 import enums.Currency;
-import enums.Stat;
+import enums.Primary;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -536,38 +536,38 @@ public class Show
 		profBns.setLayoutY(165);
 		profBns.setPrefWidth(35);
 		
-		str = new TextField(""+c.getStats(Stat.STRENGTH));
+		str = new TextField(""+c.getStats(Primary.STRENGTH));
 		characterNameField.setEditable(canEdit);
 		str.setLayoutX(40);
 		str.setLayoutY(155);
 		str.setPrefWidth(35);
 		
 		
-		dex = new TextField(""+c.getStats(Stat.DEXTERITY));
+		dex = new TextField(""+c.getStats(Primary.DEXTERITY));
 		characterNameField.setEditable(canEdit);
 		dex.setLayoutX(40);
 		dex.setLayoutY(226);
 		dex.setPrefWidth(35);
 		
-		con = new TextField(""+c.getStats(Stat.CONSTITUTION));
+		con = new TextField(""+c.getStats(Primary.CONSTITUTION));
 		characterNameField.setEditable(canEdit);
 		con.setLayoutX(40);
 		con.setLayoutY(298);
 		con.setPrefWidth(35);
 		
-		intel = new TextField(""+c.getStats(Stat.INTELLIGENCE));
+		intel = new TextField(""+c.getStats(Primary.INTELLIGENCE));
 		characterNameField.setEditable(canEdit);
 		intel.setLayoutX(40);
 		intel.setLayoutY(370);
 		intel.setPrefWidth(35);
 		
-		wis = new TextField(""+c.getStats(Stat.WISDOM));
+		wis = new TextField(""+c.getStats(Primary.WISDOM));
 		characterNameField.setEditable(canEdit);
 		wis.setLayoutX(40);
 		wis.setLayoutY(442);
 		wis.setPrefWidth(35);
 		
-		chr = new TextField(""+c.getStats(Stat.CHARISMA));
+		chr = new TextField(""+c.getStats(Primary.CHARISMA));
 		characterNameField.setEditable(canEdit);
 		chr.setLayoutX(40);
 		chr.setLayoutY(514);
@@ -588,13 +588,13 @@ public class Show
 		equipment.setPrefWidth(115);
 		
 		
-		armClass = new TextField(""+c.getStats(Stat.ARMOR_CLASS));
+		armClass = new TextField(""+c.getStats(Primary.ARMOR_CLASS));
 		characterNameField.setEditable(canEdit);
 		armClass.setLayoutX(232);
 		armClass.setLayoutY(142);
 		armClass.setPrefWidth(30);
 		
-		spd = new TextField(""+c.getStats(Stat.SPEED));
+		spd = new TextField(""+c.getStats(Primary.SPEED));
 		characterNameField.setEditable(canEdit);
 		spd.setLayoutX(345);
 		spd.setLayoutY(142);
@@ -606,7 +606,7 @@ public class Show
 		initiative.setLayoutY(142);
 		initiative.setPrefWidth(35);
 		
-		hp = new TextField(""+c.getStats(Stat.MAX_HEALTH));
+		hp = new TextField(""+c.getStats(Primary.MAX_HEALTH));
 		characterNameField.setEditable(canEdit);
 		hp.setLayoutX(230);
 		hp.setLayoutY(200);
