@@ -10,14 +10,14 @@ public class PlayerUIController implements iMenu.IMenu {
 	private static CharSheet createCharacter() {
 		CharSheet steve = new CharSheet();
 		steve.changeAlignment(enums.Alignment.CHAOTIC_EVIL);
-		steve.changeMoney(Currency.PP, 9001);
+		steve.setMoney(Currency.PP, 9001);
 		steve.setBackground(null);
 
 		steve.setBonus(null, 0);
 
 		steve.setCharacterName(null);
 
-		steve.changeCounter(null, 0);
+		steve.setCounter(null, 0);
 
 		steve.addItem(null, null);
 

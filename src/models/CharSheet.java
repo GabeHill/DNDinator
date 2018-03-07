@@ -8,6 +8,10 @@ import enums.Currency;
 import enums.Stat;
 
 public class CharSheet {
+
+	private static final int[] mods = { -5, -4, -4, -3, -3, -2, -2, -1, -1, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7,
+			7, 8, 8, 9, 9, 10 };
+
 	private Alignment alignment;
 	private Map<String, Integer> counters;
 	private boolean milestoneLeveling = false;
@@ -66,39 +70,6 @@ public class CharSheet {
 	 */
 	public void changeAlignment(Alignment alignment) {
 		this.alignment = alignment;
-	}
-
-	/**
-	 *
-	 * @param counter
-	 * @param changeBy
-	 *
-	 *            Uses counter parameter to access the appropriate counter and
-	 *            change it by changeBy.
-	 */
-	public void changeCounter(String counter, int changeBy) {
-		Integer a = counters.get(counter);
-		a += changeBy;
-		counters.remove(counter);
-		counters.put(counter, a);
-	}
-
-	/**
-	 *
-	 * @param piece
-	 * @param money
-	 *
-	 *            String (eg. "CP") is used to determine the piece. Money is by how
-	 *            much you change it.
-	 */
-	public void changeMoney(Currency piece, int money) {
-		Integer i = this.money.get(piece).intValue();
-		i += money;
-		if (i < 0) {
-			i = 0;
-		}
-		this.money.remove(piece);
-		this.money.put(piece, i);
 	}
 
 	/**
@@ -239,7 +210,7 @@ public class CharSheet {
 	 *         character.
 	 */
 	public int getStats(Stat s) {
-		return stats.get(s.toString());
+		return stats.get(s);
 	}
 
 	/**
@@ -268,21 +239,6 @@ public class CharSheet {
 	 */
 	public void levelUp(int levelBy) {
 		level += level;
-	}
-
-	/**
-	 *
-	 * @param name
-	 * @param changeBy
-	 *
-	 *            Modifies counter name by changeBy.
-	 */
-	public void modifyCounter(String name, int changeBy) {
-
-		Integer a = counters.get(name);
-		a += changeBy;
-		counters.remove(name);
-		counters.put(name, a);
 	}
 
 	/**
@@ -332,11 +288,11 @@ public class CharSheet {
 	 *
 	 *            Uses bonus to change the appropriate bonus by changeBy.
 	 */
-	public void setBonus(Stat bonus, int changeBy) {
-		Integer a = bonuses.get(bonus);
-		a += changeBy;
-		stats.remove(bonus);
-		stats.put(bonus, a);
+	public void setBonus(Stat bonus, int num) {
+		if (bonuses.putIfAbsent(bonus, num) != null) {
+			bonuses.remove(bonus);
+			bonuses.put(bonus, num);
+		}
 	}
 
 	/**
@@ -351,12 +307,40 @@ public class CharSheet {
 
 	/**
 	 *
+	 * @param name
+	 * @param changeBy
+	 *
+	 *            Modifies counter name by changeBy.
+	 */
+	public void setCounter(String name, int num) {
+		if (counters.putIfAbsent(name, num) != null) {
+			counters.remove(name);
+			counters.put(name, num);
+		}
+	}
+
+	/**
+	 *
 	 * @param milestoneLeveling
 	 *
 	 *            Sets the character to milestone leveling.
 	 */
 	public void setMilestoneLeveling(boolean milestoneLeveling) {
 		this.milestoneLeveling = milestoneLeveling;
+	}
+
+	/**
+	 *
+	 * @param piece
+	 * @param money
+	 *
+	 *            String (eg. "CP") is used to determine the piece. Money is by how
+	 *            much you change it.
+	 */
+	public void setMoney(Currency piece, int money) {
+		this.money.remove(piece);
+		this.money.put(piece, money);
+
 	}
 
 	/**
@@ -396,11 +380,14 @@ public class CharSheet {
 	 *
 	 *            Uses statName to change the appropriate stat by changeBy.
 	 */
-	public void setStat(Stat statName, int changeBy) {
-		Integer a = stats.get(statName);
-		a += changeBy;
-		stats.remove(statName);
-		stats.put(statName, a);
+	public void setStat(Stat statName, int num) {
+		num = num > 20 ? 20 : num;
+		if (stats.putIfAbsent(statName, num) != null) {
+			stats.remove(statName);
+			stats.put(statName, num);
+		}
+		num = (num - 1) > 0 ? num - 1 : 1;
+		setBonus(statName, mods[num]);
 	}
 
 }
