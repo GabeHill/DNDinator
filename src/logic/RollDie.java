@@ -2,35 +2,25 @@ package logic;
 
 import java.util.Random;
 
+import enums.DiceSides;
 
 public class RollDie {
 
-	public static int roll(enums.DiceSides sides) {
-		int rollSize = 0;
-		if (sides == enums.DiceSides.FOUR) {
-			rollSize = 4;
-		}
-		if (sides == enums.DiceSides.SIX) {
-			rollSize = 6;
-		}
-		if (sides == enums.DiceSides.EIGHT) {
-			rollSize = 8;
-		}
-		if (sides == enums.DiceSides.TEN) {
-			rollSize = 10;
-		}
-		if (sides == enums.DiceSides.TWELVE) {
-			rollSize = 12;
-		}
-		if (sides == enums.DiceSides.TWENTY) {
-			rollSize = 20;
-		}
-		if (sides == enums.DiceSides.HUNDRED) {
-			rollSize = 100;
-		}
+	public static int roll(DiceSides sides) {
 		Random gen = new Random();
-		int luck = gen.nextInt(rollSize);
+		int luck = gen.nextInt(sides.numOfSides);
 		return luck;
+	}
 
+	public static int rollAdvantage(DiceSides sides) {
+		int a = roll(sides);
+		int b = roll(sides);
+		return a > b ? a : b;
+	}
+
+	public static int rollDisadvantage(DiceSides sides) {
+		int a = roll(sides);
+		int b = roll(sides);
+		return a < b ? a : b;
 	}
 }

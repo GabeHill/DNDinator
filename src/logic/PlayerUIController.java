@@ -1,6 +1,9 @@
 package logic;
 
+import java.io.IOException;
+
 import enums.Currency;
+import files.Writer;
 import models.CharSheet;
 
 public class PlayerUIController implements iMenu.IMenu {
@@ -38,4 +41,22 @@ public class PlayerUIController implements iMenu.IMenu {
 
 	}
 
+	private String saveCharSheet(CharSheet c,String path, String encryptKey) {
+		try {
+			Writer.write(c, path + c.getCharacterName()+ ".json", encryptKey);
+		} catch (IOException e) {
+			return "Save unsuccessful. Check your path and try again.";
+		}
+		return "Save successful.";
+	}
+
+	private CharSheet loadCharSheet(String path,String charName, String encryptKey) {
+		CharSheet d = null;
+		try {
+			d = (CharSheet) Writer.read(path + charName + ".json", encryptKey, CharSheet.class);
+		} catch (IOException e) {
+			return new CharSheet();
+		}
+		return d;
+	}
 }

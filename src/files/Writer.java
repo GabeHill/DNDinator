@@ -12,7 +12,7 @@ public class Writer {
 	public static Object read(String path, String key, Class<?> className) throws IOException {
 		byte[] in;
 		try {
-			in = Files.readAllBytes(Paths.get(path + ".json"));
+			in = Files.readAllBytes(Paths.get(path));
 		} catch (IOException e) {
 			throw new IOException("Check your filepath and try again.");
 		}
@@ -27,7 +27,7 @@ public class Writer {
 		out = AES.encrypt(out, key);
 
 		try {
-			Files.write(Paths.get(path + ".json"), out.getBytes(), StandardOpenOption.CREATE);
+			Files.write(Paths.get(path), out.getBytes(), StandardOpenOption.CREATE);
 		} catch (IOException e) {
 			throw new IOException("Check your filepath and try again.");
 		}
