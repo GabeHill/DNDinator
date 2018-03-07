@@ -2,7 +2,7 @@ package view;
 
 import enums.Currency;
 import enums.DiceSides;
-import enums.Stat;
+import enums.PrimaryStat;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -543,45 +543,58 @@ public class Show
 		additionalTraits.setLayoutY(380);
 		additionalTraits.setPrefHeight(382);
 		additionalTraits.setPrefWidth(170);
-		
+
 		profBns = new TextField();
 		profBns.setEditable(canEdit);
 		profBns.setLayoutX(90);
 		profBns.setLayoutY(165);
 		profBns.setPrefWidth(35);
-		
-		str = new TextField(""+c.getStats(Stat.STRENGTH));
+
+		str = new TextField("" + c.getStats(PrimaryStat.STRENGTH));
+		characterNameField.setEditable(canEdit);
+
+		str = new TextField("" + c.getStats(PrimaryStat.STRENGTH));
 		str.setEditable(canEdit);
 		str.setLayoutX(40);
 		str.setLayoutY(155);
 		str.setPrefWidth(35);
-		
-		
-		dex = new TextField(""+c.getStats(Stat.DEXTERITY));
+
+		dex = new TextField("" + c.getStats(PrimaryStat.DEXTERITY));
+		characterNameField.setEditable(canEdit);
+		dex = new TextField("" + c.getStats(PrimaryStat.DEXTERITY));
 		dex.setEditable(canEdit);
 		dex.setLayoutX(40);
 		dex.setLayoutY(226);
 		dex.setPrefWidth(35);
-		
-		con = new TextField(""+c.getStats(Stat.CONSTITUTION));
+
+		con = new TextField("" + c.getStats(PrimaryStat.CONSTITUTION));
+		characterNameField.setEditable(canEdit);
+		con = new TextField("" + c.getStats(PrimaryStat.CONSTITUTION));
 		con.setEditable(canEdit);
+
 		con.setLayoutX(40);
 		con.setLayoutY(298);
 		con.setPrefWidth(35);
-		
-		intel = new TextField(""+c.getStats(Stat.INTELLIGENCE));
+
+		intel = new TextField("" + c.getStats(PrimaryStat.INTELLIGENCE));
+		characterNameField.setEditable(canEdit);
+		intel = new TextField("" + c.getStats(PrimaryStat.INTELLIGENCE));
 		intel.setEditable(canEdit);
 		intel.setLayoutX(40);
 		intel.setLayoutY(370);
 		intel.setPrefWidth(35);
-		
-		wis = new TextField(""+c.getStats(Stat.WISDOM));
+
+		wis = new TextField("" + c.getStats(PrimaryStat.WISDOM));
+		characterNameField.setEditable(canEdit);
+		wis = new TextField("" + c.getStats(PrimaryStat.WISDOM));
 		wis.setEditable(canEdit);
 		wis.setLayoutX(40);
 		wis.setLayoutY(442);
 		wis.setPrefWidth(35);
-		
-		chr = new TextField(""+c.getStats(Stat.CHARISMA));
+
+		chr = new TextField("" + c.getStats(PrimaryStat.CHARISMA));
+		characterNameField.setEditable(canEdit);
+		chr = new TextField("" + c.getStats(PrimaryStat.CHARISMA));
 		chr.setEditable(canEdit);
 		chr.setLayoutX(40);
 		chr.setLayoutY(514);
@@ -600,15 +613,18 @@ public class Show
 		equipment.setLayoutY(590);
 		equipment.setPrefHeight(173);
 		equipment.setPrefWidth(115);
-		
-		
-		armClass = new TextField(""+c.getStats(Stat.ARMOR_CLASS));
+
+		armClass = new TextField("" + c.getStats(PrimaryStat.ARMOR_CLASS));
+		characterNameField.setEditable(canEdit);
+		armClass = new TextField("" + c.getStats(PrimaryStat.ARMOR_CLASS));
 		armClass.setEditable(canEdit);
 		armClass.setLayoutX(232);
 		armClass.setLayoutY(142);
 		armClass.setPrefWidth(30);
-		
-		spd = new TextField(""+c.getStats(Stat.SPEED));
+
+		spd = new TextField("" + c.getStats(PrimaryStat.SPEED));
+		characterNameField.setEditable(canEdit);
+		spd = new TextField("" + c.getStats(PrimaryStat.SPEED));
 		spd.setEditable(canEdit);
 		spd.setLayoutX(345);
 		spd.setLayoutY(142);
@@ -619,8 +635,10 @@ public class Show
 		initiative.setLayoutX(285);
 		initiative.setLayoutY(142);
 		initiative.setPrefWidth(35);
-		
-		hp = new TextField(""+c.getStats(Stat.MAX_HEALTH));
+
+		hp = new TextField("" + c.getStats(PrimaryStat.MAX_HEALTH));
+		characterNameField.setEditable(canEdit);
+		hp = new TextField("" + c.getStats(PrimaryStat.MAX_HEALTH));
 		hp.setEditable(canEdit);
 		hp.setLayoutX(230);
 		hp.setLayoutY(200);
@@ -752,6 +770,15 @@ public class Show
 		thePane.getChildren().addAll(c,diceFace);
 		primaryStage.setScene(theScene);
 		primaryStage.sizeToScene();
+		primaryStage.show();
+	}
+	
+	// Initializes the GUI Display by setting up window and adds buttons
+	// that call the Logic methods for Player menu and DM Menu
+	public void initDnDinatorDisplay(Stage primaryStage) {
+		bPane.setCenter(thePane);
+		primaryStage.setTitle("DnDinator");
+		primaryStage.setScene(theScene);
 		primaryStage.show();
 	}
 }
