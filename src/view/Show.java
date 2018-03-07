@@ -1,12 +1,9 @@
 package view;
 
 import enums.Currency;
-<<<<<<< HEAD
 import enums.Primary;
-=======
 import enums.DiceSides;
 import enums.Stat;
->>>>>>> branch 'master' of https://github.com/GabeHill/DNDinator.git
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -561,41 +558,33 @@ public class Show
 		profBns.setLayoutY(165);
 		profBns.setPrefWidth(35);
 		
-<<<<<<< HEAD
 		str = new TextField(""+c.getStats(Primary.STRENGTH));
 		characterNameField.setEditable(canEdit);
-=======
+
 		str = new TextField(""+c.getStats(Stat.STRENGTH));
 		str.setEditable(canEdit);
->>>>>>> branch 'master' of https://github.com/GabeHill/DNDinator.git
 		str.setLayoutX(40);
 		str.setLayoutY(155);
 		str.setPrefWidth(35);
 		
-		
-<<<<<<< HEAD
 		dex = new TextField(""+c.getStats(Primary.DEXTERITY));
 		characterNameField.setEditable(canEdit);
-=======
 		dex = new TextField(""+c.getStats(Stat.DEXTERITY));
 		dex.setEditable(canEdit);
->>>>>>> branch 'master' of https://github.com/GabeHill/DNDinator.git
 		dex.setLayoutX(40);
 		dex.setLayoutY(226);
 		dex.setPrefWidth(35);
-		
-<<<<<<< HEAD
+
 		con = new TextField(""+c.getStats(Primary.CONSTITUTION));
 		characterNameField.setEditable(canEdit);
-=======
 		con = new TextField(""+c.getStats(Stat.CONSTITUTION));
 		con.setEditable(canEdit);
->>>>>>> branch 'master' of https://github.com/GabeHill/DNDinator.git
+
 		con.setLayoutX(40);
 		con.setLayoutY(298);
 		con.setPrefWidth(35);
 		
-<<<<<<< HEAD
+
 		intel = new TextField(""+c.getStats(Primary.INTELLIGENCE));
 		characterNameField.setEditable(canEdit);
 =======
