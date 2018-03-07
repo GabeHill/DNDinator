@@ -193,6 +193,38 @@ public class Show
 		int MaxHp = Integer.parseInt(hd.getText());
 		return MaxHp;
 	}
+	
+	public int[] getCurrency() {
+		int[] currencyArray = new int[currency.length];
+		for(int i = 0; i < currencyArray.length; i++) {
+			currencyArray[i] = Integer.parseInt(currency[i].getText());
+		}
+		return currencyArray;
+	}
+	
+	public String[] getAttackNames() {
+		String[] attackNameArray = new String[attackNames.length];
+		for(int i = 0; i < attackNameArray.length; i++) {
+			attackNameArray[i] = attackNames[i].getText();
+		}
+		return attackNameArray;
+	}
+	
+	public int[] getAttackBonus() {
+		int[] attackBonusArray = new int[attackBonus.length];
+		for(int i = 0; i < attackBonusArray.length; i++) {
+			attackBonusArray[i] = Integer.parseInt(attackBonus[i].getText());
+		}
+		return attackBonusArray;
+	}
+	
+	public int[] getAttackDamage() {
+		int[] attackDamageArray = new int[attackDamage.length];
+		for(int i = 0; i < attackDamageArray.length; i++) {
+			attackDamageArray[i] = Integer.parseInt(attackDamage[i].getText());
+		}
+		return attackDamageArray;
+	}
 
 	//Initializes the GUI Display by setting up window and adds buttons
 	//that call the Logic methods for Player menu and DM Menu
