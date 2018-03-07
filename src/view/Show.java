@@ -1,6 +1,7 @@
 package view;
 
 import enums.Currency;
+import enums.DiceSides;
 import enums.Stat;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
@@ -8,7 +9,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
+import logic.RollDie;
 import models.CharSheet;
 
 public class Show
@@ -22,7 +26,8 @@ public class Show
 	private TextField characterRaceField;
 	private TextField charAlign;
 	private TextField charEXP;
-	private TextField charClassLevel;
+	private TextField charClass;
+	private TextField charLevel;
 	private TextField charBG;
 	private TextField playerName;
 	private TextField perTraits;
@@ -71,11 +76,6 @@ public class Show
 		return returnXP;
 	}
 
-	public int getCharClassLevel() 
-	{
-		int ClassLevel = Integer.parseInt(charClassLevel.getText());
-		return ClassLevel;
-	}
 
 	public String getCharBG() 
 	{
@@ -235,11 +235,17 @@ public class Show
 		charEXP.setLayoutY(72);
 		charEXP.setPrefWidth(100);
 		
-		charClassLevel = new TextField();
-		charClassLevel.setPromptText("Class & Level");
-		charClassLevel.setLayoutX(270);
-		charClassLevel.setLayoutY(47);
-		charClassLevel.setPrefWidth(100);
+		charClass = new TextField();
+		charClass.setPromptText("Class");
+		charClass.setLayoutX(270);
+		charClass.setLayoutY(47);
+		charClass.setPrefWidth(60);
+		
+		charLevel = new TextField();
+		charLevel.setPromptText("Level");
+		charLevel.setLayoutX(330);
+		charLevel.setLayoutY(47);
+		charLevel.setPrefWidth(40);
 		
 		charBG = new TextField();
 		charBG.setPromptText("Background");
@@ -432,7 +438,7 @@ public class Show
 			atkDmgY += 25;
 		}
 		
-		thePane.getChildren().addAll(viewSheet,characterNameField,characterRaceField,charClassLevel,charAlign,charEXP,charBG,playerName,str,dex,con,intel,wis,chr,armClass,spd, initiative,hp,hd,profBns,tempHp,perTraits,perIdeals,perBonds,perFlaws,additionalTraits, otherPnL,equipment);
+		thePane.getChildren().addAll(viewSheet,characterNameField,characterRaceField,charClass,charLevel,charAlign,charEXP,charBG,playerName,str,dex,con,intel,wis,chr,armClass,spd, initiative,hp,hd,profBns,tempHp,perTraits,perIdeals,perBonds,perFlaws,additionalTraits, otherPnL,equipment);
 		
 		//adds each individual TextField[] inside of attack box to screen, as the arrays are all the same size as each other
 		for(int i = 0; i < attackNames.length; i++)
@@ -464,124 +470,130 @@ public class Show
 		characterNameField.setLayoutX(50);
 		
 		characterRaceField = new TextField(c.getRace());
-		characterNameField.setEditable(canEdit);
+		characterRaceField.setEditable(canEdit);
 		characterRaceField.setLayoutX(270);
 		characterRaceField.setLayoutY(72);
 		characterRaceField.setPrefWidth(100);
 		
 		charAlign = new TextField(c.getAlignment().toString());
-		characterNameField.setEditable(canEdit);
+		charAlign.setEditable(canEdit);
 		charAlign.setLayoutX(370);
 		charAlign.setLayoutY(72);
 		charAlign.setPrefWidth(100);
 		
 		charEXP = new TextField(""+c.getXp());
-		characterNameField.setEditable(canEdit);
+		charEXP.setEditable(canEdit);
 		charEXP.setLayoutX(470);
 		charEXP.setLayoutY(72);
 		charEXP.setPrefWidth(100);
 		
-		charClassLevel = new TextField(c.getOccupation()+" "+c.getLevel());
-		characterNameField.setEditable(canEdit);
-		charClassLevel.setLayoutX(270);
-		charClassLevel.setLayoutY(47);
-		charClassLevel.setPrefWidth(100);
+		charClass = new TextField(c.getOccupation());
+		charClass.setEditable(canEdit);
+		charClass.setLayoutX(270);
+		charClass.setLayoutY(47);
+		charClass.setPrefWidth(60);
+		
+		charLevel = new TextField(""+c.getLevel());
+		charLevel.setEditable(canEdit);
+		charLevel.setLayoutX(330);
+		charLevel.setLayoutY(47);
+		charLevel.setPrefWidth(40);
 		
 		charBG = new TextField(c.getBackground());
-		characterNameField.setEditable(canEdit);
+		charBG.setEditable(canEdit);
 		charBG.setLayoutX(370);
 		charBG.setLayoutY(47);
 		charBG.setPrefWidth(100);
 		
 		playerName = new TextField(c.getPlayerName());
-		characterNameField.setEditable(canEdit);
+		playerName.setEditable(canEdit);
 		playerName.setLayoutX(470);
 		playerName.setLayoutY(47);
 		playerName.setPrefWidth(100);
 		
 		perTraits = new TextField(c.getOtherData("Personality Traits"));
-		characterNameField.setEditable(canEdit);
+		perTraits.setEditable(canEdit);
 		perTraits.setLayoutX(420);
 		perTraits.setLayoutY(140);
 		perTraits.setPrefHeight(55);
 		
 		perIdeals = new TextField(c.getOtherData("Ideals"));
-		characterNameField.setEditable(canEdit);
+		perIdeals.setEditable(canEdit);
 		perIdeals.setLayoutX(420);
 		perIdeals.setLayoutY(207);
 		perIdeals.setPrefHeight(45);
 		
 		perBonds = new TextField(c.getOtherData("Bonds"));
-		characterNameField.setEditable(canEdit);
+		perBonds.setEditable(canEdit);
 		perBonds.setLayoutX(420);
 		perBonds.setLayoutY(264);
 		perBonds.setPrefHeight(45);
 		
 		perFlaws = new TextField(c.getOtherData("Flaws"));
-		characterNameField.setEditable(canEdit);
+		perFlaws.setEditable(canEdit);
 		perFlaws.setLayoutX(420);
 		perFlaws.setLayoutY(321);
 		perFlaws.setPrefHeight(45);
 		
 		additionalTraits = new TextField(c.getOtherData("Additional Traits"));
-		characterNameField.setEditable(canEdit);
+		additionalTraits.setEditable(canEdit);
 		additionalTraits.setLayoutX(410);
 		additionalTraits.setLayoutY(380);
 		additionalTraits.setPrefHeight(382);
 		additionalTraits.setPrefWidth(170);
 		
 		profBns = new TextField();
-		characterNameField.setEditable(canEdit);
+		profBns.setEditable(canEdit);
 		profBns.setLayoutX(90);
 		profBns.setLayoutY(165);
 		profBns.setPrefWidth(35);
 		
 		str = new TextField(""+c.getStats(Stat.STRENGTH));
-		characterNameField.setEditable(canEdit);
+		str.setEditable(canEdit);
 		str.setLayoutX(40);
 		str.setLayoutY(155);
 		str.setPrefWidth(35);
 		
 		
 		dex = new TextField(""+c.getStats(Stat.DEXTERITY));
-		characterNameField.setEditable(canEdit);
+		dex.setEditable(canEdit);
 		dex.setLayoutX(40);
 		dex.setLayoutY(226);
 		dex.setPrefWidth(35);
 		
 		con = new TextField(""+c.getStats(Stat.CONSTITUTION));
-		characterNameField.setEditable(canEdit);
+		con.setEditable(canEdit);
 		con.setLayoutX(40);
 		con.setLayoutY(298);
 		con.setPrefWidth(35);
 		
 		intel = new TextField(""+c.getStats(Stat.INTELLIGENCE));
-		characterNameField.setEditable(canEdit);
+		intel.setEditable(canEdit);
 		intel.setLayoutX(40);
 		intel.setLayoutY(370);
 		intel.setPrefWidth(35);
 		
 		wis = new TextField(""+c.getStats(Stat.WISDOM));
-		characterNameField.setEditable(canEdit);
+		wis.setEditable(canEdit);
 		wis.setLayoutX(40);
 		wis.setLayoutY(442);
 		wis.setPrefWidth(35);
 		
 		chr = new TextField(""+c.getStats(Stat.CHARISMA));
-		characterNameField.setEditable(canEdit);
+		chr.setEditable(canEdit);
 		chr.setLayoutX(40);
 		chr.setLayoutY(514);
 		chr.setPrefWidth(35);
 		
 		otherPnL = new TextField(c.getOtherData("Other Profficiencies and Languages"));
-		characterNameField.setEditable(canEdit);
+		otherPnL.setEditable(canEdit);
 		otherPnL.setLayoutX(35);
 		otherPnL.setLayoutY(625);
 		otherPnL.setPrefHeight(138);
 		otherPnL.setPrefWidth(165);
 		
 		equipment = new TextField();
-		characterNameField.setEditable(canEdit);
+		equipment.setEditable(canEdit);
 		equipment.setLayoutX(268);
 		equipment.setLayoutY(590);
 		equipment.setPrefHeight(173);
@@ -589,35 +601,35 @@ public class Show
 		
 		
 		armClass = new TextField(""+c.getStats(Stat.ARMOR_CLASS));
-		characterNameField.setEditable(canEdit);
+		armClass.setEditable(canEdit);
 		armClass.setLayoutX(232);
 		armClass.setLayoutY(142);
 		armClass.setPrefWidth(30);
 		
 		spd = new TextField(""+c.getStats(Stat.SPEED));
-		characterNameField.setEditable(canEdit);
+		spd.setEditable(canEdit);
 		spd.setLayoutX(345);
 		spd.setLayoutY(142);
 		spd.setPrefWidth(35);
 		
 		initiative = new TextField();
-		characterNameField.setEditable(canEdit);
+		initiative.setEditable(canEdit);
 		initiative.setLayoutX(285);
 		initiative.setLayoutY(142);
 		initiative.setPrefWidth(35);
 		
 		hp = new TextField(""+c.getStats(Stat.MAX_HEALTH));
-		characterNameField.setEditable(canEdit);
+		hp.setEditable(canEdit);
 		hp.setLayoutX(230);
 		hp.setLayoutY(200);
 		
 		tempHp = new TextField();
-		characterNameField.setEditable(canEdit);
+		tempHp.setEditable(canEdit);
 		tempHp.setLayoutX(230);
 		tempHp.setLayoutY(270);
 		
 		hd = new TextField();
-		characterNameField.setEditable(canEdit);
+		hd.setEditable(canEdit);
 		hd.setLayoutX(230);
 		hd.setLayoutY(320);
 		hd.setPrefWidth(65);
@@ -657,7 +669,7 @@ public class Show
 				xType = Currency.EP.toString();
 			}
 			currency[i] = new TextField(x+" "+xType);
-			characterNameField.setEditable(canEdit);
+			currency[i].setEditable(canEdit);
 			currency[i].setLayoutX(220);
 			currency[i].setLayoutY(currencyY);
 			currency[i].setPrefWidth(47);
@@ -671,7 +683,7 @@ public class Show
 		for(int i = 0; i < attackNames.length; i++)
 		{
 			attackNames[i] = new TextField();
-			characterNameField.setEditable(canEdit);
+			attackNames[i].setEditable(canEdit);
 			attackNames[i].setLayoutX(220);
 			attackNames[i].setPrefWidth(70);
 			attackNames[i].setLayoutY(atkNamesY);
@@ -685,7 +697,7 @@ public class Show
 		for(int i = 0; i < attackBonus.length; i++)
 		{
 			attackBonus[i] = new TextField();
-			characterNameField.setEditable(canEdit);
+			attackBonus[i].setEditable(canEdit);
 			attackBonus[i].setLayoutX(290);
 			attackBonus[i].setPrefWidth(32);
 			attackBonus[i].setLayoutY(atkBnsY);
@@ -699,14 +711,14 @@ public class Show
 		for(int i = 0; i < attackDamage.length; i++)
 		{
 			attackDamage[i] = new TextField();
-			characterNameField.setEditable(canEdit);
+			attackDamage[i].setEditable(canEdit);
 			attackDamage[i].setLayoutX(322);
 			attackDamage[i].setPrefWidth(70);
 			attackDamage[i].setLayoutY(atkDmgY);
 			atkDmgY += 25;
 		}
 		
-		thePane.getChildren().addAll(viewSheet,characterNameField,characterRaceField,charClassLevel,charAlign,charEXP,charBG,playerName,str,dex,con,intel,wis,chr,armClass,spd, initiative,hp,hd,profBns,tempHp,perTraits,perIdeals,perBonds,perFlaws,additionalTraits, otherPnL,equipment);
+		thePane.getChildren().addAll(viewSheet,characterNameField,characterRaceField,charClass,charLevel,charAlign,charEXP,charBG,playerName,str,dex,con,intel,wis,chr,armClass,spd, initiative,hp,hd,profBns,tempHp,perTraits,perIdeals,perBonds,perFlaws,additionalTraits, otherPnL,equipment);
 		
 		//adds each individual TextField[] inside of attack box to screen, as the arrays are all the same size as each other
 		for(int i = 0; i < attackNames.length; i++)
@@ -723,5 +735,10 @@ public class Show
 		primaryStage.sizeToScene();
 		primaryStage.show();
 		
+	}
+	
+	public void displayDice(RollDie rd, DiceSides ds)
+	{
+		Circle c = new Circle();
 	}
 }
