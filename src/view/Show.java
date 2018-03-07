@@ -76,7 +76,16 @@ public class Show
 		return returnXP;
 	}
 
-
+	public int getLevel() {
+		int level = Integer.parseInt(charLevel.getText());
+		return level;
+	}
+	
+	public String getClassThing() {
+		String classThing = charClass.getText();
+		return classThing;
+	}
+	
 	public String getCharBG() 
 	{
 		return charBG.getText();
@@ -190,8 +199,8 @@ public class Show
 
 	public int getHd() 
 	{
-		int MaxHp = Integer.parseInt(hd.getText());
-		return MaxHp;
+		int hitDice = Integer.parseInt(hd.getText());
+		return hitDice;
 	}
 
 	//Initializes the GUI Display by setting up window and adds buttons
