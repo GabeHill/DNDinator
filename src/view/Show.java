@@ -608,31 +608,40 @@ public class Show {
 		primaryStage.show();
 
 	}
-
-	public String getArmClass() {
-		return armClass.getText();
+	
+	public boolean getMilestone() {
+		return true;
 	}
 
 	public String getCharacterNameField() {
 		return characterNameField.getText();
 	}
-
+	
 	public String getCharacterRaceField() {
 		return characterRaceField.getText();
 	}
-
+	
 	public String getCharAlign() {
 		return charAlign.getText();
+	}
+	
+	public int getCharEXP() {
+		int returnXP = Integer.parseInt(charEXP.getText());
+		return returnXP;
+	}
+	
+	public String getCharClass() {
+		return charClass.getText();
+	}
+	
+	public int getCharLevel() {
+		return Integer.parseInt(charLevel.getText());
 	}
 
 	public String getCharBG() {
 		return charBG.getText();
 	}
 
-	public int getCharEXP() {
-		int returnXP = Integer.parseInt(charEXP.getText());
-		return returnXP;
-	}
 
 	public int getChr() {
 		int Chr = Integer.parseInt(chr.getText());
@@ -652,13 +661,18 @@ public class Show {
 	public String getEquipment() {
 		return equipment.getText();
 	}
+	
+	public int getArmClass() {
+		int armorClass = Integer.parseInt(armClass.getText());
+		return armorClass;
+	}
 
 	public int getHd() {
 		int MaxHp = Integer.parseInt(hd.getText());
 		return MaxHp;
 	}
 
-	public int getHp() {
+	public int getMaxHp() {
 		int MaxHealth = Integer.parseInt(hp.getText());
 		return MaxHealth;
 	}
@@ -721,7 +735,7 @@ public class Show {
 		int Wis = Integer.parseInt(wis.getText());
 		return Wis;
 	}
-
+	
 	// Initializes the GUI Display by setting up window and adds buttons
 	// that call the Logic methods for Player menu and DM Menu
 	public void initDnDinatorDisplay(Stage primaryStage) {

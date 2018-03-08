@@ -23,7 +23,7 @@ public class PlayerUIController implements iMenu.IMenu {
 
 		steve.setStat(PrimaryStat.CHARISMA, show.getChr());
 		steve.setStat(PrimaryStat.CONSTITUTION, show.getCon());
-		steve.setStat(PrimaryStat.MAX_HEALTH, show.getHp());
+		steve.setStat(PrimaryStat.MAX_HEALTH, show.getMaxHp());
 		steve.setStat(PrimaryStat.INITIATIVE, show.getInitiative());
 		steve.setStat(PrimaryStat.INTELLIGENCE, show.getIntel());
 		steve.setStat(PrimaryStat.PROFICIENCY, show.getProfBns());
