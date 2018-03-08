@@ -10,13 +10,13 @@ import models.CharSheet;
 import view.Show;
 
 public class PlayerUIController implements IMenu {
-
+	static Show show = new Show();
 	public void run() {
 
 	}
 
 	private static CharSheet createCharacter() {
-		Show show = new Show();
+		
 		CharSheet steve = new CharSheet();
 		steve.changeAlignment(show.getCharAlign());
 		int [] muns = show.getCurrency();
