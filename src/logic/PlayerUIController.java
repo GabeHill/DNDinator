@@ -17,9 +17,9 @@ public class PlayerUIController implements iMenu.IMenu {
 	private static CharSheet createCharacter() {
 		Show show = new Show();
 		CharSheet steve = new CharSheet();
-		steve.changeAlignment(enums.Alignment.CHAOTIC_EVIL);
+		steve.changeAlignment(show.getCharAlign());
 		steve.setMoney(Currency.PP, 9001);
-		steve.setBackground(null);
+		steve.setBackground(show.getCharBG());
 
 		steve.setStat(PrimaryStat.CHARISMA, show.getChr());
 		steve.setStat(PrimaryStat.CONSTITUTION, show.getCon());
@@ -33,18 +33,17 @@ public class PlayerUIController implements iMenu.IMenu {
 		steve.setStat(PrimaryStat.WISDOM, show.getWis());
 		steve.setStat(PrimaryStat.ARMOR_CLASS, show.getArmClass());
 
-		steve.setCharacterName(null);
-
-		steve.setCounter(null, 0);
+		steve.setCharacterName(show.getCharacterNameField());
 
 		steve.addItem(null, null);
 
-		steve.setMilestoneLeveling(true);
+		steve.setMilestoneLeveling(show.getMilestone());
 
-		steve.setOccupation(null);
-		steve.setPlayerName(null);
+		steve.setOccupation(show.getCharClass());
+		
+		steve.setPlayerName(show.getPlayerName());
 
-		steve.setRace(null);
+		steve.setRace(show.getCharacterRaceField());
 
 		return steve;
 	}
