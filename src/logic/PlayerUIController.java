@@ -5,15 +5,36 @@ import java.io.IOException;
 import enums.Currency;
 import files.Writer;
 import models.CharSheet;
+import view.Show;
 
 public class PlayerUIController implements iMenu.IMenu {
+	
+	public void run() {
+		
+	}
+
+	
 	private static CharSheet createCharacter() {
+		Show show = new Show();
 		CharSheet steve = new CharSheet();
 		steve.changeAlignment(enums.Alignment.CHAOTIC_EVIL);
 		steve.setMoney(Currency.PP, 9001);
 		steve.setBackground(null);
 
-		steve.setBonus(null, 0);
+		steve.setStat(null, show.getChr());
+		steve.setStat(null, show.getCon());
+		steve.setStat(null, show.getHp());
+		steve.setStat(null, show.getInitiative());
+		steve.setStat(null, show.getIntel());
+		steve.setStat(null, show.getProfBns());
+		steve.setStat(null, show.getSpd());
+		steve.setStat(null, show.getStr());
+		steve.setStat(null, show.getTempHp());
+		steve.setStat(null, show.getWis());
+		steve.setStat(null, show.getArmClass());
+		steve.setStat(null, show.getHd());
+		
+
 
 		steve.setCharacterName(null);
 
@@ -28,7 +49,7 @@ public class PlayerUIController implements iMenu.IMenu {
 
 		steve.setRace(null);
 
-		steve.setStat(null, 0);
+		
 		return steve;
 	}
 
