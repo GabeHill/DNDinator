@@ -1,5 +1,6 @@
 package view;
 
+import enums.Alignment;
 import enums.Currency;
 import enums.DiceSides;
 import enums.PrimaryStat;
@@ -621,8 +622,12 @@ public class Show {
 		return characterRaceField.getText();
 	}
 	
-	public String getCharAlign() {
-		return charAlign.getText();
+	public Alignment getCharAlign() {
+		for(Alignment a : Alignment.values()) {
+			if(a.toString().equalsIgnoreCase(charAlign.getText())) {
+			return a;}
+		} 
+		return null;
 	}
 	
 	public int getCharEXP() {
@@ -642,7 +647,14 @@ public class Show {
 		return charBG.getText();
 	}
 
-
+	public int[] getCurrency() {
+		int[] charCurrency = new int[currency.length];
+		for(int i = 0; i < charCurrency.length; i++) {
+			charCurrency[i] = Integer.parseInt(currency.toString());
+		}
+		return charCurrency;
+	}
+	
 	public int getChr() {
 		int Chr = Integer.parseInt(chr.getText());
 		return Chr;
