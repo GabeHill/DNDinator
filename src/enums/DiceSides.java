@@ -1,7 +1,7 @@
 package enums;
 
 public enum DiceSides {
-	EIGHT(8), FOUR(4), HUNDRED(100), SIX(6), TEN(10), TWELVE(12), TWENTY(20);
+	EIGHT(7), FOUR(3), HUNDRED(99), SIX(5), TEN(9), TWELVE(11), TWENTY(19);
 
 	public final int numOfSides;
 
