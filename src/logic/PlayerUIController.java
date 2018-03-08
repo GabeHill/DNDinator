@@ -11,21 +11,37 @@ import view.Show;
 
 public class PlayerUIController implements IMenu {
 	static Show show = new Show();
+
 	public void run() {
 
 	}
 
 	private static CharSheet createCharacter() {
-		
+
 		CharSheet steve = new CharSheet();
+
+		steve.setItems(show.getItems());
+
+		steve.setMilestoneLeveling(show.getMilestone());
+
+		steve.setOccupation(show.getCharClass());
+
+		steve.setPlayerName(show.getPlayerName());
+
+		steve.setRace(show.getCharacterRaceField());
+
+		steve.setBackground(show.getCharBG());
+
+		steve.setCharacterName(show.getCharacterNameField());
+
 		steve.changeAlignment(show.getCharAlign());
-		int [] muns = show.getCurrency();
+
+		int[] muns = show.getCurrency();
 		steve.setMoney(Currency.CP, muns[0]);
 		steve.setMoney(Currency.EP, muns[1]);
 		steve.setMoney(Currency.GP, muns[2]);
 		steve.setMoney(Currency.PP, muns[3]);
 		steve.setMoney(Currency.SP, muns[4]);
-		steve.setBackground(show.getCharBG());
 
 		steve.setStat(PrimaryStat.CHARISMA, show.getChr());
 		steve.setStat(PrimaryStat.CONSTITUTION, show.getCon());
@@ -39,26 +55,14 @@ public class PlayerUIController implements IMenu {
 		steve.setStat(PrimaryStat.WISDOM, show.getWis());
 		steve.setStat(PrimaryStat.ARMOR_CLASS, show.getArmClass());
 
-		steve.setCharacterName(show.getCharacterNameField());
-
-		steve.addItem(show.getItems());
-
-		steve.setMilestoneLeveling(show.getMilestone());
-
-		steve.setOccupation(show.getCharClass());
-		
-		steve.setPlayerName(show.getPlayerName());
-
-		steve.setRace(show.getCharacterRaceField());
-
 		return steve;
 	}
 
-	static void updateLevel(CharSheet steve,int a) {
-		
+	static void updateLevel(CharSheet steve, int a) {
+
 		if (steve.isMilestoneLeveling()) {
 			steve.levelUp(a);
-		}else {
+		} else {
 			steve.addXp(a);
 		}
 	}
