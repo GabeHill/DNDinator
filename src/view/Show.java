@@ -1,11 +1,16 @@
 package view;
 
+import java.util.Arrays;
+
 import enums.Alignment;
 import enums.Currency;
 import enums.DiceSides;
 import enums.PrimaryStat;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -24,7 +29,7 @@ public class Show {
 
 	private TextField characterNameField;
 	private TextField characterRaceField;
-	private TextField charAlign;
+	private ComboBox charAlign;
 	private TextField charEXP;
 	private TextField charClass;
 	private TextField charLevel;
@@ -54,6 +59,13 @@ public class Show {
 	private TextField[] attackNames;
 	private TextField[] attackBonus;
 	private TextField[] attackDamage;
+	
+	private ObservableList<String> alignlist = 
+			FXCollections.observableArrayList(
+					"Chaotic Evil","Neutral Evil","Lawful Evil","Chaotic Neutral",
+					"True Neutral","Lawful Neutral","Chaotic Good","Neutral Good",
+					"Lawful Good"
+					);
 
 	// Initializes the Display of a fresh character sheet for new Character entry;
 	// returns the character created by the field
@@ -73,7 +85,8 @@ public class Show {
 		characterRaceField.setLayoutY(72);
 		characterRaceField.setPrefWidth(100);
 
-		charAlign = new TextField();
+		charAlign = new ComboBox<Alignment>();
+		charAlign.setItems(alignlist);
 		charAlign.setPromptText("Alignment");
 		charAlign.setLayoutX(370);
 		charAlign.setLayoutY(72);
@@ -339,7 +352,7 @@ public class Show {
 		characterRaceField.setLayoutY(72);
 		characterRaceField.setPrefWidth(100);
 
-		charAlign = new TextField(c.getAlignment().toString());
+		charAlign = new ComboBox(c.getAlignment().toString());
 		charAlign.setEditable(canEdit);
 		charAlign.setLayoutX(370);
 		charAlign.setLayoutY(72);
@@ -624,7 +637,7 @@ public class Show {
 	
 	public Alignment getCharAlign() {
 		for(Alignment a : Alignment.values()) {
-			if(a.toString().equalsIgnoreCase(charAlign.getText())) {
+			if(a.toString().equalsIgnoreCase(charAlign.getPromptText())) {
 			return a;}
 		} 
 		return null;
@@ -746,6 +759,10 @@ public class Show {
 	public int getWis() {
 		int Wis = Integer.parseInt(wis.getText());
 		return Wis;
+	}
+	
+	public String getItems() {
+		return equipment.getText();
 	}
 	
 	// Initializes the GUI Display by setting up window and adds buttons
