@@ -20,7 +20,11 @@ public class PlayerUIController implements IMenu {
 		CharSheet steve = new CharSheet();
 		steve.changeAlignment(show.getCharAlign());
 		int [] muns = show.getCurrency();
-		steve.setMoney(Currency.PP, 9001);
+		steve.setMoney(Currency.CP, muns[0]);
+		steve.setMoney(Currency.EP, muns[1]);
+		steve.setMoney(Currency.GP, muns[2]);
+		steve.setMoney(Currency.PP, muns[3]);
+		steve.setMoney(Currency.SP, muns[4]);
 		steve.setBackground(show.getCharBG());
 
 		steve.setStat(PrimaryStat.CHARISMA, show.getChr());
