@@ -5,10 +5,11 @@ import java.io.IOException;
 import enums.Currency;
 import enums.PrimaryStat;
 import files.Writer;
+import iMenu.IMenu;
 import models.CharSheet;
 import view.Show;
 
-public class PlayerUIController implements iMenu.IMenu {
+public class PlayerUIController implements IMenu {
 
 	public void run() {
 
@@ -18,6 +19,7 @@ public class PlayerUIController implements iMenu.IMenu {
 		Show show = new Show();
 		CharSheet steve = new CharSheet();
 		steve.changeAlignment(show.getCharAlign());
+		int [] muns = show.getCurrency();
 		steve.setMoney(Currency.PP, 9001);
 		steve.setBackground(show.getCharBG());
 
@@ -35,7 +37,7 @@ public class PlayerUIController implements iMenu.IMenu {
 
 		steve.setCharacterName(show.getCharacterNameField());
 
-		steve.addItem(null, null);
+		steve.addItem(show.getItems());
 
 		steve.setMilestoneLeveling(show.getMilestone());
 
@@ -48,8 +50,13 @@ public class PlayerUIController implements iMenu.IMenu {
 		return steve;
 	}
 
-	static void updateLevel(PlayerUIController charr) {
-		createCharacter();
+	static void updateLevel(CharSheet steve,int a) {
+		
+		if (steve.isMilestoneLeveling()) {
+			steve.levelUp(a);
+		}else {
+			steve.addXp(a);
+		}
 	}
 
 	@Override
