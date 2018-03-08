@@ -3,37 +3,70 @@ package logic;
 import java.io.IOException;
 
 import enums.Currency;
+import enums.PrimaryStat;
 import files.Writer;
+import iMenu.IMenu;
 import models.CharSheet;
+import view.Show;
 
-public class PlayerUIController implements iMenu.IMenu {
+public class PlayerUIController implements IMenu {
+	static Show show = new Show();
+
+	public void run() {
+
+	}
+
 	private static CharSheet createCharacter() {
+
 		CharSheet steve = new CharSheet();
-		steve.changeAlignment(enums.Alignment.CHAOTIC_EVIL);
-		steve.setMoney(Currency.PP, 9001);
-		steve.setBackground(null);
 
-		steve.setBonus(null, 0);
+		steve.setItems(show.getItems());
 
-		steve.setCharacterName(null);
+		steve.setMilestoneLeveling(show.getMilestone());
 
-		steve.setCounter(null, 0);
+		steve.setOccupation(show.getCharClass());
 
-		steve.addItem(null, null);
+		steve.setPlayerName(show.getPlayerName());
 
-		steve.setMilestoneLeveling(true);
+		steve.setRace(show.getCharacterRaceField());
 
-		steve.setOccupation(null);
-		steve.setPlayerName(null);
+		steve.setBackground(show.getCharBG());
 
-		steve.setRace(null);
+		steve.setCharacterName(show.getCharacterNameField());
 
-		steve.setStat(null, 0);
+		steve.changeAlignment(show.getCharAlign());
+		
+		steve.addOtherData("Hit Die",show.getHd()+"");
+
+		int[] muns = show.getCurrency();
+		steve.setMoney(Currency.CP, muns[0]);
+		steve.setMoney(Currency.EP, muns[1]);
+		steve.setMoney(Currency.GP, muns[2]);
+		steve.setMoney(Currency.PP, muns[3]);
+		steve.setMoney(Currency.SP, muns[4]);
+
+		steve.setStat(PrimaryStat.CHARISMA, show.getChr());
+		steve.setStat(PrimaryStat.CONSTITUTION, show.getCon());
+		steve.setStat(PrimaryStat.MAX_HEALTH, show.getMaxHp());
+		steve.setStat(PrimaryStat.INITIATIVE, show.getInitiative());
+		steve.setStat(PrimaryStat.INTELLIGENCE, show.getIntel());
+		steve.setStat(PrimaryStat.PROFICIENCY, show.getProfBns());
+		steve.setStat(PrimaryStat.SPEED, show.getSpd());
+		steve.setStat(PrimaryStat.STRENGTH, show.getStr());
+		steve.setStat(PrimaryStat.TEMPORARY_HEALTH, show.getTempHp());
+		steve.setStat(PrimaryStat.WISDOM, show.getWis());
+		steve.setStat(PrimaryStat.ARMOR_CLASS, show.getArmClass());
+
 		return steve;
 	}
 
-	static void updateLevel(PlayerUIController charr) {
-		createCharacter();
+	static void updateLevel(CharSheet steve, int a) {
+
+		if (steve.isMilestoneLeveling()) {
+			steve.levelUp(a);
+		} else {
+			steve.addXp(a);
+		}
 	}
 
 	@Override
@@ -41,16 +74,16 @@ public class PlayerUIController implements iMenu.IMenu {
 
 	}
 
-	private String saveCharSheet(CharSheet c,String path, String encryptKey) {
+	private String saveCharSheet(CharSheet c, String path, String encryptKey) {
 		try {
-			Writer.write(c, path + c.getCharacterName()+ ".json", encryptKey);
+			Writer.write(c, path + c.getCharacterName() + ".json", encryptKey);
 		} catch (IOException e) {
 			return "Save unsuccessful. Check your path and try again.";
 		}
 		return "Save successful.";
 	}
 
-	private CharSheet loadCharSheet(String path,String charName, String encryptKey) {
+	private CharSheet loadCharSheet(String path, String charName, String encryptKey) {
 		CharSheet d = null;
 		try {
 			d = (CharSheet) Writer.read(path + charName + ".json", encryptKey, CharSheet.class);

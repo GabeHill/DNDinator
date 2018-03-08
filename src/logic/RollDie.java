@@ -9,18 +9,18 @@ public class RollDie {
 	public static int roll(DiceSides sides) {
 		Random gen = new Random();
 		int luck = gen.nextInt(sides.numOfSides);
-		return luck;
+		return luck + 1;
 	}
 
 	public static int rollAdvantage(DiceSides sides) {
 		int a = roll(sides);
 		int b = roll(sides);
-		return a > b ? a : b;
+		return (a > b ? a : b) + 1;
 	}
 
 	public static int rollDisadvantage(DiceSides sides) {
 		int a = roll(sides);
 		int b = roll(sides);
-		return a < b ? a : b;
+		return (a < b ? a : b) + 1;
 	}
 }
