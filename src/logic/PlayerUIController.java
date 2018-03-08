@@ -35,6 +35,8 @@ public class PlayerUIController implements IMenu {
 		steve.setCharacterName(show.getCharacterNameField());
 
 		steve.changeAlignment(show.getCharAlign());
+		
+		steve.addOtherData("Hit Die",show.getHd()+"");
 
 		int[] muns = show.getCurrency();
 		steve.setMoney(Currency.CP, muns[0]);
