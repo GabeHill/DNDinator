@@ -9,6 +9,12 @@ public class GameData {
 	private String gameName;
 	private HashMap<String, String> rules = new HashMap<>();
 
+	/**
+	 *
+	 * @param name
+	 *
+	 *
+	 */
 	public GameData(String name) {
 		setGameName(name);
 	}
