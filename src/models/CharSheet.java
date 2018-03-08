@@ -18,7 +18,8 @@ public class CharSheet {
 	private boolean milestoneLeveling = false;
 	private Map<Currency, Integer> money;
 	private String occupation, playerName, characterName, background, race;
-	private Map<String, String> spells, items, otherData;
+	private Map<String, String> spells, otherData;
+	private String items;
 	private StatsMap stats, bonuses;
 	private int xp = 0, level = 1;
 
@@ -29,17 +30,6 @@ public class CharSheet {
 		for (Currency c : Currency.values()) {
 			money.put(c, 0);
 		}
-	}
-
-	/**
-	 *
-	 * @param itemName
-	 * @param desc
-	 *
-	 *            Assigns itemName as the key to desc in the items Hashmap.
-	 */
-	public void addItem(String itemName, String desc) {
-		items.put(itemName, desc);
 	}
 
 	/**
@@ -125,8 +115,8 @@ public class CharSheet {
 	 *
 	 *         Returns the description of the item associated with name.
 	 */
-	public String getItem(String name) {
-		return items.get(name);
+	public String getItems() {
+		return items;
 	}
 
 	/**
@@ -254,16 +244,6 @@ public class CharSheet {
 
 	/**
 	 *
-	 * @param itemName
-	 *
-	 *            Removes itemName from the Items HashMap.
-	 */
-	public void removeItem(String itemName) {
-		items.remove(itemName);
-	}
-
-	/**
-	 *
 	 * @param name
 	 *
 	 *            Removes the desc. associated with name.
@@ -318,6 +298,17 @@ public class CharSheet {
 			counters.remove(name);
 			counters.put(name, num);
 		}
+	}
+
+	/**
+	 *
+	 * @param itemName
+	 * @param desc
+	 *
+	 *            Assigns itemName as the key to desc in the items Hashmap.
+	 */
+	public void setItems(String items) {
+		this.items = items;
 	}
 
 	/**
