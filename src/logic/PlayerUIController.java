@@ -3,17 +3,17 @@ package logic;
 import java.io.IOException;
 
 import enums.Currency;
+import enums.PrimaryStat;
 import files.Writer;
 import models.CharSheet;
 import view.Show;
 
 public class PlayerUIController implements iMenu.IMenu {
-	
+
 	public void run() {
-		
+
 	}
 
-	
 	private static CharSheet createCharacter() {
 		Show show = new Show();
 		CharSheet steve = new CharSheet();
@@ -21,20 +21,17 @@ public class PlayerUIController implements iMenu.IMenu {
 		steve.setMoney(Currency.PP, 9001);
 		steve.setBackground(null);
 
-		steve.setStat(null, show.getChr());
-		steve.setStat(null, show.getCon());
-		steve.setStat(null, show.getHp());
-		steve.setStat(null, show.getInitiative());
-		steve.setStat(null, show.getIntel());
-		steve.setStat(null, show.getProfBns());
-		steve.setStat(null, show.getSpd());
-		steve.setStat(null, show.getStr());
-		steve.setStat(null, show.getTempHp());
-		steve.setStat(null, show.getWis());
-		steve.setStat(null, show.getArmClass());
-		steve.setStat(null, show.getHd());
-		
-
+		steve.setStat(PrimaryStat.CHARISMA, show.getChr());
+		steve.setStat(PrimaryStat.CONSTITUTION, show.getCon());
+		steve.setStat(PrimaryStat.MAX_HEALTH, show.getHp());
+		steve.setStat(PrimaryStat.INITIATIVE, show.getInitiative());
+		steve.setStat(PrimaryStat.INTELLIGENCE, show.getIntel());
+		steve.setStat(PrimaryStat.PROFICIENCY, show.getProfBns());
+		steve.setStat(PrimaryStat.SPEED, show.getSpd());
+		steve.setStat(PrimaryStat.STRENGTH, show.getStr());
+		steve.setStat(PrimaryStat.TEMPORARY_HEALTH, show.getTempHp());
+		steve.setStat(PrimaryStat.WISDOM, show.getWis());
+		steve.setStat(PrimaryStat.ARMOR_CLASS, show.getArmClass());
 
 		steve.setCharacterName(null);
 
@@ -49,7 +46,6 @@ public class PlayerUIController implements iMenu.IMenu {
 
 		steve.setRace(null);
 
-		
 		return steve;
 	}
 
@@ -62,16 +58,16 @@ public class PlayerUIController implements iMenu.IMenu {
 
 	}
 
-	private String saveCharSheet(CharSheet c,String path, String encryptKey) {
+	private String saveCharSheet(CharSheet c, String path, String encryptKey) {
 		try {
-			Writer.write(c, path + c.getCharacterName()+ ".json", encryptKey);
+			Writer.write(c, path + c.getCharacterName() + ".json", encryptKey);
 		} catch (IOException e) {
 			return "Save unsuccessful. Check your path and try again.";
 		}
 		return "Save successful.";
 	}
 
-	private CharSheet loadCharSheet(String path,String charName, String encryptKey) {
+	private CharSheet loadCharSheet(String path, String charName, String encryptKey) {
 		CharSheet d = null;
 		try {
 			d = (CharSheet) Writer.read(path + charName + ".json", encryptKey, CharSheet.class);
