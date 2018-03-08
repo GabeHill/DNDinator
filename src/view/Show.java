@@ -1,9 +1,14 @@
 package view;
 
+import java.util.HashMap;
+
 import enums.Currency;
 import enums.DiceSides;
 import enums.PrimaryStat;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -55,6 +60,8 @@ public class Show
 	private TextField[] attackNames;
 	private TextField[] attackBonus;
 	private TextField[] attackDamage;
+	private TextField dmRulesName;
+	private TextField dmRulesDescription;
 	
 	public String getCharacterNameField() 
 	{
@@ -77,7 +84,16 @@ public class Show
 		return returnXP;
 	}
 
-
+	public String getdmRulesName()
+	{
+		return dmRulesName.getText();
+	}
+	
+	public String getdmRulesDesrciption()
+	{
+		return dmRulesDescription.getText();
+	}
+	
 	public String getCharBG() 
 	{
 		return charBG.getText();
@@ -383,7 +399,94 @@ public class Show
 		hd.setLayoutY(320);
 		hd.setPrefWidth(65);
 		
+		Button rollD4 = new Button();
+		Button rollD6 = new Button();
+		Button rollD8 = new Button();
+		Button rollD10 = new Button();
+		Button rollD12 = new Button();
+		Button rollD20 = new Button();
+		Button rollD100 = new Button();
 		
+		rollD4.setText("Roll D4");
+		rollD6.setText("Roll D6");
+		rollD8.setText("Roll D8");
+		rollD10.setText("Roll D10");
+		rollD12.setText("Roll D12");
+		rollD20.setText("Roll D20");
+		rollD100.setText("Roll Percentage Die");
+		
+		rollD4.setLayoutX(625);
+		rollD6.setLayoutX(625);
+		rollD8.setLayoutX(625);
+		rollD10.setLayoutX(625);
+		rollD12.setLayoutX(625);
+		rollD20.setLayoutX(625);
+		rollD100.setLayoutX(625);
+		
+		rollD4.setLayoutY(100);
+		rollD6.setLayoutY(125);
+		rollD8.setLayoutY(150);
+		rollD10.setLayoutY(175);
+		rollD12.setLayoutY(200);
+		rollD20.setLayoutY(225);
+		rollD100.setLayoutY(250);
+		
+		rollD4.setOnAction(new EventHandler<ActionEvent>()
+				{
+					@Override
+					public void handle(ActionEvent arg0) 
+					{
+						displayDice(DiceSides.FOUR,primaryStage);
+					}
+				});
+		rollD6.setOnAction(new EventHandler<ActionEvent>()
+		{
+			@Override
+			public void handle(ActionEvent arg0) 
+			{
+				displayDice(DiceSides.SIX,primaryStage);
+			}
+		});
+		rollD8.setOnAction(new EventHandler<ActionEvent>()
+		{
+			@Override
+			public void handle(ActionEvent arg0) 
+			{
+				displayDice(DiceSides.EIGHT,primaryStage);
+			}
+		});
+		rollD10.setOnAction(new EventHandler<ActionEvent>()
+		{
+			@Override
+			public void handle(ActionEvent arg0) 
+			{
+				displayDice(DiceSides.TEN,primaryStage);
+			}
+		});
+		rollD12.setOnAction(new EventHandler<ActionEvent>()
+		{
+			@Override
+			public void handle(ActionEvent arg0) 
+			{
+				displayDice(DiceSides.TWELVE,primaryStage);
+			}
+		});
+		rollD20.setOnAction(new EventHandler<ActionEvent>()
+		{
+			@Override
+			public void handle(ActionEvent arg0) 
+			{
+				displayDice(DiceSides.TWENTY,primaryStage);
+			}
+		});
+		rollD100.setOnAction(new EventHandler<ActionEvent>()
+		{
+			@Override
+			public void handle(ActionEvent arg0) 
+			{
+				displayDice(DiceSides.HUNDRED,primaryStage);
+			}
+		});
 		//Sets an array for creating textfields within the equipment box for "currency" column
 		//230 x, 590y (+30 for each iteration), 25 prefWidth 
 		currency = new TextField[5];
@@ -439,7 +542,7 @@ public class Show
 			atkDmgY += 25;
 		}
 		
-		thePane.getChildren().addAll(viewSheet,characterNameField,characterRaceField,charClass,charLevel,charAlign,charEXP,charBG,playerName,str,dex,con,intel,wis,chr,armClass,spd, initiative,hp,hd,profBns,tempHp,perTraits,perIdeals,perBonds,perFlaws,additionalTraits, otherPnL,equipment);
+		thePane.getChildren().addAll(viewSheet,characterNameField,characterRaceField,charClass,charLevel,charAlign,charEXP,charBG,playerName,str,dex,con,intel,wis,chr,armClass,spd, initiative,hp,hd,profBns,tempHp,perTraits,perIdeals,perBonds,perFlaws,additionalTraits, otherPnL,equipment,rollD4,rollD6,rollD8,rollD10,rollD12,rollD20,rollD100);
 		
 		//adds each individual TextField[] inside of attack box to screen, as the arrays are all the same size as each other
 		for(int i = 0; i < attackNames.length; i++)
@@ -456,7 +559,6 @@ public class Show
 		primaryStage.sizeToScene();
 		primaryStage.show();
 		
-		displayDice(DiceSides.TWENTY,primaryStage);
 	}
 	
 	//Takes in a character and displays available data based on that character
@@ -773,12 +875,158 @@ public class Show
 		primaryStage.show();
 	}
 	
-	// Initializes the GUI Display by setting up window and adds buttons
-	// that call the Logic methods for Player menu and DM Menu
-	public void initDnDinatorDisplay(Stage primaryStage) {
-		bPane.setCenter(thePane);
-		primaryStage.setTitle("DnDinator");
+	
+	public void displayMainMenu(Stage primaryStage)
+	{
+		Button playerMenu = new Button();
+		Button dmMenu = new Button();
+		
+		playerMenu.setText("Player Menu");
+		playerMenu.setLayoutX(525);
+		playerMenu.setLayoutY(375);
+		playerMenu.setOnAction(new EventHandler<ActionEvent>()
+				{
+					@Override
+					public void handle(ActionEvent arg0) 
+					{
+						displayPlayerMenu(primaryStage);
+					}
+				});
+		
+		dmMenu.setText("Dungeon Master Menu");
+		dmMenu.setLayoutX(675);
+		dmMenu.setLayoutY(375);
+		dmMenu.setOnAction(new EventHandler<ActionEvent>()
+				{
+					@Override
+					public void handle(ActionEvent arg0) 
+					{
+						
+					}
+				});
+		
+		thePane.getChildren().addAll(playerMenu,dmMenu);
 		primaryStage.setScene(theScene);
+		primaryStage.sizeToScene();
+		primaryStage.show();
+	}
+	
+	public void displayDMRulesAndNotes(Stage primaryStage,HashMap<String,String> rules)
+	{
+		dmRulesName = new TextField();
+		dmRulesDescription = new TextField();
+		
+		dmRulesName.setText("Rule Name");
+		dmRulesDescription.setText("Rule Description");
+		
+		dmRulesName.setLayoutX(150);
+		dmRulesDescription.setLayoutX(300);
+		
+		dmRulesDescription.setPrefHeight(800);
+		dmRulesDescription.setPrefWidth(800);
+		
+		int location = 0;
+		for(String key : rules.keySet())
+		{
+			Button theRule = new Button();
+			theRule.setText(key);
+			theRule.setLayoutY(location);
+			theRule.setOnAction(new EventHandler<ActionEvent>()
+					{
+
+						@Override
+						public void handle(ActionEvent arg0) 
+						{
+							dmRulesName = new TextField(key);
+							dmRulesDescription = new TextField(rules.get(key));
+							dmRulesName.setLayoutX(150);
+							dmRulesDescription.setLayoutX(300);
+							
+							dmRulesDescription.setPrefHeight(800);
+							dmRulesDescription.setPrefWidth(800);
+							thePane.getChildren().addAll(dmRulesName,dmRulesDescription);
+							primaryStage.setScene(theScene);
+							primaryStage.sizeToScene();
+							primaryStage.show();
+						}
+						
+					});
+			thePane.getChildren().add(theRule);
+			location += 25;
+		}
+		primaryStage.setScene(theScene);
+		primaryStage.sizeToScene();
+		primaryStage.show();
+	}
+	
+	
+	public void displayPlayerMenu(Stage primaryStage)
+	{
+		Button newCharSheet = new Button();
+		Button editExistingCharSheet = new Button();
+		
+		newCharSheet.setText("Create new Character");
+		newCharSheet.setLayoutX(600);
+		newCharSheet.setLayoutY(375);
+		newCharSheet.setOnAction(new EventHandler<ActionEvent>()
+				{
+					@Override
+					public void handle(ActionEvent arg0) 
+					{
+						displayCleanCharacterSheet(primaryStage);
+					}
+				});
+		
+		editExistingCharSheet.setText("Edit Existing Character");
+		editExistingCharSheet.setLayoutX(600);
+		editExistingCharSheet.setLayoutY(400);
+		editExistingCharSheet.setOnAction(new EventHandler<ActionEvent>()
+				{
+					@Override
+					public void handle(ActionEvent arg0) 
+					{
+						
+					}
+				});
+		
+		thePane.getChildren().addAll(newCharSheet,editExistingCharSheet);
+		primaryStage.setScene(theScene);
+		primaryStage.sizeToScene();
+		primaryStage.show();
+	}
+	
+	public void displayDungeonMaster(Stage primaryStage)
+	{
+		Button newCharSheet = new Button();
+		Button editExistingCharSheet = new Button();
+		
+		newCharSheet.setText("Create new Character");
+		newCharSheet.setLayoutX(600);
+		newCharSheet.setLayoutY(375);
+		newCharSheet.setOnAction(new EventHandler<ActionEvent>()
+				{
+					@Override
+					public void handle(ActionEvent arg0) 
+					{
+						displayCleanCharacterSheet(primaryStage);
+					}
+				});
+		
+		editExistingCharSheet.setText("Edit Existing Character");
+		editExistingCharSheet.setLayoutX(600);
+		editExistingCharSheet.setLayoutY(400);
+		editExistingCharSheet.setOnAction(new EventHandler<ActionEvent>()
+				{
+					@Override
+					public void handle(ActionEvent arg0) 
+					{
+						
+					}
+				});
+		
+		thePane.getChildren().addAll(newCharSheet,editExistingCharSheet);
+		primaryStage.setScene(theScene);
+		primaryStage.sizeToScene();
 		primaryStage.show();
 	}
 }
