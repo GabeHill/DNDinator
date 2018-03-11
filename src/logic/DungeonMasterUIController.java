@@ -10,7 +10,7 @@ public class DungeonMasterUIController extends PlayerUIController implements IMe
 	private GameData options;
 
 	private void setRules() {
-		options.addRule(, null);
+		options.addRule(null, null);
 	}
 	private void createGame(String name) {
 		options = new GameData(name);
