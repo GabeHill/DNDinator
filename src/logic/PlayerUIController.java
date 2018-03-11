@@ -17,7 +17,7 @@ public class PlayerUIController implements IMenu {
 
 	}
 
-	private static CharSheet createCharacter(Stage primaryStage) 
+	public static CharSheet createCharacter(Stage primaryStage) 
 	{
 		
 		CharSheet steve = new CharSheet();
@@ -77,7 +77,7 @@ public class PlayerUIController implements IMenu {
 		
 	}
 
-	private String saveCharSheet(CharSheet c, String path, String encryptKey) 
+	public String saveCharSheet(CharSheet c, String path, String encryptKey) 
 	{
 		try 
 		{
@@ -88,7 +88,7 @@ public class PlayerUIController implements IMenu {
 		return "Save successful.";
 	}
 
-	private CharSheet loadCharSheet(String path, String charName, String encryptKey) {
+	public CharSheet loadCharSheet(String path, String charName, String encryptKey) {
 		CharSheet d = null;
 		try {
 			d = (CharSheet) Writer.read(path + charName + ".json", encryptKey, CharSheet.class);
