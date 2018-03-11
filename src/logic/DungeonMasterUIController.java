@@ -9,9 +9,6 @@ import models.GameData;
 public class DungeonMasterUIController extends PlayerUIController implements IMenu {
 	private GameData options;
 
-	private void setRules() {
-		options.addRule(null, null);
-	}
 	private void createGame(String name) {
 		options = new GameData(name);
 	}
@@ -26,20 +23,10 @@ public class DungeonMasterUIController extends PlayerUIController implements IMe
 		return d;
 	}
 
-
-	private String saveRules(String path, String encryptKey) {
-		try {
-			Writer.write(options, path + options.gameName() + ".json", encryptKey);
-		} catch (IOException e) {
-			return "Save unsuccessful. Check your path and try again.";
-		}
-		return "Save successful.";
-	}
-
 	@Override
 	public void menu() {
 		// TODO Auto-generated method stub
-		
+
 		switch (0) {
 		case 1:
 			setRules();
@@ -56,7 +43,20 @@ public class DungeonMasterUIController extends PlayerUIController implements IMe
 		default:
 			break;
 		}
-		
+
+	}
+
+	private String saveRules(String path, String encryptKey) {
+		try {
+			Writer.write(options, path + options.gameName() + ".json", encryptKey);
+		} catch (IOException e) {
+			return "Save unsuccessful. Check your path and try again.";
+		}
+		return "Save successful.";
+	}
+
+	private void setRules() {
+		options.addRule(null, null);
 	}
 
 }

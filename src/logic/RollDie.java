@@ -1,14 +1,12 @@
 package logic;
 
-import java.util.Random;
-
 import enums.DiceSides;
 
 public class RollDie {
 
 	public static int roll(DiceSides sides) {
-		Random gen = new Random();
-		int luck = gen.nextInt(sides.numOfSides);
+		int luck = (int) (Math.random() * sides.numOfSides);
+
 		return luck + 1;
 	}
 
