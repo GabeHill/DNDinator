@@ -756,7 +756,7 @@ public class Show {
 								public void handle(ActionEvent arg0) 
 								{
 									CharSheet cs = pui.createCharacter(primaryStage);
-									pui.saveCharSheet(cs, cs.getCharacterName(), cs.getPlayerName());
+									pui.saveCharSheet(cs, "./", "dad");
 								}
 							});
 							
@@ -773,7 +773,12 @@ public class Show {
 				thePane.getChildren().clear();
 				do 
 				{
-					
+					TextField theChar = new TextField();
+					theChar.setPromptText("Enter name of the character you wish to load");
+					theChar.setLayoutX(600);
+					theChar.setLayoutY(400);
+					theChar.setPrefWidth(300);
+					displayFilledCharacterSheet(primaryStage,pui.loadCharSheet("./", theChar.getText(), "dad"),true);
 				}while(isDone == false);
 				isDone = false;
 			}
