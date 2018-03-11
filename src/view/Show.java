@@ -703,20 +703,10 @@ public class Show {
 						thePane.getChildren().clear();
 						do 
 						{
-							Button saveBut = new Button();
-							saveBut.setText("Save Character");
-							saveBut.setLayoutX(650);
-							saveBut.setOnAction(new EventHandler<ActionEvent>() 
-							{
-								@Override
-								public void handle(ActionEvent arg0) 
-								{
-								}
-							});
-							thePane.getChildren().add(saveBut);
 							displayPlayerMenu(primaryStage);
 							
 						}while(isDone == false);
+						isDone = false;
 					}
 				});
 		dm.setOnAction(new EventHandler<ActionEvent>()
@@ -724,7 +714,8 @@ public class Show {
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				
+				isDone = false;
+				thePane.getChildren().clear();
 			}
 		});
 		
@@ -753,7 +744,26 @@ public class Show {
 					@Override
 					public void handle(ActionEvent arg0) 
 					{
-						
+						isDone = false;
+						thePane.getChildren().clear();
+						do 
+						{
+							displayCleanCharacterSheet(primaryStage);
+							Button saveBut = new Button();
+							saveBut.setText("Save Character");
+							saveBut.setLayoutX(650);
+							saveBut.setOnAction(new EventHandler<ActionEvent>() 
+							{
+								@Override
+								public void handle(ActionEvent arg0) 
+								{
+									CharSheet cs = pui.createCharacter(primaryStage);
+									pui.saveCharSheet(cs, "./", "dad");
+								}
+							});
+							
+						}while(isDone == false);
+						isDone = false;
 					}
 				});
 		editChar.setOnAction(new EventHandler<ActionEvent>()
@@ -761,7 +771,18 @@ public class Show {
 			@Override
 			public void handle(ActionEvent arg0) 
 			{
-				
+				isDone = false;
+				thePane.getChildren().clear();
+				do 
+				{
+					TextField theChar = new TextField();
+					theChar.setPromptText("Enter name of the character you wish to load");
+					theChar.setLayoutX(600);
+					theChar.setLayoutY(400);
+					theChar.setPrefWidth(300);
+					displayFilledCharacterSheet(primaryStage,pui.loadCharSheet("./", theChar.getText(), "dad"),true);
+				}while(isDone == false);
+				isDone = false;
 			}
 		});
 		
