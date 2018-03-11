@@ -1,7 +1,6 @@
 package view;
 
 import java.util.Arrays;
-
 import enums.Alignment;
 import enums.Currency;
 import enums.DiceSides;
@@ -28,9 +27,12 @@ import models.CharSheet;
 
 public class Show {
 	private BorderPane bPane = new BorderPane();
+	private BorderPane bPane2 = new BorderPane();
 	private Pane thePane = new Pane();
 	private int[] windowSize = { 800, 1200 };
+	private int[] windowSize2 = { 400, 400 };
 	private Scene theScene = new Scene(bPane, windowSize[1], windowSize[0]);
+	private Scene smallScene = new Scene(bPane2, windowSize2[1], windowSize2[0]);
 	private static PlayerUIController pui;
 	private static DungeonMasterUIController dui;
 
@@ -769,6 +771,52 @@ public class Show {
 		primaryStage.show();
 		exitButton(primaryStage);
 	}
+
+	public void displayDMMenu(Stage primaryStage) {
+		
+			Button saveRule = new Button();
+			Button loadRule = new Button();
+			TextField ruleText = new TextField();
+			
+			ruleText.setPromptText("Enter Rules and Notes here");
+			ruleText.setLayoutX(35);
+			ruleText.setLayoutY(625);
+			ruleText.setPrefHeight(138);
+			ruleText.setPrefWidth(165);
+			
+			
+			saveRule.setLayoutX(600);
+			loadRule.setLayoutX(600);
+			
+			saveRule.setLayoutY(400);
+			loadRule.setLayoutY(425);
+			
+			saveRule.setText("Save Rules");
+			loadRule.setText("Load Rules");
+			
+			saveRule.setOnAction(new EventHandler<ActionEvent>()
+					{
+						@Override
+						public void handle(ActionEvent arg0) 
+						{
+							
+						}
+					});
+			loadRule.setOnAction(new EventHandler<ActionEvent>()
+			{
+				@Override
+				public void handle(ActionEvent arg0) 
+				{
+					
+				}
+			});
+			
+			thePane.getChildren().addAll(saveRule,loadRule,ruleText);
+			primaryStage.setScene(smallScene);
+			primaryStage.sizeToScene();
+			primaryStage.show();
+			exitButton(primaryStage);
+		}
 	
 	public boolean getMilestone() {
 		return true;

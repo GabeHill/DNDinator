@@ -5,7 +5,7 @@ import enums.DiceSides;
 public class RollDie {
 
 	public static int roll(DiceSides sides) {
-		int luck = (int) (Math.random() * sides.numOfSides);
+		int luck = (int) (Math.random() * (sides.numOfSides + 1));
 
 		return luck + 1;
 	}

@@ -13,7 +13,7 @@ public class DungeonMasterUIController extends PlayerUIController implements IMe
 		options = new GameData(name);
 	}
 
-	private GameData loadRules(String path, String encryptKey) {
+	public GameData loadRules(String path, String encryptKey) {
 		GameData d = null;
 		try {
 			d = (GameData) Writer.read(path + options.gameName() + ".json", encryptKey, GameData.class);
@@ -46,7 +46,7 @@ public class DungeonMasterUIController extends PlayerUIController implements IMe
 
 	}
 
-	private String saveRules(String path, String encryptKey) {
+	public String saveRules(String path, String encryptKey) {
 		try {
 			Writer.write(options, path + options.gameName() + ".json", encryptKey);
 		} catch (IOException e) {
