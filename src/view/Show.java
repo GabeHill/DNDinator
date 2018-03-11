@@ -8,8 +8,11 @@ import enums.DiceSides;
 import enums.PrimaryStat;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -18,6 +21,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import logic.DungeonMasterUIController;
+import logic.PlayerUIController;
 import logic.RollDie;
 import models.CharSheet;
 
@@ -26,7 +31,11 @@ public class Show {
 	private Pane thePane = new Pane();
 	private int[] windowSize = { 800, 1200 };
 	private Scene theScene = new Scene(bPane, windowSize[1], windowSize[0]);
+	private static PlayerUIController pui;
+	private static DungeonMasterUIController dui;
 
+	private boolean isDone;
+	private boolean isMilestone = false;
 	private TextField characterNameField;
 	private TextField characterRaceField;
 	private ComboBox<String> charAlign;
@@ -59,6 +68,7 @@ public class Show {
 	private TextField[] attackNames;
 	private TextField[] attackBonus;
 	private TextField[] attackDamage;
+	private Button[] dcButtons;
 	
 	private ObservableList<String> alignlist = 
 			FXCollections.observableArrayList(
@@ -70,7 +80,8 @@ public class Show {
 	// Initializes the Display of a fresh character sheet for new Character entry;
 	// returns the character created by the field
 	// (TextFields are defaulted at 150 length and 25 height)
-	public void displayCleanCharacterSheet(Stage primaryStage) {
+	public void displayCleanCharacterSheet(Stage primaryStage) 
+	{
 		ImageView viewSheet = new ImageView();
 		viewSheet.setImage(new Image("file:Character Sheet (Official) - Copy_Page_1.png", 790, 790, true, true));
 
@@ -297,6 +308,28 @@ public class Show {
 			attackDamage[i].setLayoutY(atkDmgY);
 			atkDmgY += 25;
 		}
+		
+		DiceSides[] sides = DiceSides.values();
+		int sidesY = 0;
+		dcButtons = new Button[sides.length];
+		for (int i = 0; i < dcButtons.length; i++ )
+		{
+			dcButtons[i] = new Button();
+			dcButtons[i].setText(sides[i].toString());
+			dcButtons[i].setLayoutX(615);
+			dcButtons[i].setLayoutY(sidesY);
+			DiceSides s = sides[i];
+			dcButtons[i].setOnAction(new EventHandler<ActionEvent>()
+					{
+						@Override
+						public void handle(ActionEvent arg0) 
+						{
+							displayDice(s,primaryStage);
+						}
+					});
+			sidesY += 25;
+			thePane.getChildren().add(dcButtons[i]);
+		}
 
 		thePane.getChildren().addAll(viewSheet, characterNameField, characterRaceField, charClass, charLevel, charAlign,
 				charEXP, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd, initiative, hp, hd, profBns,
@@ -315,8 +348,7 @@ public class Show {
 		primaryStage.setScene(theScene);
 		primaryStage.sizeToScene();
 		primaryStage.show();
-
-		displayDice(DiceSides.TWENTY, primaryStage);
+		exitButton(primaryStage);
 	}
 
 	public void displayDice(DiceSides ds, Stage primaryStage) {
@@ -603,6 +635,28 @@ public class Show {
 			attackDamage[i].setLayoutY(atkDmgY);
 			atkDmgY += 25;
 		}
+		
+		DiceSides[] sides = DiceSides.values();
+		int sidesY = 0;
+		dcButtons = new Button[sides.length];
+		for (int i = 0; i < dcButtons.length; i++ )
+		{
+			dcButtons[i] = new Button();
+			dcButtons[i].setText(sides[i].toString());
+			dcButtons[i].setLayoutX(615);
+			dcButtons[i].setLayoutY(sidesY);
+			DiceSides s = sides[i];
+			dcButtons[i].setOnAction(new EventHandler<ActionEvent>()
+					{
+						@Override
+						public void handle(ActionEvent arg0) 
+						{
+							displayDice(s,primaryStage);
+						}
+					});
+			sidesY += 25;
+			thePane.getChildren().add(dcButtons[i]);
+		}
 
 		thePane.getChildren().addAll(viewSheet, characterNameField, characterRaceField, charClass, charLevel, charAlign,
 				charEXP, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd, initiative, hp, hd, profBns,
@@ -621,7 +675,99 @@ public class Show {
 		primaryStage.setScene(theScene);
 		primaryStage.sizeToScene();
 		primaryStage.show();
-
+		exitButton(primaryStage);
+	}
+	
+	public void displayMainMenu(Stage primaryStage)
+	{
+		Button pm = new Button();
+		Button dm = new Button();
+		
+		pm.setLayoutX(600);
+		dm.setLayoutX(600);
+		
+		pm.setLayoutY(400);
+		dm.setLayoutY(425);
+		
+		pm.setText("Player Menu");
+		dm.setText("Dungeon Master Menu");
+		
+		pm.setOnAction(new EventHandler<ActionEvent>()
+				{
+					@Override
+					public void handle(ActionEvent event) 
+					{
+						isDone = false;
+						thePane.getChildren().clear();
+						do 
+						{
+							Button saveBut = new Button();
+							saveBut.setText("Save Character");
+							saveBut.setLayoutX(650);
+							saveBut.setOnAction(new EventHandler<ActionEvent>() 
+							{
+								@Override
+								public void handle(ActionEvent arg0) 
+								{
+								}
+							});
+							thePane.getChildren().add(saveBut);
+							displayPlayerMenu(primaryStage);
+							
+						}while(isDone == false);
+					}
+				});
+		dm.setOnAction(new EventHandler<ActionEvent>()
+		{
+			@Override
+			public void handle(ActionEvent event) 
+			{
+				
+			}
+		});
+		
+		thePane.getChildren().addAll(pm,dm);
+		primaryStage.setScene(theScene);
+		primaryStage.sizeToScene();
+		primaryStage.show();
+	}
+	
+	public void displayPlayerMenu(Stage primaryStage)
+	{
+		Button newChar = new Button();
+		Button editChar = new Button();
+		
+		newChar.setLayoutX(600);
+		editChar.setLayoutX(600);
+		
+		newChar.setLayoutY(400);
+		editChar.setLayoutY(425);
+		
+		newChar.setText("Create Character");
+		editChar.setText("Edit Existing Character");
+		
+		newChar.setOnAction(new EventHandler<ActionEvent>()
+				{
+					@Override
+					public void handle(ActionEvent arg0) 
+					{
+						
+					}
+				});
+		editChar.setOnAction(new EventHandler<ActionEvent>()
+		{
+			@Override
+			public void handle(ActionEvent arg0) 
+			{
+				
+			}
+		});
+		
+		thePane.getChildren().addAll(newChar,editChar);
+		primaryStage.setScene(theScene);
+		primaryStage.sizeToScene();
+		primaryStage.show();
+		exitButton(primaryStage);
 	}
 	
 	public boolean getMilestone() {
@@ -668,7 +814,7 @@ public class Show {
 		}
 		return charCurrency;
 	}
-	
+
 	public int getChr() {
 		int Chr = Integer.parseInt(chr.getText());
 		return Chr;
@@ -762,10 +908,36 @@ public class Show {
 		return Wis;
 	}
 	
-	public String getItems() {
+	public String getItems() 
+	{
 		return equipment.getText(); 
 	}
 	
+	public void exitButton(Stage primaryStage)
+	{
+		
+		Button exit = new Button();
+		exit.setLayoutX(1100);
+		exit.setText("Exit");
+		exit.setOnAction(new EventHandler<ActionEvent>()
+				{
+					@Override
+					public void handle(ActionEvent arg0) 
+					{
+						thePane.getChildren().clear();
+						setIsDone(true);
+					}
+				});
+		thePane.getChildren().add(exit);
+		primaryStage.setScene(theScene);
+		primaryStage.sizeToScene();
+		primaryStage.show();
+	}
+	
+	public void setIsDone(boolean bah)
+	{
+		isDone = bah;
+	}
 	// Initializes the GUI Display by setting up window and adds buttons
 	// that call the Logic methods for Player menu and DM Menu
 	public void initDnDinatorDisplay(Stage primaryStage) {

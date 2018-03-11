@@ -6,6 +6,7 @@ import enums.Currency;
 import enums.PrimaryStat;
 import files.Writer;
 import iMenu.IMenu;
+import javafx.stage.Stage;
 import models.CharSheet;
 import view.Show;
 
@@ -16,8 +17,9 @@ public class PlayerUIController implements IMenu {
 
 	}
 
-	private static CharSheet createCharacter() {
-
+	private static CharSheet createCharacter(Stage primaryStage) 
+	{
+		
 		CharSheet steve = new CharSheet();
 
 		steve.setItems(show.getItems());
@@ -70,12 +72,15 @@ public class PlayerUIController implements IMenu {
 	}
 
 	@Override
-	public void menu() {
-
+	public void menu() 
+	{
+		
 	}
 
-	private String saveCharSheet(CharSheet c, String path, String encryptKey) {
-		try {
+	private String saveCharSheet(CharSheet c, String path, String encryptKey) 
+	{
+		try 
+		{
 			Writer.write(c, path + c.getCharacterName() + ".json", encryptKey);
 		} catch (IOException e) {
 			return "Save unsuccessful. Check your path and try again.";
