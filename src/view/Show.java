@@ -995,6 +995,7 @@ public class Show {
 		for (int i = 0; i < o.length; i++) {
 			is[i] = (int) o[i];
 		}
+		
 		return is;
 	}
 	
