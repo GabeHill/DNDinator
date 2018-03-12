@@ -19,7 +19,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -46,9 +45,6 @@ public class Show {
 	// private int[] windowSize2 = { 200, 415 };
 	private Scene theScene = new Scene(bPane, windowSize[1], windowSize[0]);
 	// private Scene smallScene = new Scene(bPane2, windowSize2[1], windowSize2[0]);
-	private static PlayerUIController pui = new PlayerUIController();
-	private static DungeonMasterUIController dui = new DungeonMasterUIController();
-
 	private Text diceFace = new Text();
 	private CheckBox isMilestoneCheck = new CheckBox("Milestone Levelling");
 	private TextField characterNameField = new TextField();
@@ -369,7 +365,7 @@ public class Show {
 			@Override
 			public void handle(ActionEvent arg0) {
 				CharSheet cs = PlayerUIController.createCharacter(primaryStage);
-				pui.saveCharSheet(cs, "./", "dad");
+				PlayerUIController.saveCharSheet(cs, "./", "dad");
 			}
 		});
 
@@ -700,7 +696,7 @@ public class Show {
 			@Override
 			public void handle(ActionEvent arg0) {
 				CharSheet cs = PlayerUIController.createCharacter(primaryStage);
-				pui.saveCharSheet(cs, "./", "dad");
+				PlayerUIController.saveCharSheet(cs, "./", "dad");
 			}
 		});
 		thePane.getChildren().addAll(viewSheet, characterNameField, characterRaceField, charClass, charLevel, charAlign,
@@ -814,7 +810,7 @@ public class Show {
 				enterForLoad.setOnAction(new EventHandler<ActionEvent>() {
 					@Override
 					public void handle(ActionEvent arg0) {
-						displayFilledCharacterSheet(primaryStage, pui.loadCharSheet("./", theChar.getText(), "dad"),
+						displayFilledCharacterSheet(primaryStage, PlayerUIController.loadCharSheet("./", theChar.getText(), "dad"),
 								true);
 					}
 				});
@@ -881,7 +877,7 @@ public class Show {
 		saveRule.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-				dui.saveRules("./", "encryptKey");
+				DungeonMasterUIController.saveRules("./", "encryptKey");
 			}
 		});
 		loadRule.setOnAction(new EventHandler<ActionEvent>() {
@@ -902,7 +898,7 @@ public class Show {
 				submitPathBttn.setOnAction(new EventHandler<ActionEvent>() {
 					@Override
 					public void handle(ActionEvent arg0) {
-						GameData loadData = dui.loadRules(path.getText(), "encryptKey");
+						GameData loadData = DungeonMasterUIController.loadRules(path.getText(), "encryptKey");
 						ruleText.setText(loadData.getRules());
 					}
 				});

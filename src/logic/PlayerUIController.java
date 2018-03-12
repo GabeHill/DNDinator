@@ -74,7 +74,7 @@ public class PlayerUIController implements IMenu {
 		}
 	}
 
-	public String saveCharSheet(CharSheet c, String path, String encryptKey) {
+	public static String saveCharSheet(CharSheet c, String path, String encryptKey) {
 		try {
 			String nam = c.getCharacterName();
 			System.out.println(nam);
@@ -92,7 +92,7 @@ public class PlayerUIController implements IMenu {
 		return "Save successful.";
 	}
 
-	public CharSheet loadCharSheet(String path, String charName, String encryptKey) {
+	public static  CharSheet loadCharSheet(String path, String charName, String encryptKey) {
 		CharSheet d = null;
 		try {
 			String p = path + charName + ".json";

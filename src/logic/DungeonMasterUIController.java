@@ -10,13 +10,13 @@ import iMenu.IMenu;
 import models.GameData;
 
 public class DungeonMasterUIController extends PlayerUIController implements IMenu {
-	private GameData options = new GameData("Game");
+	private static GameData options = new GameData("Game");
 
 	private void createGame(String name) {
 		options = new GameData(name);
 	}
 
-	public GameData loadRules(String path, String encryptKey) {
+	public static GameData loadRules(String path, String encryptKey) {
 		GameData d = null;
 		try {
 			String p = path + ".json";
@@ -45,7 +45,7 @@ public class DungeonMasterUIController extends PlayerUIController implements IMe
 		methodReturn = name;
 	}
 
-	public String saveRules(String path, String encryptKey) {
+	public static String saveRules(String path, String encryptKey) {
 		try {
 			ObjectOutputStream oot = new ObjectOutputStream(new FileOutputStream(path + options.gameName() + ".json"));
 			oot.writeObject(options);
@@ -77,7 +77,7 @@ public class DungeonMasterUIController extends PlayerUIController implements IMe
 
 	@Override
 	public void menu() {
-		// TODO Auto-generated method stub
+		
 
 		switch (0) {
 		case 1:
