@@ -72,7 +72,7 @@ public class Show {
 	private TextField wis;
 	private TextField chr;
 	private TextField otherPnL;
-	private TextField equipment;
+	private TextArea equipment;
 	private TextField armClass;
 	private TextField spd;
 	private TextField initiative;
@@ -229,7 +229,8 @@ public class Show {
 		otherPnL.setPrefHeight(138);
 		otherPnL.setPrefWidth(165);
 
-		equipment = new TextField();
+		equipment = new TextArea();
+		equipment.setWrapText(true);
 		equipment.setPromptText("Equipment");
 		equipment.setLayoutX(268);
 		equipment.setLayoutY(590);
@@ -498,9 +499,6 @@ public class Show {
 		profBns.setPrefWidth(35);
 
 		str = new TextField("" + c.getStats(PrimaryStat.STRENGTH));
-		characterNameField.setEditable(canEdit);
-
-		str = new TextField("" + c.getStats(PrimaryStat.STRENGTH));
 		str.setEditable(canEdit);
 		str.setLayoutX(40);
 		str.setLayoutY(155);
@@ -554,7 +552,7 @@ public class Show {
 		otherPnL.setPrefHeight(138);
 		otherPnL.setPrefWidth(165);
 
-		equipment = new TextField();
+//		equipment = new TextArea();
 		equipment.setEditable(canEdit);
 		equipment.setLayoutX(268);
 		equipment.setLayoutY(590);
