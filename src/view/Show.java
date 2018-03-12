@@ -77,7 +77,7 @@ public class Show {
 	private TextField hp = new TextField();
 	private TextField tempHp = new TextField();
 	private TextField hd = new TextField();
-	private TextField[] currency;
+	private TextField[] currency = new TextField[5];
 	private TextField[] attackNames;
 	private TextField[] attackBonus;
 	private TextField[] attackDamage;
@@ -277,10 +277,9 @@ public class Show {
 		// Sets an array for creating textfields within the equipment box for "currency"
 		// column
 		// 230 x, 590y (+30 for each iteration), 25 prefWidth
-		currency = new TextField[5];
 		int currencyY = 590;
 		for (int i = 0; i < currency.length; i++) {
-			currency[i] = new TextField();
+//		currency[i] = new TextField();
 			currency[i].setLayoutX(220);
 			currency[i].setLayoutY(currencyY);
 			currency[i].setPrefWidth(47);
@@ -933,9 +932,9 @@ public class Show {
 	}
 
 	public int[] getCurrency() {
-		int[] charCurrency = new int[currency.length];
+		int[] charCurrency = new int[5];
 		for (int i = 0; i < charCurrency.length; i++) {
-			charCurrency[i] = Integer.parseInt(currency.toString());
+			charCurrency[i] = Integer.parseInt(currency[i].getText());
 		}
 		return charCurrency;
 	}
