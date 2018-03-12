@@ -46,7 +46,7 @@ public class Show {
 	private TextField charEXP;
 	private TextField charClass;
 	private TextField charLevel;
-	private TextField charBG; 
+	private TextField charBG;
 	private TextField playerName;
 	private TextField perTraits;
 	private TextField perIdeals;
@@ -73,19 +73,16 @@ public class Show {
 	private TextField[] attackBonus;
 	private TextField[] attackDamage;
 	private Button[] dcButtons;
-	
-	private ObservableList<String> alignlist = 
-			FXCollections.observableArrayList(
-					"Chaotic Evil","Neutral Evil","Lawful Evil","Chaotic Neutral",
-					"True Neutral","Lawful Neutral","Chaotic Good","Neutral Good",
-					"Lawful Good"
-					);
+
+	private ObservableList<String> alignlist = FXCollections.observableArrayList("Chaotic Evil", "Neutral Evil",
+			"Lawful Evil", "Chaotic Neutral", "True Neutral", "Lawful Neutral", "Chaotic Good", "Neutral Good",
+			"Lawful Good");
 
 	// Initializes the Display of a fresh character sheet for new Character entry;
 	// returns the character created by the field
 	// (TextFields are defaulted at 150 length and 25 height)
-	public void displayCleanCharacterSheet(Stage primaryStage) 
-	{
+	public void displayCleanCharacterSheet(Stage primaryStage) {
+		bPane.setCenter(thePane);
 		ImageView viewSheet = new ImageView();
 		viewSheet.setImage(new Image("file:Character Sheet (Official) - Copy_Page_1.png", 790, 790, true, true));
 
@@ -106,7 +103,7 @@ public class Show {
 		charAlign.setLayoutX(370);
 		charAlign.setLayoutY(72);
 		charAlign.setPrefWidth(120);
-		
+
 		charEXP = new TextField();
 		charEXP.setPromptText("Exp/Milestone");
 		charEXP.setLayoutX(490);
@@ -312,26 +309,32 @@ public class Show {
 			attackDamage[i].setLayoutY(atkDmgY);
 			atkDmgY += 25;
 		}
-		
+
 		DiceSides[] sides = DiceSides.values();
-		int sidesY = 0;
+		int sidesY = 300;
+		boolean left = true;
 		dcButtons = new Button[sides.length];
-		for (int i = 0; i < dcButtons.length; i++ )
-		{
+		for (int i = 0; i < dcButtons.length; i++) {
 			dcButtons[i] = new Button();
 			dcButtons[i].setText(sides[i].toString());
-			dcButtons[i].setLayoutX(615);
-			dcButtons[i].setLayoutY(sidesY);
+			if (left) {
+				dcButtons[i].setLayoutX(615);
+				sidesY += 25;
+				dcButtons[i].setLayoutY(sidesY);
+				dcButtons[i].setMinWidth(75);
+			} else {
+				dcButtons[i].setLayoutX(690);
+				dcButtons[i].setLayoutY(sidesY);
+				dcButtons[i].setMinWidth(75);
+			}
 			DiceSides s = sides[i];
-			dcButtons[i].setOnAction(new EventHandler<ActionEvent>()
-					{
-						@Override
-						public void handle(ActionEvent arg0) 
-						{
-							displayDice(s,primaryStage);
-						}
-					});
-			sidesY += 25;
+			dcButtons[i].setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent arg0) {
+					displayDice(s, primaryStage);
+				}
+			});
+			left = !left;
 			thePane.getChildren().add(dcButtons[i]);
 		}
 
@@ -355,17 +358,19 @@ public class Show {
 		exitButton(primaryStage);
 	}
 
+	Text diceFace = new Text();
+
 	public void displayDice(DiceSides ds, Stage primaryStage) {
-		Circle c = new Circle(900, 400, 50, Paint.valueOf("Purple"));
+		Circle c = new Circle(900, 400, 75, Paint.valueOf("Purple"));
 		RollDie rd = new RollDie();
 
-		Text diceFace = new Text();
+		thePane.getChildren().remove(diceFace);
 		diceFace.setText("" + rd.roll(ds));
-		diceFace.setLayoutX(890);
-		diceFace.setLayoutY(400);
-		diceFace.setFont(Font.font ("Verdana", 90));
-//		diceFace.setScaleX(4);
-//		diceFace.setScaleY(4);
+		diceFace.setLayoutX(845);
+		diceFace.setLayoutY(430);
+		diceFace.setFont(Font.font("Verdana", 90));
+		// diceFace.setScaleX(4);
+		// diceFace.setScaleY(4);
 		diceFace.setFill(Color.WHITESMOKE);
 		diceFace.setStroke(Color.BLACK);
 		thePane.getChildren().addAll(c, diceFace);
@@ -643,25 +648,22 @@ public class Show {
 			attackDamage[i].setLayoutY(atkDmgY);
 			atkDmgY += 25;
 		}
-		
+
 		DiceSides[] sides = DiceSides.values();
 		int sidesY = 0;
 		dcButtons = new Button[sides.length];
-		for (int i = 0; i < dcButtons.length; i++ )
-		{
+		for (int i = 0; i < dcButtons.length; i++) {
 			dcButtons[i] = new Button();
 			dcButtons[i].setText(sides[i].toString());
 			dcButtons[i].setLayoutX(615);
 			dcButtons[i].setLayoutY(sidesY);
 			DiceSides s = sides[i];
-			dcButtons[i].setOnAction(new EventHandler<ActionEvent>()
-					{
-						@Override
-						public void handle(ActionEvent arg0) 
-						{
-							displayDice(s,primaryStage);
-						}
-					});
+			dcButtons[i].setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent arg0) {
+					displayDice(s, primaryStage);
+				}
+			});
 			sidesY += 25;
 			thePane.getChildren().add(dcButtons[i]);
 		}
@@ -685,9 +687,8 @@ public class Show {
 		primaryStage.show();
 		exitButton(primaryStage);
 	}
-	
-	public void displayMainMenu(Stage primaryStage)
-	{
+
+	public void displayMainMenu(Stage primaryStage) {
 		bPane2.setCenter(thePane);
 		Button pm = new Button();
 		pm.setScaleX(3);
@@ -695,42 +696,37 @@ public class Show {
 		Button dm = new Button();
 		dm.setScaleX(3);
 		dm.setScaleY(3);
-		
+
 		pm.setLayoutX(175);
 		dm.setLayoutX(142);
-		
+
 		pm.setLayoutY(50);
 		dm.setLayoutY(130);
-		
+
 		pm.setText("Player Menu");
 		dm.setText("Dungeon Master Menu");
-		
-		pm.setOnAction(new EventHandler<ActionEvent>()
-				{
-					@Override
-					public void handle(ActionEvent event) 
-					{
-						displayPlayerMenu(primaryStage);
-					}
-				});
-		dm.setOnAction(new EventHandler<ActionEvent>()
-		{
+
+		pm.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
-			public void handle(ActionEvent event) 
-			{
+			public void handle(ActionEvent event) {
+				displayPlayerMenu(primaryStage);
+			}
+		});
+		dm.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
 				thePane.getChildren().clear();
 			}
 		});
-		
-		thePane.getChildren().addAll(pm,dm);
+
+		thePane.getChildren().addAll(pm, dm);
 		primaryStage.setScene(smallScene);
 		primaryStage.sizeToScene();
 		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
-	
-	public void displayPlayerMenu(Stage primaryStage)
-	{
+
+	public void displayPlayerMenu(Stage primaryStage) {
 		bPane2.setCenter(thePane);
 		Button newChar = new Button();
 		newChar.setScaleX(3);
@@ -738,58 +734,52 @@ public class Show {
 		Button editChar = new Button();
 		editChar.setScaleX(3);
 		editChar.setScaleY(3);
-		
+
 		newChar.setLayoutX(175);
 		editChar.setLayoutX(142);
-		
+
 		newChar.setLayoutY(50);
 		editChar.setLayoutY(130);
-		
-//		newChar.setLayoutX(600);
-//		editChar.setLayoutX(600);
-//		
-//		newChar.setLayoutY(400);
-//		editChar.setLayoutY(425);
-		
+
+		// newChar.setLayoutX(600);
+		// editChar.setLayoutX(600);
+		//
+		// newChar.setLayoutY(400);
+		// editChar.setLayoutY(425);
+
 		newChar.setText("Create Character");
 		editChar.setText("Edit Existing Character");
-		
-		newChar.setOnAction(new EventHandler<ActionEvent>()
-				{
+
+		newChar.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				thePane.getChildren().clear();
+				displayCleanCharacterSheet(primaryStage);
+				Button saveBut = new Button();
+				saveBut.setText("Save Character");
+				saveBut.setLayoutX(650);
+				saveBut.setOnAction(new EventHandler<ActionEvent>() {
 					@Override
-					public void handle(ActionEvent arg0) 
-					{
-						thePane.getChildren().clear();
-							displayCleanCharacterSheet(primaryStage);
-							Button saveBut = new Button();
-							saveBut.setText("Save Character");
-							saveBut.setLayoutX(650);
-							saveBut.setOnAction(new EventHandler<ActionEvent>() 
-							{
-								@Override
-								public void handle(ActionEvent arg0) 
-								{
-									CharSheet cs = pui.createCharacter(primaryStage);
-									pui.saveCharSheet(cs, "./", "dad");
-								}
-							});
+					public void handle(ActionEvent arg0) {
+						CharSheet cs = pui.createCharacter(primaryStage);
+						pui.saveCharSheet(cs, "./", "dad");
 					}
 				});
-		editChar.setOnAction(new EventHandler<ActionEvent>()
-		{
-			@Override
-			public void handle(ActionEvent arg0) 
-			{
-					TextField theChar = new TextField();
-					theChar.setPromptText("Enter name of the character you wish to load");
-					theChar.setLayoutX(600);
-					theChar.setLayoutY(400);
-					theChar.setPrefWidth(300);
-					displayFilledCharacterSheet(primaryStage,pui.loadCharSheet("./", theChar.getText(), "dad"),true);
 			}
 		});
-		
-		thePane.getChildren().addAll(newChar,editChar);
+		editChar.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				TextField theChar = new TextField();
+				theChar.setPromptText("Enter name of the character you wish to load");
+				theChar.setLayoutX(600);
+				theChar.setLayoutY(400);
+				theChar.setPrefWidth(300);
+				displayFilledCharacterSheet(primaryStage, pui.loadCharSheet("./", theChar.getText(), "dad"), true);
+			}
+		});
+
+		thePane.getChildren().addAll(newChar, editChar);
 		primaryStage.setScene(smallScene);
 		primaryStage.sizeToScene();
 		primaryStage.show();
@@ -797,51 +787,46 @@ public class Show {
 	}
 
 	public void displayDMMenu(Stage primaryStage) {
-		
-			Button saveRule = new Button();
-			Button loadRule = new Button();
-			TextField ruleText = new TextField();
-			
-			ruleText.setPromptText("Enter Rules and Notes here");
-			ruleText.setLayoutX(35);
-			ruleText.setLayoutY(625);
-			ruleText.setPrefHeight(138);
-			ruleText.setPrefWidth(165);
-			
-			
-			saveRule.setLayoutX(600);
-			loadRule.setLayoutX(600);
-			
-			saveRule.setLayoutY(400);
-			loadRule.setLayoutY(425);
-			
-			saveRule.setText("Save Rules");
-			loadRule.setText("Load Rules");
-			
-			saveRule.setOnAction(new EventHandler<ActionEvent>()
-					{
-						@Override
-						public void handle(ActionEvent arg0) 
-						{
-							dui.saveRules("./", "encryptKey");
-						}
-					});
-			loadRule.setOnAction(new EventHandler<ActionEvent>()
-			{
-				@Override
-				public void handle(ActionEvent arg0) 
-				{
-					
-				}
-			});
-			
-			thePane.getChildren().addAll(saveRule,loadRule,ruleText);
-			primaryStage.setScene(smallScene);
-			primaryStage.sizeToScene();
-			primaryStage.show();
-			exitButton(primaryStage);
-		}
-	
+
+		Button saveRule = new Button();
+		Button loadRule = new Button();
+		TextField ruleText = new TextField();
+
+		ruleText.setPromptText("Enter Rules and Notes here");
+		ruleText.setLayoutX(35);
+		ruleText.setLayoutY(625);
+		ruleText.setPrefHeight(138);
+		ruleText.setPrefWidth(165);
+
+		saveRule.setLayoutX(600);
+		loadRule.setLayoutX(600);
+
+		saveRule.setLayoutY(400);
+		loadRule.setLayoutY(425);
+
+		saveRule.setText("Save Rules");
+		loadRule.setText("Load Rules");
+
+		saveRule.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				dui.saveRules("./", "encryptKey");
+			}
+		});
+		loadRule.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+
+			}
+		});
+
+		thePane.getChildren().addAll(saveRule, loadRule, ruleText);
+		primaryStage.setScene(smallScene);
+		primaryStage.sizeToScene();
+		primaryStage.show();
+		exitButton(primaryStage);
+	}
+
 	public boolean getMilestone() {
 		return true;
 	}
@@ -849,28 +834,29 @@ public class Show {
 	public String getCharacterNameField() {
 		return characterNameField.getText();
 	}
-	
+
 	public String getCharacterRaceField() {
 		return characterRaceField.getText();
 	}
-	
+
 	public Alignment getCharAlign() {
-		for(Alignment a : Alignment.values()) {
-			if(a.toString().equalsIgnoreCase(charAlign.getValue().toString())) {
-			return a;}
-		} 
+		for (Alignment a : Alignment.values()) {
+			if (a.toString().equalsIgnoreCase(charAlign.getValue().toString())) {
+				return a;
+			}
+		}
 		return null;
 	}
-	
+
 	public int getCharEXP() {
 		int returnXP = Integer.parseInt(charEXP.getText());
 		return returnXP;
 	}
-	
+
 	public String getCharClass() {
 		return charClass.getText();
 	}
-	
+
 	public int getCharLevel() {
 		return Integer.parseInt(charLevel.getText());
 	}
@@ -881,7 +867,7 @@ public class Show {
 
 	public int[] getCurrency() {
 		int[] charCurrency = new int[currency.length];
-		for(int i = 0; i < charCurrency.length; i++) {
+		for (int i = 0; i < charCurrency.length; i++) {
 			charCurrency[i] = Integer.parseInt(currency.toString());
 		}
 		return charCurrency;
@@ -905,7 +891,7 @@ public class Show {
 	public String getEquipment() {
 		return equipment.getText();
 	}
-	
+
 	public int getArmClass() {
 		int armorClass = Integer.parseInt(armClass.getText());
 		return armorClass;
@@ -979,37 +965,33 @@ public class Show {
 		int Wis = Integer.parseInt(wis.getText());
 		return Wis;
 	}
-	
-	public String getItems() 
-	{
-		return equipment.getText(); 
+
+	public String getItems() {
+		return equipment.getText();
 	}
-	
-	public void exitButton(Stage primaryStage)
-	{
-		
+
+	public void exitButton(Stage primaryStage) {
+
 		Button exit = new Button();
 		exit.setLayoutX(1100);
 		exit.setText("Exit");
-		exit.setOnAction(new EventHandler<ActionEvent>()
-				{
-					@Override
-					public void handle(ActionEvent arg0) 
-					{
-						thePane.getChildren().clear();
-						setIsDone(true);
-					}
-				});
+		exit.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				thePane.getChildren().clear();
+				setIsDone(true);
+			}
+		});
 		thePane.getChildren().add(exit);
 		primaryStage.setScene(theScene);
 		primaryStage.sizeToScene();
 		primaryStage.show();
 	}
-	
-	public void setIsDone(boolean bah)
-	{
+
+	public void setIsDone(boolean bah) {
 		isDone = bah;
 	}
+
 	// Initializes the GUI Display by setting up window and adds buttons
 	// that call the Logic methods for Player menu and DM Menu
 	public void initDnDinatorDisplay(Stage primaryStage) {
