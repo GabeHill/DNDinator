@@ -2,6 +2,7 @@ package main;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import models.CharSheet;
 import view.Show;
 
 public class Main extends Application
@@ -19,6 +20,7 @@ public class Main extends Application
 		primaryShow.initDnDinatorDisplay(primaryStage);
 		primaryShow.displayMainMenu(primaryStage);
 //		primaryShow.displayCleanCharacterSheet(primaryStage);
+//		primaryShow.displayFilledCharacterSheet(primaryStage, new CharSheet(), false);
 //		primaryShow.displayDMMenu(primaryStage);
 	}
 

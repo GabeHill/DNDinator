@@ -29,12 +29,12 @@ import models.CharSheet;
 
 public class Show {
 	private BorderPane bPane = new BorderPane();
-	private BorderPane bPane2 = new BorderPane();
+//	private BorderPane bPane2 = new BorderPane();
 	private Pane thePane = new Pane();
 	private int[] windowSize = { 800, 1200 };
-	private int[] windowSize2 = { 200, 415 };
+//	private int[] windowSize2 = { 200, 415 };
 	private Scene theScene = new Scene(bPane, windowSize[1], windowSize[0]);
-	private Scene smallScene = new Scene(bPane2, windowSize2[1], windowSize2[0]);
+//	private Scene smallScene = new Scene(bPane2, windowSize2[1], windowSize2[0]);
 	private static PlayerUIController pui;
 	private static DungeonMasterUIController dui;
 
@@ -689,7 +689,7 @@ public class Show {
 	}
 
 	public void displayMainMenu(Stage primaryStage) {
-		bPane2.setCenter(thePane);
+//		bPane2.setCenter(thePane);
 		Button pm = new Button();
 		pm.setScaleX(3);
 		pm.setScaleY(3);
@@ -720,14 +720,15 @@ public class Show {
 		});
 
 		thePane.getChildren().addAll(pm, dm);
-		primaryStage.setScene(smallScene);
+		primaryStage.setScene(theScene);
 		primaryStage.sizeToScene();
 		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
 
 	public void displayPlayerMenu(Stage primaryStage) {
-		bPane2.setCenter(thePane);
+//		bPane2.setCenter(thePane);
+		
 		Button newChar = new Button();
 		newChar.setScaleX(3);
 		newChar.setScaleY(3);
@@ -780,7 +781,7 @@ public class Show {
 		});
 
 		thePane.getChildren().addAll(newChar, editChar);
-		primaryStage.setScene(smallScene);
+		primaryStage.setScene(theScene);
 		primaryStage.sizeToScene();
 		primaryStage.show();
 		exitButton(primaryStage);
@@ -821,7 +822,7 @@ public class Show {
 		});
 
 		thePane.getChildren().addAll(saveRule, loadRule, ruleText);
-		primaryStage.setScene(smallScene);
+		primaryStage.setScene(theScene);
 		primaryStage.sizeToScene();
 		primaryStage.show();
 		exitButton(primaryStage);
