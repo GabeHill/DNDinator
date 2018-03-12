@@ -349,7 +349,7 @@ public class Show {
 			@Override
 			public void handle(ActionEvent arg0) 
 			{
-				CharSheet cs = pui.createCharacter(primaryStage);
+				CharSheet cs = PlayerUIController.createCharacter(primaryStage);
 				pui.saveCharSheet(cs, "./", "dad");
 			}
 		});
@@ -726,11 +726,11 @@ public class Show {
 		dm.setScaleY(3);
 		dm.minWidth(400);
 
-		pm.setLayoutX(175);
-		dm.setLayoutX(142);
+		pm.setLayoutX(575);
+		dm.setLayoutX(525);
 
-		pm.setLayoutY(50);
-		dm.setLayoutY(130);
+		pm.setLayoutY(100);
+		dm.setLayoutY(200);
 
 		pm.setText("Player Menu");
 		dm.setText("Dungeon Master Menu");
