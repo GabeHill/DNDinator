@@ -38,6 +38,7 @@ public class Show {
 	private static PlayerUIController pui;
 	private static DungeonMasterUIController dui;
 
+	private Text diceFace = new Text();
 	private boolean isDone;
 	private boolean isMilestone = false;
 	private TextField characterNameField;
@@ -337,10 +338,22 @@ public class Show {
 			left = !left;
 			thePane.getChildren().add(dcButtons[i]);
 		}
+		
+		Button saveBut = new Button();
+		saveBut.setText("Save Character");
+		saveBut.setLayoutX(650);
+		saveBut.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) 
+			{
+				CharSheet cs = pui.createCharacter(primaryStage);
+				pui.saveCharSheet(cs, "./", "dad");
+			}
+		});
 
 		thePane.getChildren().addAll(viewSheet, characterNameField, characterRaceField, charClass, charLevel, charAlign,
 				charEXP, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd, initiative, hp, hd, profBns,
-				tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits, otherPnL, equipment);
+				tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits, otherPnL, equipment,saveBut);
 
 		// adds each individual TextField[] inside of attack box to screen, as the
 		// arrays are all the same size as each other
@@ -357,8 +370,6 @@ public class Show {
 		primaryStage.show();
 		exitButton(primaryStage);
 	}
-
-	Text diceFace = new Text();
 
 	public void displayDice(DiceSides ds, Stage primaryStage) {
 		Circle c = new Circle(900, 400, 75, Paint.valueOf("Purple"));
@@ -669,10 +680,20 @@ public class Show {
 			sidesY += 25;
 			thePane.getChildren().add(dcButtons[i]);
 		}
-
+		Button saveBut = new Button();
+		saveBut.setText("Save Character");
+		saveBut.setLayoutX(650);
+		saveBut.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) 
+			{
+				CharSheet cs = pui.createCharacter(primaryStage);
+				pui.saveCharSheet(cs, "./", "dad");
+			}
+		});
 		thePane.getChildren().addAll(viewSheet, characterNameField, characterRaceField, charClass, charLevel, charAlign,
 				charEXP, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd, initiative, hp, hd, profBns,
-				tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits, otherPnL, equipment);
+				tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits, otherPnL, equipment,saveBut);
 
 		// adds each individual TextField[] inside of attack box to screen, as the
 		// arrays are all the same size as each other
@@ -688,6 +709,7 @@ public class Show {
 		primaryStage.sizeToScene();
 		primaryStage.show();
 		exitButton(primaryStage);
+		
 	}
 
 	public void displayMainMenu(Stage primaryStage) {
