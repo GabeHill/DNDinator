@@ -1,6 +1,5 @@
 package view;
 
-import java.util.Arrays;
 import enums.Alignment;
 import enums.Currency;
 import enums.DiceSides;
@@ -10,9 +9,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -30,7 +29,7 @@ public class Show {
 	private BorderPane bPane2 = new BorderPane();
 	private Pane thePane = new Pane();
 	private int[] windowSize = { 800, 1200 };
-	private int[] windowSize2 = { 400, 400 };
+	private int[] windowSize2 = { 200, 415 };
 	private Scene theScene = new Scene(bPane, windowSize[1], windowSize[0]);
 	private Scene smallScene = new Scene(bPane2, windowSize2[1], windowSize2[0]);
 	private static PlayerUIController pui;
@@ -682,14 +681,19 @@ public class Show {
 	
 	public void displayMainMenu(Stage primaryStage)
 	{
+		bPane2.setCenter(thePane);
 		Button pm = new Button();
+		pm.setScaleX(3);
+		pm.setScaleY(3);
 		Button dm = new Button();
+		dm.setScaleX(3);
+		dm.setScaleY(3);
 		
-		pm.setLayoutX(600);
-		dm.setLayoutX(600);
+		pm.setLayoutX(175);
+		dm.setLayoutX(142);
 		
-		pm.setLayoutY(400);
-		dm.setLayoutY(425);
+		pm.setLayoutY(50);
+		dm.setLayoutY(130);
 		
 		pm.setText("Player Menu");
 		dm.setText("Dungeon Master Menu");
@@ -720,13 +724,15 @@ public class Show {
 		});
 		
 		thePane.getChildren().addAll(pm,dm);
-		primaryStage.setScene(theScene);
+		primaryStage.setScene(smallScene);
 		primaryStage.sizeToScene();
+		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
 	
 	public void displayPlayerMenu(Stage primaryStage)
 	{
+		bPane.setCenter(thePane);
 		Button newChar = new Button();
 		Button editChar = new Button();
 		
@@ -820,12 +826,11 @@ public class Show {
 						@Override
 						public void handle(ActionEvent arg0) 
 						{
-							
+							dui.saveRules("./", "encryptKey");
 						}
 					});
 			loadRule.setOnAction(new EventHandler<ActionEvent>()
 			{
-				//little comment 
 				@Override
 				public void handle(ActionEvent arg0) 
 				{

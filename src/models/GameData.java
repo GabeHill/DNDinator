@@ -13,7 +13,7 @@ public class GameData {
 	 *
 	 * @param name
 	 *
-	 *            Sets the name of the current game the parameter.
+	 *            Sets the name of the current game parameter.
 	 */
 	public GameData(String name) {
 		setGameName(name);

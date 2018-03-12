@@ -17,7 +17,8 @@ public class Main extends Application
 	{
 		Show primaryShow = new Show();
 		primaryShow.initDnDinatorDisplay(primaryStage);
-		primaryShow.displayCleanCharacterSheet(primaryStage);
+		primaryShow.displayMainMenu(primaryStage);
+//		primaryShow.displayCleanCharacterSheet(primaryStage);
 //		primaryShow.displayDMMenu(primaryStage);
 	}
 
