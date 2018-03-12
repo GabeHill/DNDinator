@@ -39,64 +39,60 @@ import models.CharSheet;
 import models.GameData;
 
 public class Show {
-	private BorderPane bPane = new BorderPane();
-	// private BorderPane bPane2 = new BorderPane();
-	private Pane thePane = new Pane();
-	private int[] windowSize = { 800, 1200 };
-	// private int[] windowSize2 = { 200, 415 };
-	private Scene theScene = new Scene(bPane, windowSize[1], windowSize[0]);
-	// private Scene smallScene = new Scene(bPane2, windowSize2[1], windowSize2[0]);
-	private static PlayerUIController pui = new PlayerUIController();
-	private static DungeonMasterUIController dui = new DungeonMasterUIController();
+	private static BorderPane bPane = new BorderPane();
+	private static Pane thePane = new Pane();
+	private static int[] windowSize = { 800, 1200 };
+	private static Scene theScene = new Scene(bPane, windowSize[1], windowSize[0]);
+	
 
-	private Text diceFace = new Text();
-	private CheckBox isMilestoneCheck = new CheckBox("Milestone Levelling");
-	private TextField characterNameField = new TextField();
-	private TextField characterRaceField = new TextField();
-	private ComboBox<String> charAlign = new ComboBox<>();
-	private TextField charEXP = new TextField();
-	private TextField charClass = new TextField();
-	private TextField charLevel = new TextField();
-	private TextField charBG = new TextField();
-	private TextField playerName = new TextField();
-	private TextArea perTraits = new TextArea();
-	private TextArea perIdeals = new TextArea();
-	private TextArea perBonds = new TextArea();
-	private TextArea perFlaws = new TextArea();
-	private TextArea additionalTraits = new TextArea();
-	private TextField profBns = new TextField();
-	private TextField str = new TextField();
-	private TextField dex = new TextField();
-	private TextField con = new TextField();
-	private TextField intel = new TextField();
-	private TextField wis = new TextField();
-	private TextField chr = new TextField();
-	private TextArea otherPnL = new TextArea();
-	private TextArea equipment = new TextArea();
-	private TextField armClass = new TextField();
-	private TextField spd = new TextField();
-	private TextField initiative = new TextField();
-	private TextField hp = new TextField();
-	private TextField tempHp = new TextField();
-	private TextField hd = new TextField();
-	private TextField[] currency = new TextField[] { new TextField(), new TextField(), new TextField(), new TextField(),
+	private static Text diceFace = new Text();
+	private static CheckBox isMilestoneCheck = new CheckBox("Milestone Levelling");
+	private static TextField characterNameField = new TextField();
+	private static TextField characterRaceField = new TextField();
+	private static ComboBox<String> charAlign = new ComboBox<>();
+	private static TextField charEXP = new TextField();
+	private static TextField charClass = new TextField();
+	private static TextField charLevel = new TextField();
+	private static TextField charBG = new TextField();
+	private static TextField playerName = new TextField();
+	private static TextArea perTraits = new TextArea();
+	private static TextArea perIdeals = new TextArea();
+	private static TextArea perBonds = new TextArea();
+	private static TextArea perFlaws = new TextArea();
+	private static TextArea additionalTraits = new TextArea();
+	private static TextField profBns = new TextField();
+	private static TextField str = new TextField();
+	private static TextField dex = new TextField();
+	private static TextField con = new TextField();
+	private static TextField intel = new TextField();
+	private static TextField wis = new TextField();
+	private static TextField chr = new TextField();
+	private static TextArea otherPnL = new TextArea();
+	private static TextArea equipment = new TextArea();
+	private static TextField armClass = new TextField();
+	private static TextField spd = new TextField();
+	private static TextField initiative = new TextField();
+	private static TextField hp = new TextField();
+	private static TextField tempHp = new TextField();
+	private static TextField hd = new TextField();
+	private static TextField[] currency = new TextField[] { new TextField(), new TextField(), new TextField(), new TextField(),
 			new TextField() };
-	private TextField[] attackNames = new TextField[] { new TextField(), new TextField(), new TextField(),
+	private static TextField[] attackNames = new TextField[] { new TextField(), new TextField(), new TextField(),
 			new TextField(), new TextField(), new TextField(), new TextField() };
-	private TextField[] attackBonus = new TextField[] { new TextField(), new TextField(), new TextField(),
+	private static TextField[] attackBonus = new TextField[] { new TextField(), new TextField(), new TextField(),
 			new TextField(), new TextField(), new TextField(), new TextField() };
-	private TextField[] attackDamage = new TextField[] { new TextField(), new TextField(), new TextField(),
+	private static TextField[] attackDamage = new TextField[] { new TextField(), new TextField(), new TextField(),
 			new TextField(), new TextField(), new TextField(), new TextField() };
-	private Button[] dcButtons;
+	private static Button[] dcButtons;
 
-	private ObservableList<String> alignlist = FXCollections.observableArrayList("Chaotic Evil", "Neutral Evil",
+	private static ObservableList<String> alignlist = FXCollections.observableArrayList("Chaotic Evil", "Neutral Evil",
 			"Lawful Evil", "Chaotic Neutral", "True Neutral", "Lawful Neutral", "Chaotic Good", "Neutral Good",
 			"Lawful Good");
 
 	// Initializes the Display of a fresh character sheet for new Character entry;
 	// returns the character created by the field
 	// (TextFields are defaulted at 150 length and 25 height)
-	public void displayCleanCharacterSheet(Stage primaryStage) {
+	public static void displayCleanCharacterSheet(Stage primaryStage) {
 		bPane.setCenter(thePane);
 		ImageView viewSheet = new ImageView();
 		viewSheet.setImage(new Image("file:Character Sheet (Official) - Copy_Page_1.png", 790, 790, true, true));
@@ -362,21 +358,12 @@ public class Show {
 			thePane.getChildren().add(dcButtons[i]);
 		}
 
-		Button saveBut = new Button();
-		saveBut.setText("Save Character");
-		saveBut.setLayoutX(650);
-		saveBut.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent arg0) {
-				CharSheet cs = PlayerUIController.createCharacter(primaryStage);
-				pui.saveCharSheet(cs, "./", "dad");
-			}
-		});
+	
 
 		thePane.getChildren().addAll(viewSheet, characterNameField, characterRaceField, charClass, charLevel, charAlign,
 				charEXP, isMilestoneCheck, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd,
 				initiative, hp, hd, profBns, tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits,
-				otherPnL, equipment, saveBut);
+				otherPnL, equipment);
 
 		// adds each individual TextField[] inside of attack box to screen, as the
 		// arrays are all the same size as each other
@@ -394,7 +381,7 @@ public class Show {
 		exitButton(primaryStage);
 	}
 
-	public void displayDice(DiceSides ds, Stage primaryStage) {
+	public static void displayDice(DiceSides ds, Stage primaryStage) {
 		Circle c = new Circle(900, 400, 75, Paint.valueOf("Purple"));
 		thePane.getChildren().remove(diceFace);
 		diceFace.setText("" + RollDie.roll(ds));
@@ -414,7 +401,7 @@ public class Show {
 	// Takes in a character and displays available data based on that character
 	// the boolean that is passed in affects whether the text boxes can be edited or
 	// note
-	public void displayFilledCharacterSheet(Stage primaryStage, CharSheet c, boolean canEdit) {
+	public static void displayFilledCharacterSheet(Stage primaryStage, CharSheet c, boolean canEdit) {
 		thePane.getChildren().clear();
 		ImageView viewSheet = new ImageView();
 		viewSheet.setImage(new Image("file:Character Sheet (Official) - Copy_Page_1.png", 790, 790, true, true));
@@ -689,7 +676,6 @@ public class Show {
 			@Override
 			public void handle(ActionEvent arg0) {
 				CharSheet cs = PlayerUIController.createCharacter(primaryStage);
-				pui.saveCharSheet(cs, "./", "dad");
 			}
 		});
 		thePane.getChildren().addAll(viewSheet, characterNameField, characterRaceField, charClass, charLevel, charAlign,
@@ -713,7 +699,7 @@ public class Show {
 
 	}
 
-	public void displayMainMenu(Stage primaryStage) {
+	public static void displayMainMenu(Stage primaryStage) {
 		// bPane2.setCenter(thePane);
 		Button pm = new Button();
 		pm.setScaleX(3);
@@ -755,7 +741,7 @@ public class Show {
 		primaryStage.show();
 	}
 
-	public void displayPlayerMenu(Stage primaryStage) {
+	public static void displayPlayerMenu(Stage primaryStage) {
 		// bPane2.setCenter(thePane);
 
 		Button newChar = new Button();
@@ -771,20 +757,15 @@ public class Show {
 		newChar.setLayoutY(100);
 		editChar.setLayoutY(200);
 
-		// newChar.setLayoutX(600);
-		// editChar.setLayoutX(600);
-		//
-		// newChar.setLayoutY(400);
-		// editChar.setLayoutY(425);
-
 		newChar.setText("Create Character");
 		editChar.setText("Edit Existing Character");
 
 		newChar.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
-			public void handle(ActionEvent arg0) {
+			public void handle(ActionEvent arg0) 
+			{
 				thePane.getChildren().clear();
-				displayCleanCharacterSheet(primaryStage);
+				savePlayerChar(primaryStage,PlayerUIController.createCharacter(primaryStage));
 			}
 		});
 		editChar.setOnAction(new EventHandler<ActionEvent>() {
@@ -802,9 +783,10 @@ public class Show {
 				enterForLoad.setLayoutY(425);
 				enterForLoad.setOnAction(new EventHandler<ActionEvent>() {
 					@Override
-					public void handle(ActionEvent arg0) {
-						displayFilledCharacterSheet(primaryStage, pui.loadCharSheet("./", theChar.getText(), "dad"),
-								true);
+					public void handle(ActionEvent arg0) 
+					{
+						thePane.getChildren().clear();
+						displayFilledCharacterSheet(primaryStage,PlayerUIController.loadCharSheet("./", theChar.getText(), "dad"),true);
 					}
 				});
 				thePane.getChildren().addAll(theChar, enterForLoad);
@@ -818,7 +800,7 @@ public class Show {
 		exitButton(primaryStage);
 	}
 
-	public void displayDMMenu(Stage primaryStage) {
+	public static void displayDMMenu(Stage primaryStage) {
 
 		new VBox();
 		new HBox();
@@ -865,7 +847,6 @@ public class Show {
 		saveRule.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-				dui.saveRules("./", "encryptKey");
 			}
 		});
 		loadRule.setOnAction(new EventHandler<ActionEvent>() {
@@ -886,8 +867,7 @@ public class Show {
 				submitPathBttn.setOnAction(new EventHandler<ActionEvent>() {
 					@Override
 					public void handle(ActionEvent arg0) {
-						GameData loadData = dui.loadRules(path.getText(), "encryptKey");
-						ruleText.setText(loadData.getRules());
+			
 					}
 				});
 				thePane.getChildren().addAll(path, submitPathBttn);
@@ -901,19 +881,19 @@ public class Show {
 		exitButton(primaryStage);
 	}
 
-	public boolean getMilestone() {
+	public static boolean getMilestone() {
 		return isMilestoneCheck.selectedProperty() != null;
 	}
 
-	public String getCharacterNameField() {
+	public static String getCharacterNameField() {
 		return nullCheck(characterNameField.getText());
 	}
 
-	public String getCharacterRaceField() {
+	public static String getCharacterRaceField() {
 		return nullCheck(characterRaceField.getText());
 	}
 
-	public Alignment getCharAlign() {
+	public static Alignment getCharAlign() {
 		for (Alignment a : Alignment.values()) {
 			if (a.toString().equalsIgnoreCase(charAlign.getSelectionModel().toString())) {
 				return a;
@@ -923,23 +903,23 @@ public class Show {
 	}
 
 	// ahhh
-	public int getCharEXP() {
+	public static int getCharEXP() {
 		return emptyCheck(charEXP.getText());
 	}
 
-	public String getCharClass() {
+	public static String getCharClass() {
 		return nullCheck(charClass.getText());
 	}
 
-	public int getCharLevel() {
+	public static int getCharLevel() {
 		return emptyCheck(charLevel.getText());
 	}
 
-	public String getCharBG() {
+	public static String getCharBG() {
 		return nullCheck(charBG.getText());
 	}
 
-	public int[] getCurrency() {
+	public static int[] getCurrency() {
 		LinkedList<Integer> charCurrency = new LinkedList<>();
 
 		for (TextField i : currency) {
@@ -958,102 +938,105 @@ public class Show {
 		return is;
 	}
 
-	public int getChr() {
+	public static int getChr() {
 		return emptyCheck(chr.getText());
 	}
 
-	public int getCon() {
+	public static int getCon() {
 		return emptyCheck(con.getText());
 	}
 
-	public int getDex() {
+	public static int getDex() {
 		return emptyCheck(dex.getText());
 	}
 
-	public String getEquipment() {
+	public static String getEquipment() {
 		return nullCheck(equipment.getText());
 	}
 
-	public int getArmClass() {
+	public static int getArmClass() {
 		return emptyCheck(armClass.getText());
 	}
 
-	public String getHd() {
+	public static String getHd() {
 		return hd.getText();
 	}
 
-	public int getMaxHp() {
+	public static int getMaxHp() {
 		return emptyCheck(hp.getText());
 
 	}
 
-	public int getInitiative() {
+	public static int getInitiative() {
 		return emptyCheck(initiative.getText());
 	}
 
-	public int getIntel() {
+	public static int getIntel() {
 		return emptyCheck(intel.getText());
 	}
 
-	public String getOtherPnL() {
+	public static String getOtherPnL() {
 		return nullCheck(otherPnL.getText());
 	}
 
-	public String getPerBonds() {
+	public static String getPerBonds() {
 		return nullCheck(perBonds.getText());
 	}
 
-	public String getPerFlaws() {
+	public static String getPerFlaws() {
 		return nullCheck(perFlaws.getText());
 	}
 
-	public String getPerIdeals() {
+	public static String getPerIdeals() {
 		return nullCheck(perIdeals.getText());
 	}
 
-	public String getPerTraits() {
+	public static String getPerTraits() {
 		return nullCheck(perTraits.getText());
 	}
 
-	public String getPlayerName() {
+	public static String getPlayerName() {
 		return nullCheck(playerName.getText());
 	}
 
-	public int getProfBns() {
+	public static int getProfBns() {
 		return emptyCheck(profBns.getText());
 
 	}
 
-	public int getSpd() {
+	public static int getSpd() {
 		return emptyCheck(spd.getText());
 
 	}
 
-	public int getStr() {
+	public static int getStr() {
 		return emptyCheck(str.getText());
 	}
 
-	public int getTempHp() {
+	public static int getTempHp() {
 		return emptyCheck(tempHp.getText());
 	}
 
-	public int getWis() {
+	public static int getWis() {
 		return emptyCheck(wis.getText());
 	}
 
-	public String getItems() {
+	public static String getItems() 
+	{
 		String item = nullCheck(equipment.getText());
 		return item;
 	}
 
-	private String nullCheck(String s) {
-		if (s != null) {
+	private static String nullCheck(String s) 
+	{
+		if (s != null) 
+		{
 			return s;
 		}
 		return "Empty";
 	}
 
-	private int emptyCheck(String s) {
+	private static int emptyCheck(String s) {
 		String y = nullCheck(s);
 		int ret = 0;
 		if (y.equals("Empty")) {
@@ -1068,30 +1051,34 @@ public class Show {
 		}
 	}
 
-	public void exitButton(Stage primaryStage) {
+	public static void exitButton(Stage primaryStage) 
+	{
+		
+	}
 
-		Button exit = new Button();
-		exit.setLayoutX(1100);
-		exit.setText("Exit");
-		exit.setOnAction(new EventHandler<ActionEvent>() {
+	public static void savePlayerChar(Stage primaryStage, CharSheet Char)
+	{
+		Button saveBut = new Button();
+		saveBut.setText("Save Character");
+		saveBut.setLayoutX(650);
+		saveBut.setOnAction(new EventHandler<ActionEvent>() 
+		{
 			@Override
-			public void handle(ActionEvent arg0) {
-				thePane.getChildren().clear();
-				setIsDone(true);
+			public void handle(ActionEvent arg0) 
+			{
+				PlayerUIController.saveCharSheet(Char, "./", "dad");
 			}
 		});
-		thePane.getChildren().add(exit);
+		thePane.getChildren().add(saveBut);
 		primaryStage.setScene(theScene);
 		primaryStage.sizeToScene();
 		primaryStage.show();
 	}
-
-	public void setIsDone(boolean bah) {
-	}
+	
 
 	// Initializes the GUI Display by setting up window and adds buttons
 	// that call the Logic methods for Player menu and DM Menu
-	public void initDnDinatorDisplay(Stage primaryStage) {
+	public static void initDnDinatorDisplay(Stage primaryStage) {
 		bPane.setCenter(thePane);
 		primaryStage.setTitle("DnDinator");
 		primaryStage.setScene(theScene);

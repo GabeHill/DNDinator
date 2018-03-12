@@ -16,12 +16,7 @@ public class Main extends Application
 	@Override
 	public void start(Stage primaryStage) throws Exception 
 	{
-		Show primaryShow = new Show();
-		primaryShow.initDnDinatorDisplay(primaryStage);
-		primaryShow.displayMainMenu(primaryStage);
-//		primaryShow.displayCleanCharacterSheet(primaryStage);
-//		primaryShow.displayFilledCharacterSheet(primaryStage, new CharSheet(), false);
-//		primaryShow.displayDMMenu(primaryStage);
+		Show.displayMainMenu(primaryStage);
 	}
 
 

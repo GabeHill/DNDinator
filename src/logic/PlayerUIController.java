@@ -13,59 +13,63 @@ import javafx.stage.Stage;
 import models.CharSheet;
 import view.Show;
 
-public class PlayerUIController implements IMenu {
-	static Show show = new Show();
-	public String methodReturn = "";
+public class PlayerUIController implements IMenu 
+{
+	public static String methodReturn = "";
 
-	public void run() {
+	public static void run() 
+	{
 
 	}
 
-	public static CharSheet createCharacter(Stage primaryStage) {
+	public static CharSheet createCharacter(Stage primaryStage) 
+	{
+		Show.displayCleanCharacterSheet(primaryStage);
 
 		CharSheet steve = new CharSheet();
 
-		steve.setItems(show.getItems());
+		steve.setItems(Show.getItems());
 
-		steve.setMilestoneLeveling(show.getMilestone());
+		steve.setMilestoneLeveling(Show.getMilestone());
 
-		steve.setOccupation(show.getCharClass());
+		steve.setOccupation(Show.getCharClass());
 
-		steve.setPlayerName(show.getPlayerName());
+		steve.setPlayerName(Show.getPlayerName());
 
-		steve.setRace(show.getCharacterRaceField());
+		steve.setRace(Show.getCharacterRaceField());
 
-		steve.setBackground(show.getCharBG());
+		steve.setBackground(Show.getCharBG());
 
-		steve.setCharacterName(show.getCharacterNameField());
+		steve.setCharacterName(Show.getCharacterNameField());
 
-		steve.changeAlignment(show.getCharAlign());
+		steve.changeAlignment(Show.getCharAlign());
 
-		steve.addOtherData("Hit Die", show.getHd() + "");
+		steve.addOtherData("Hit Die", Show.getHd() + "");
 
-		int[] muns = show.getCurrency();
+		int[] muns = Show.getCurrency();
 		steve.setMoney(Currency.CP, muns[0]);
 		steve.setMoney(Currency.EP, muns[1]);
 		steve.setMoney(Currency.GP, muns[2]);
 		steve.setMoney(Currency.PP, muns[3]);
 		steve.setMoney(Currency.SP, muns[4]);
 
-		steve.setStat(PrimaryStat.CHARISMA, show.getChr());
-		steve.setStat(PrimaryStat.CONSTITUTION, show.getCon());
-		steve.setStat(PrimaryStat.MAX_HEALTH, show.getMaxHp());
-		steve.setStat(PrimaryStat.INITIATIVE, show.getInitiative());
-		steve.setStat(PrimaryStat.INTELLIGENCE, show.getIntel());
-		steve.setStat(PrimaryStat.PROFICIENCY, show.getProfBns());
-		steve.setStat(PrimaryStat.SPEED, show.getSpd());
-		steve.setStat(PrimaryStat.STRENGTH, show.getStr());
-		steve.setStat(PrimaryStat.TEMPORARY_HEALTH, show.getTempHp());
-		steve.setStat(PrimaryStat.WISDOM, show.getWis());
-		steve.setStat(PrimaryStat.ARMOR_CLASS, show.getArmClass());
+		steve.setStat(PrimaryStat.CHARISMA, Show.getChr());
+		steve.setStat(PrimaryStat.CONSTITUTION, Show.getCon());
+		steve.setStat(PrimaryStat.MAX_HEALTH, Show.getMaxHp());
+		steve.setStat(PrimaryStat.INITIATIVE, Show.getInitiative());
+		steve.setStat(PrimaryStat.INTELLIGENCE, Show.getIntel());
+		steve.setStat(PrimaryStat.PROFICIENCY, Show.getProfBns());
+		steve.setStat(PrimaryStat.SPEED, Show.getSpd());
+		steve.setStat(PrimaryStat.STRENGTH, Show.getStr());
+		steve.setStat(PrimaryStat.TEMPORARY_HEALTH, Show.getTempHp());
+		steve.setStat(PrimaryStat.WISDOM, Show.getWis());
+		steve.setStat(PrimaryStat.ARMOR_CLASS, Show.getArmClass());
 
 		return steve;
 	}
 
-	static void updateLevel(CharSheet steve, int a) {
+	public static void updateLevel(CharSheet steve, int a) 
+	{
 
 		if (steve.isMilestoneLeveling()) {
 			steve.levelUp(a);
@@ -74,7 +78,7 @@ public class PlayerUIController implements IMenu {
 		}
 	}
 
-	public String saveCharSheet(CharSheet c, String path, String encryptKey) {
+	public static String saveCharSheet(CharSheet c, String path, String encryptKey) {
 		try {
 			String nam = c.getCharacterName();
 			System.out.println(nam);
@@ -92,7 +96,7 @@ public class PlayerUIController implements IMenu {
 		return "Save successful.";
 	}
 
-	public CharSheet loadCharSheet(String path, String charName, String encryptKey) {
+	public static CharSheet loadCharSheet(String path, String charName, String encryptKey) {
 		CharSheet d = null;
 		try {
 			String p = path + charName + ".json";
@@ -112,7 +116,8 @@ public class PlayerUIController implements IMenu {
 	}
 
 	@Override
-	public void menu() {
-
+	public void menu() 
+	{
+		
 	}
 }
