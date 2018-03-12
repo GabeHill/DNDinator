@@ -693,9 +693,11 @@ public class Show {
 		Button pm = new Button();
 		pm.setScaleX(3);
 		pm.setScaleY(3);
+		pm.minWidth(400);
 		Button dm = new Button();
 		dm.setScaleX(3);
 		dm.setScaleY(3);
+		dm.minWidth(400);
 
 		pm.setLayoutX(175);
 		dm.setLayoutX(142);
@@ -709,6 +711,7 @@ public class Show {
 		pm.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
+				thePane.getChildren().clear();
 				displayPlayerMenu(primaryStage);
 			}
 		});
