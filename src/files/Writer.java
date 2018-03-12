@@ -2,6 +2,7 @@ package files;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
@@ -27,7 +28,9 @@ public class Writer {
 		out = AES.encrypt(out, key);
 
 		try {
-			Files.write(Paths.get(path), out.getBytes(), StandardOpenOption.CREATE);
+			Path p = Paths.get(path);
+			byte[] b = out.getBytes();
+			Files.write(p, b, StandardOpenOption.CREATE);
 		} catch (IOException e) {
 			throw new IOException("Check your filepath and try again.");
 		}

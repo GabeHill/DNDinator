@@ -1,10 +1,13 @@
 package logic;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import enums.Currency;
 import enums.PrimaryStat;
-import files.Writer;
 import iMenu.IMenu;
 import javafx.stage.Stage;
 import models.CharSheet;
@@ -38,9 +41,9 @@ public class PlayerUIController implements IMenu {
 
 		steve.changeAlignment(show.getCharAlign());
 
-		// steve.addOtherData("Hit Die",show.getHd()+"");
+		// steve.addOtherData("Hit Die", show.getHd() + "");
 
-		Integer[] muns = show.getCurrency();
+		int[] muns = show.getCurrency();
 		steve.setMoney(Currency.CP, muns[0]);
 		steve.setMoney(Currency.EP, muns[1]);
 		steve.setMoney(Currency.GP, muns[2]);
@@ -73,7 +76,11 @@ public class PlayerUIController implements IMenu {
 
 	public String saveCharSheet(CharSheet c, String path, String encryptKey) {
 		try {
-			Writer.write(c, path + c.getCharacterName() + ".json", encryptKey);
+			ObjectOutputStream oot = new ObjectOutputStream(
+					new FileOutputStream(path + c.getCharacterName() + ".json"));
+			oot.writeObject(c);
+			oot.close();
+			// Writer.write(c, path + c.getCharacterName() + ".json", encryptKey);
 		} catch (IOException e) {
 			return "Save unsuccessful. Check your path and try again.";
 		}
@@ -83,9 +90,15 @@ public class PlayerUIController implements IMenu {
 	public CharSheet loadCharSheet(String path, String charName, String encryptKey) {
 		CharSheet d = null;
 		try {
-			d = (CharSheet) Writer.read(path + charName + ".json", encryptKey, CharSheet.class);
+			ObjectInputStream iin = new ObjectInputStream(new FileInputStream(path + charName + ".json"));
+			d = (CharSheet) iin.readObject();
+			iin.close();
+			// d = (CharSheet) Writer.read(path + charName + ".json", encryptKey,
+			// CharSheet.class);
 		} catch (IOException e) {
 			return new CharSheet();
+		} catch (ClassNotFoundException e) {
+			return null;
 		}
 		return d;
 	}

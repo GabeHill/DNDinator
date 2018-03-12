@@ -1,13 +1,18 @@
 package models;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Set;
 
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.SortedList;
 
-public class GameData {
+public class GameData implements Serializable {
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 8141584616053889416L;
 	private HashMap<String, CharSheet> characters = new HashMap<>();
 	private String gameName = "Game";
 	private String rules = "";
@@ -65,7 +70,7 @@ public class GameData {
 	}
 
 	/**
-	 * 
+	 *
 	 * @return ObservableList of Characters
 	 */
 	public ObservableList<CharSheet> getCharList() {

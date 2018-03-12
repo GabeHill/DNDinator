@@ -46,8 +46,8 @@ public class Show {
 	// private int[] windowSize2 = { 200, 415 };
 	private Scene theScene = new Scene(bPane, windowSize[1], windowSize[0]);
 	// private Scene smallScene = new Scene(bPane2, windowSize2[1], windowSize2[0]);
-	private static PlayerUIController pui;
-	private static DungeonMasterUIController dui;
+	private static PlayerUIController pui = new PlayerUIController();
+	private static DungeonMasterUIController dui = new DungeonMasterUIController();
 
 	private Text diceFace = new Text();
 	private CheckBox isMilestoneCheck = new CheckBox("Milestone Levelling");
@@ -79,7 +79,8 @@ public class Show {
 	private TextField hp = new TextField();
 	private TextField tempHp = new TextField();
 	private TextField hd = new TextField();
-	private TextField[] currency = new TextField[5];
+	private TextField[] currency = new TextField[] { new TextField(), new TextField(), new TextField(), new TextField(),
+			new TextField() };
 	private TextField[] attackNames;
 	private TextField[] attackBonus;
 	private TextField[] attackDamage;
@@ -934,16 +935,23 @@ public class Show {
 		return nullCheck(charBG.getText());
 	}
 
-	public Integer[] getCurrency() {
+	public int[] getCurrency() {
 		LinkedList<Integer> charCurrency = new LinkedList<>();
 
 		for (TextField i : currency) {
-			charCurrency.add(Integer.parseInt(i.getText()));
+			if (i == null || i.getText().isEmpty()) {
+				charCurrency.add(0);
+			} else {
+				charCurrency.add(Integer.parseInt(i.getText()));
+				// System.out.println(i);
+			}
 		}
-		// for (int i = 0; i < charCurrency.length; i++) {
-		// charCurrency[i] = emptyCheck(nullCheck(currency[i].toString()));
-		// }
-		return (Integer[]) charCurrency.toArray();
+		Object[] o = charCurrency.toArray();
+		int[] is = new int[o.length];
+		for (int i = 0; i < o.length; i++) {
+			is[i] = (int) o[i];
+		}
+		return is;
 	}
 
 	public int getChr() {

@@ -1,5 +1,7 @@
 package models;
 
+import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -8,26 +10,40 @@ import enums.BonusStat;
 import enums.Currency;
 import enums.PrimaryStat;
 
-public class CharSheet {
+public class CharSheet implements Serializable {
+
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -3706052982620858209L;
 
 	private static final int[] mods = { -5, -4, -4, -3, -3, -2, -2, -1, -1, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7,
 			7, 8, 8, 9, 9, 10 };
 
-	private Alignment alignment;
-	private Map<String, Integer> counters;
+	private Alignment alignment = Alignment.TRUE_NEUTRAL;
+	private Map<String, Integer> counters = new HashMap<>();
 	private boolean milestoneLeveling = false;
-	private Map<Currency, Integer> money;
-	private String occupation, playerName, characterName, background, race;
-	private Map<String, String> spells, otherData;
-	private String items;
-	private StatsMap stats, bonuses;
+	private Map<Currency, Integer> money = new HashMap<>();
+	private String occupation = "Failure", playerName = "Player", characterName = "Character", background = "Noob",
+			race = "Nerd";
+	private Map<String, String> spells = new HashMap<>(), otherData = new HashMap<>();
+	private String items = "";
+	private StatsMap stats = new StatsMap(), bonuses = new StatsMap();
 	private int xp = 0, level = 1;
 
 	/**
 	 * Creates the object. Sets default values.
 	 */
 	public CharSheet() {
-
+		for (Currency i : Currency.values()) {
+			setMoney(i, 0);
+		}
+		for (PrimaryStat i : PrimaryStat.values()) {
+			setStat(i, 0);
+		}
+		for (BonusStat i : BonusStat.values()) {
+			setBonus(i, 0);
+		}
 	}
 
 	/**
@@ -268,10 +284,7 @@ public class CharSheet {
 	 *            Uses bonus to change the appropriate bonus by changeBy.
 	 */
 	public void setBonus(BonusStat bonus, int num) {
-		if (bonuses.putIfAbsent(bonus, num) != null) {
-			bonuses.remove(bonus);
-			bonuses.put(bonus, num);
-		}
+		bonuses.replace(bonus, num);
 	}
 
 	/**
@@ -292,10 +305,8 @@ public class CharSheet {
 	 *            Modifies counter name by changeBy.
 	 */
 	public void setCounter(String name, int num) {
-		if (counters.putIfAbsent(name, num) != null) {
-			counters.remove(name);
-			counters.put(name, num);
-		}
+		counters.replace(name, num);
+
 	}
 
 	/**
@@ -328,8 +339,7 @@ public class CharSheet {
 	 *            much you change it.
 	 */
 	public void setMoney(Currency piece, int money) {
-		this.money.remove(piece);
-		this.money.put(piece, money);
+		this.money.replace(piece, money);
 
 	}
 
@@ -372,10 +382,8 @@ public class CharSheet {
 	 */
 	public void setStat(PrimaryStat statName, int num) {
 		num = num > 20 ? 20 : num;
-		if (stats.putIfAbsent(statName, num) != null) {
-			stats.remove(statName);
-			stats.put(statName, num);
-		}
+
+		stats.replace(statName, num);
 		if (statName.ordinal() < 6) {
 			for (BonusStat b : BonusStat.values()) {
 				if (b.ordinal() == statName.ordinal()) {
