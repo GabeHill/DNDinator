@@ -915,7 +915,7 @@ public class Show {
 		}
 		return Alignment.TRUE_NEUTRAL;
 	}
-
+//ahhh
 	public int getCharEXP() {
 		return emptyCheck(charEXP.getText());
 	}
