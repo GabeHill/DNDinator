@@ -47,6 +47,7 @@ public class Show {
 	private static PlayerUIController pui;
 	private static DungeonMasterUIController dui;
 
+
 	private Text diceFace = new Text();
 	private boolean isDone;
 	private boolean isMilestone = false;
@@ -79,6 +80,7 @@ public class Show {
 	private TextField hp= new TextField();
 	private TextField tempHp = new TextField();
 	private TextField hd = new TextField();
+
 	private TextField[] currency;
 	private TextField[] attackNames;
 	private TextField[] attackBonus;
@@ -115,13 +117,21 @@ public class Show {
 		charAlign.setLayoutY(72);
 		charAlign.setPrefWidth(120);
 
+
 		//charEXP = new TextField();
+
+		charEXP = new TextField();
+
 		charEXP.setPromptText("Exp");
 		charEXP.setLayoutX(490);
 		charEXP.setLayoutY(72);
 		charEXP.setPrefWidth(80);
 		
+
 		//isMilestoneCheck = new CheckBox("Milestone Levelling");
+
+		isMilestoneCheck = new CheckBox("Milestone Levelling");
+
 		isMilestoneCheck.setLayoutY(105);
 		isMilestoneCheck.setLayoutX(475);
 
@@ -364,9 +374,16 @@ public class Show {
 			}
 		});
 
+
 		thePane.getChildren().addAll(viewSheet, characterNameField, characterRaceField, charClass, charLevel, charAlign,
 				charEXP, isMilestoneCheck, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd, initiative, hp, hd, profBns,
 				tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits, otherPnL, equipment,saveBut);
+
+
+		thePane.getChildren().addAll(viewSheet, characterNameField, characterRaceField, charClass, charLevel, charAlign,
+				charEXP, isMilestoneCheck, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd, initiative, hp, hd, profBns,
+				tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits, otherPnL, equipment,saveBut);
+
 
 
 		// adds each individual TextField[] inside of attack box to screen, as the
@@ -829,6 +846,11 @@ public class Show {
 	}
 
 	public void displayDMMenu(Stage primaryStage) {
+
+		VBox tableOutside = new VBox();
+		HBox tableBottom = new HBox();
+		GameData gameData = new GameData("auto");
+		ObservableList<CharSheet> playerNames = gameData.getCharList();
 
 		VBox tableOutside = new VBox();
 		HBox tableBottom = new HBox();
