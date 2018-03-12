@@ -419,79 +419,89 @@ public class Show {
 		ImageView viewSheet = new ImageView();
 		viewSheet.setImage(new Image("file:Character Sheet (Official) - Copy_Page_1.png", 790, 790, true, true));
 
-		characterNameField = new TextField(c.getCharacterName());
+//		characterNameField = new TextField(c.getCharacterName());
+		characterNameField.setText(c.getCharacterName());
 		characterNameField.setEditable(canEdit);
 		characterNameField.setLayoutY(59);
 		characterNameField.setLayoutX(50);
 
-		characterRaceField = new TextField(c.getRace());
+//		characterRaceField = new TextField(c.getRace());
+		characterRaceField.setText(c.getRace());
 		characterRaceField.setEditable(canEdit);
 		characterRaceField.setLayoutX(270);
 		characterRaceField.setLayoutY(72);
 		characterRaceField.setPrefWidth(100);
 
-		charAlign = new ComboBox<>();
+//		charAlign = new ComboBox<>();
 		charAlign.setValue(getCharAlign().toString());
 		charAlign.setEditable(canEdit);
 		charAlign.setLayoutX(370);
 		charAlign.setLayoutY(72);
 		charAlign.setPrefWidth(100);
 
-		charEXP = new TextField("" + c.getXp());
+//		charEXP = new TextField("" + c.getXp());
+		charEXP.setText("" + c.getXp());
 		charEXP.setEditable(canEdit);
 		charEXP.setLayoutX(470);
 		charEXP.setLayoutY(72);
 		charEXP.setPrefWidth(100);
 
-		charClass = new TextField(c.getOccupation());
+//		charClass = new TextField(c.getOccupation());
+		charClass.setText(c.getOccupation());
 		charClass.setEditable(canEdit);
 		charClass.setLayoutX(270);
 		charClass.setLayoutY(47);
 		charClass.setPrefWidth(60);
 
-		charLevel = new TextField("" + c.getLevel());
+//		charLevel = new TextField("" + c.getLevel());
+		charLevel.setText("" + c.getLevel());
 		charLevel.setEditable(canEdit);
 		charLevel.setLayoutX(330);
 		charLevel.setLayoutY(47);
 		charLevel.setPrefWidth(40);
 
 		// charBG = new TextField("" + c.getBackground());
+		charBG.setText("" + c.getBackground());
 		charBG.setEditable(canEdit);
 		charBG.setLayoutX(370);
 		charBG.setLayoutY(47);
 		charBG.setPrefWidth(100);
 
-		playerName = new TextField(c.getPlayerName());
+		playerName.setText(c.getPlayerName());
 		playerName.setEditable(canEdit);
 		playerName.setLayoutX(470);
 		playerName.setLayoutY(47);
 		playerName.setPrefWidth(100);
 
 		// perTraits = new TextField(c.getOtherData("Personality Traits"));
+		perTraits.setText(c.getOtherData("Personality Traits"));
 		perTraits.setEditable(canEdit);
 		perTraits.setLayoutX(420);
 		perTraits.setLayoutY(140);
 		perTraits.setPrefHeight(55);
 
 		// perIdeals = new TextField(c.getOtherData("Ideals"));
+		perIdeals.setText(c.getOtherData("Ideals"));
 		perIdeals.setEditable(canEdit);
 		perIdeals.setLayoutX(420);
 		perIdeals.setLayoutY(207);
 		perIdeals.setPrefHeight(45);
 
 		// perBonds = new TextField(c.getOtherData("Bonds"));
+		perBonds.setText(c.getOtherData("Bonds"));
 		perBonds.setEditable(canEdit);
 		perBonds.setLayoutX(420);
 		perBonds.setLayoutY(264);
 		perBonds.setPrefHeight(45);
 
 		// perFlaws = new TextField(c.getOtherData("Flaws"));
+		perFlaws.setText(c.getOtherData("Flaws")); 
 		perFlaws.setEditable(canEdit);
 		perFlaws.setLayoutX(420);
 		perFlaws.setLayoutY(321);
 		perFlaws.setPrefHeight(45);
 
-		// additionalTraits = new TextField(c.getOtherData("Additional Traits"));
+		additionalTraits.setText(c.getOtherData("Additional Traits"));
 		additionalTraits.setEditable(canEdit);
 		additionalTraits.setLayoutX(410);
 		additionalTraits.setLayoutY(380);
@@ -550,6 +560,7 @@ public class Show {
 		otherPnL.setPrefWidth(165);
 
 		// equipment = new TextArea();
+		equipment.setText("" + c.getItems());
 		equipment.setEditable(canEdit);
 		equipment.setLayoutX(268);
 		equipment.setLayoutY(590);
@@ -574,12 +585,12 @@ public class Show {
 		initiative.setLayoutY(142);
 		initiative.setPrefWidth(35);
 
-		hp = new TextField("" + c.getStats(PrimaryStat.MAX_HEALTH));
+		hp.setText("" + c.getStats(PrimaryStat.MAX_HEALTH));
 		hp.setEditable(canEdit);
 		hp.setLayoutX(230);
 		hp.setLayoutY(200);
 
-		tempHp = new TextField();
+//		tempHp = new TextField();
 		tempHp.setEditable(canEdit);
 		tempHp.setLayoutX(230);
 		tempHp.setLayoutY(270);
@@ -839,6 +850,9 @@ public class Show {
 
 		Button saveRule = new Button();
 		Button loadRule = new Button();
+		Button addCharToList = new Button();
+		Button saveCharList = new Button();
+		Button removeCharFromList = new Button();
 		TextArea ruleText = new TextArea();
 
 		ruleText.setPromptText("Enter Rules and Notes here");
