@@ -35,14 +35,15 @@ import logic.PlayerUIController;
 import logic.RollDie;
 import models.CharSheet;
 import models.GameData;
+
 public class Show {
 	private BorderPane bPane = new BorderPane();
-//	private BorderPane bPane2 = new BorderPane();
+	// private BorderPane bPane2 = new BorderPane();
 	private Pane thePane = new Pane();
 	private int[] windowSize = { 800, 1200 };
-//	private int[] windowSize2 = { 200, 415 };
+	// private int[] windowSize2 = { 200, 415 };
 	private Scene theScene = new Scene(bPane, windowSize[1], windowSize[0]);
-//	private Scene smallScene = new Scene(bPane2, windowSize2[1], windowSize2[0]);
+	// private Scene smallScene = new Scene(bPane2, windowSize2[1], windowSize2[0]);
 	private static PlayerUIController pui;
 	private static DungeonMasterUIController dui;
 
@@ -107,7 +108,7 @@ public class Show {
 		characterRaceField.setLayoutY(72);
 		characterRaceField.setPrefWidth(100);
 
-		charAlign = new ComboBox<String>();
+		charAlign = new ComboBox<>();
 		charAlign.setItems(alignlist);
 		charAlign.setPromptText("Alignment");
 		charAlign.setLayoutX(370);
@@ -351,14 +352,13 @@ public class Show {
 			left = !left;
 			thePane.getChildren().add(dcButtons[i]);
 		}
-		
+
 		Button saveBut = new Button();
 		saveBut.setText("Save Character");
 		saveBut.setLayoutX(650);
 		saveBut.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
-			public void handle(ActionEvent arg0) 
-			{
+			public void handle(ActionEvent arg0) {
 				CharSheet cs = PlayerUIController.createCharacter(primaryStage);
 				pui.saveCharSheet(cs, "./", "dad");
 			}
@@ -367,6 +367,7 @@ public class Show {
 		thePane.getChildren().addAll(viewSheet, characterNameField, characterRaceField, charClass, charLevel, charAlign,
 				charEXP, isMilestoneCheck, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd, initiative, hp, hd, profBns,
 				tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits, otherPnL, equipment,saveBut);
+
 
 		// adds each individual TextField[] inside of attack box to screen, as the
 		// arrays are all the same size as each other
@@ -410,7 +411,6 @@ public class Show {
 		thePane.getChildren().clear();
 		ImageView viewSheet = new ImageView();
 		viewSheet.setImage(new Image("file:Character Sheet (Official) - Copy_Page_1.png", 790, 790, true, true));
-		
 
 		characterNameField = new TextField(c.getCharacterName());
 		characterNameField.setEditable(canEdit);
@@ -423,7 +423,7 @@ public class Show {
 		characterRaceField.setLayoutY(72);
 		characterRaceField.setPrefWidth(100);
 
-		charAlign = new ComboBox<String>();
+		charAlign = new ComboBox<>();
 		charAlign.setValue(getCharAlign().toString());
 		charAlign.setEditable(canEdit);
 		charAlign.setLayoutX(370);
@@ -698,15 +698,14 @@ public class Show {
 		saveBut.setLayoutX(650);
 		saveBut.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
-			public void handle(ActionEvent arg0) 
-			{
+			public void handle(ActionEvent arg0) {
 				CharSheet cs = pui.createCharacter(primaryStage);
 				pui.saveCharSheet(cs, "./", "dad");
 			}
 		});
 		thePane.getChildren().addAll(viewSheet, characterNameField, characterRaceField, charClass, charLevel, charAlign,
 				charEXP, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd, initiative, hp, hd, profBns,
-				tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits, otherPnL, equipment,saveBut);
+				tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits, otherPnL, equipment, saveBut);
 
 		// adds each individual TextField[] inside of attack box to screen, as the
 		// arrays are all the same size as each other
@@ -722,11 +721,11 @@ public class Show {
 		primaryStage.sizeToScene();
 		primaryStage.show();
 		exitButton(primaryStage);
-		
+
 	}
 
 	public void displayMainMenu(Stage primaryStage) {
-//		bPane2.setCenter(thePane);
+		// bPane2.setCenter(thePane);
 		Button pm = new Button();
 		pm.setScaleX(3);
 		pm.setScaleY(3);
@@ -768,8 +767,8 @@ public class Show {
 	}
 
 	public void displayPlayerMenu(Stage primaryStage) {
-//		bPane2.setCenter(thePane);
-		
+		// bPane2.setCenter(thePane);
+
 		Button newChar = new Button();
 		newChar.setScaleX(3);
 		newChar.setScaleY(3);
@@ -792,8 +791,7 @@ public class Show {
 		newChar.setText("Create Character");
 		editChar.setText("Edit Existing Character");
 
-		newChar.setOnAction(new EventHandler<ActionEvent>() 
-		{
+		newChar.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
 				thePane.getChildren().clear();
@@ -813,15 +811,14 @@ public class Show {
 				enterForLoad.setText("Load");
 				enterForLoad.setLayoutX(575);
 				enterForLoad.setLayoutY(425);
-				enterForLoad.setOnAction(new EventHandler<ActionEvent>()
-						{
-							@Override
-							public void handle(ActionEvent arg0) 
-							{
-								displayFilledCharacterSheet(primaryStage, pui.loadCharSheet("./", theChar.getText(), "dad"), true);
-							}
-						});
-				thePane.getChildren().addAll(theChar,enterForLoad);
+				enterForLoad.setOnAction(new EventHandler<ActionEvent>() {
+					@Override
+					public void handle(ActionEvent arg0) {
+						displayFilledCharacterSheet(primaryStage, pui.loadCharSheet("./", theChar.getText(), "dad"),
+								true);
+					}
+				});
+				thePane.getChildren().addAll(theChar, enterForLoad);
 			}
 		});
 
@@ -833,27 +830,29 @@ public class Show {
 	}
 
 	public void displayDMMenu(Stage primaryStage) {
+
 		VBox tableOutside = new VBox();
 		HBox tableBottom = new HBox();
 		GameData gameData = new GameData("auto");
 		ObservableList<CharSheet> playerNames = gameData.getCharList();
 
+		new GameData("auto");
+		FXCollections.observableArrayList();
 		TableView playerList = new TableView();
 		TableColumn playerName = new TableColumn("Players");
 		playerList.getColumns().clear();
 		playerList.getColumns().add(playerName);
-		playerName.setCellFactory(new PropertyValueFactory<CharSheet,String>("playerName"));
+		playerName.setCellFactory(new PropertyValueFactory<CharSheet, String>("playerName"));
 		playerList.setPlaceholder(new Label("No Players to Display"));
-		
-		
+
 		Button saveRule = new Button();
 		Button loadRule = new Button();
 		TextArea ruleText = new TextArea();
 
 		ruleText.setPromptText("Enter Rules and Notes here");
 		ruleText.setWrapText(true);
-//		ruleText.setScaleX(3);
-//		ruleText.setScaleY(3);
+		// ruleText.setScaleX(3);
+		// ruleText.setScaleY(3);
 		ruleText.setLayoutX(550);
 		ruleText.setLayoutY(160);
 		ruleText.setPrefHeight(138);
@@ -861,12 +860,12 @@ public class Show {
 
 		saveRule.setLayoutX(600);
 		loadRule.setLayoutX(600);
-		
-//		saveRule.setScaleX(2);
-//		saveRule.setScaleY(2);
-//		loadRule.setScaleX(2);
-//		loadRule.setScaleY(2);
-		
+
+		// saveRule.setScaleX(2);
+		// saveRule.setScaleY(2);
+		// loadRule.setScaleX(2);
+		// loadRule.setScaleY(2);
+
 		saveRule.setLayoutY(500);
 		loadRule.setLayoutY(625);
 
@@ -884,14 +883,14 @@ public class Show {
 			public void handle(ActionEvent arg0) {
 				TextField path = new TextField();
 				path.setPromptText("Enter the File Path");
-//				path.setScaleX(2);
-//				path.setScaleY(2);
+				// path.setScaleX(2);
+				// path.setScaleY(2);
 				path.setLayoutX(565);
 				path.setLayoutY(680);
-				
+
 				Button submitPathBttn = new Button("Submit Path");
-//				submitPathBttn.setScaleX(2);
-//				submitPathBttn.setScaleY(2);
+				// submitPathBttn.setScaleX(2);
+				// submitPathBttn.setScaleY(2);
 				submitPathBttn.setLayoutX(595);
 				submitPathBttn.setLayoutY(735);
 				submitPathBttn.setOnAction(new EventHandler<ActionEvent>() {
@@ -901,10 +900,10 @@ public class Show {
 						ruleText.setText(loadData.getRules());
 					}
 				});
-				thePane.getChildren().addAll(path,submitPathBttn);
-			}			
+				thePane.getChildren().addAll(path, submitPathBttn);
+			}
 		});
-		
+
 		thePane.getChildren().addAll(saveRule, loadRule, ruleText, playerList);
 		primaryStage.setScene(theScene);
 		primaryStage.sizeToScene();
@@ -917,11 +916,11 @@ public class Show {
 	}
 
 	public String getCharacterNameField() {
-		return characterNameField.getText();
+		return nullCheck(characterNameField.getText());
 	}
 
 	public String getCharacterRaceField() {
-		return characterRaceField.getText();
+		return nullCheck(characterRaceField.getText());
 	}
 
 	public Alignment getCharAlign() {
@@ -930,24 +929,23 @@ public class Show {
 				return a;
 			}
 		}
-		return null;
+		return Alignment.TRUE_NEUTRAL;
 	}
 
 	public int getCharEXP() {
-		int returnXP = Integer.parseInt(charEXP.getText());
-		return returnXP;
+		return emptyCheck(charEXP.getText());
 	}
 
 	public String getCharClass() {
-		return charClass.getText();
+		return nullCheck(charClass.getText());
 	}
 
 	public int getCharLevel() {
-		return Integer.parseInt(charLevel.getText());
+		return emptyCheck(charLevel.getText());
 	}
 
 	public String getCharBG() {
-		return charBG.getText();
+		return nullCheck(charBG.getText());
 	}
 
 	public int[] getCurrency() {
@@ -959,100 +957,106 @@ public class Show {
 	}
 
 	public int getChr() {
-		int Chr = Integer.parseInt(chr.getText());
-		return Chr;
+		return emptyCheck(chr.getText());
 	}
 
 	public int getCon() {
-		int Con = Integer.parseInt(con.getText());
-		return Con;
+		return emptyCheck(con.getText());
 	}
 
 	public int getDex() {
-		int Dex = Integer.parseInt(dex.getText());
-		return Dex;
+		return emptyCheck(dex.getText());
 	}
 
 	public String getEquipment() {
-		return equipment.getText();
+		return nullCheck(equipment.getText());
 	}
 
 	public int getArmClass() {
-		int armorClass = Integer.parseInt(armClass.getText());
-		return armorClass;
+		return emptyCheck(armClass.getText());
 	}
 
 	public int getHd() {
-		int MaxHp = Integer.parseInt(hd.getText());
-		return MaxHp;
+		return emptyCheck(hd.getText());
 	}
 
 	public int getMaxHp() {
-		int MaxHealth = Integer.parseInt(hp.getText());
-		return MaxHealth;
+		return emptyCheck(hp.getText());
+
 	}
 
 	public int getInitiative() {
-		int Init = Integer.parseInt(initiative.getText());
-		return Init;
+		return emptyCheck(initiative.getText());
 	}
 
 	public int getIntel() {
-		int Intelligence = Integer.parseInt(intel.getText());
-		return Intelligence;
+		return emptyCheck(intel.getText());
 	}
 
 	public String getOtherPnL() {
-		return otherPnL.getText();
+		return nullCheck(otherPnL.getText());
 	}
 
 	public String getPerBonds() {
-		return perBonds.getText();
+		return nullCheck(perBonds.getText());
 	}
 
 	public String getPerFlaws() {
-		return perFlaws.getText();
+		return nullCheck(perFlaws.getText());
 	}
 
 	public String getPerIdeals() {
-		return perIdeals.getText();
+		return nullCheck(perIdeals.getText());
 	}
 
 	public String getPerTraits() {
-		return perTraits.getText();
+		return nullCheck(perTraits.getText());
 	}
 
 	public String getPlayerName() {
-		return playerName.getText();
+		return nullCheck(playerName.getText());
 	}
 
 	public int getProfBns() {
-		int ProfBns = Integer.parseInt(profBns.getText());
-		return ProfBns;
+		return emptyCheck(profBns.getText());
+
 	}
 
 	public int getSpd() {
-		int Spd = Integer.parseInt(spd.getText());
-		return Spd;
+		return emptyCheck(spd.getText());
+
 	}
 
 	public int getStr() {
-		int Str = Integer.parseInt(str.getText());
-		return Str;
+		return emptyCheck(str.getText());
 	}
 
 	public int getTempHp() {
-		int TempHp = Integer.parseInt(tempHp.getText());
-		return TempHp;
+		return emptyCheck(tempHp.getText());
 	}
 
 	public int getWis() {
-		int Wis = Integer.parseInt(wis.getText());
-		return Wis;
+		return emptyCheck(wis.getText());
 	}
 
 	public String getItems() {
-		return equipment.getText();
+		return nullCheck(equipment.getText());
+	}
+
+	private String nullCheck(String s) {
+		if (s != null) {
+			return s;
+		}
+		return "Empty";
+	}
+
+	private int emptyCheck(String s) {
+		s = nullCheck(s);
+		int ret = 0;
+		if (!s.equals("Empty")) {
+			ret = Integer.parseInt(s);
+		}
+		return ret;
 	}
 
 	public void exitButton(Stage primaryStage) {
@@ -1074,7 +1078,6 @@ public class Show {
 	}
 
 	public void setIsDone(boolean bah) {
-		isDone = bah;
 	}
 
 	// Initializes the GUI Display by setting up window and adds buttons
