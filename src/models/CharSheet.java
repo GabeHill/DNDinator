@@ -1,5 +1,6 @@
 package models;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -14,13 +15,13 @@ public class CharSheet {
 			7, 8, 8, 9, 9, 10 };
 
 	private Alignment alignment;
-	private Map<String, Integer> counters;
+	private Map<String, Integer> counters = new HashMap<>();
 	private boolean milestoneLeveling = false;
-	private Map<Currency, Integer> money;
+	private Map<Currency, Integer> money = new HashMap<>();
 	private String occupation, playerName, characterName, background, race;
-	private Map<String, String> spells, otherData;
+	private Map<String, String> spells = new HashMap<>(), otherData = new HashMap<>();
 	private String items;
-	private StatsMap stats, bonuses;
+	private StatsMap stats = new StatsMap(), bonuses = new StatsMap();
 	private int xp = 0, level = 1;
 
 	/**
