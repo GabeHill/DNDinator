@@ -1,5 +1,8 @@
 package iMenu;
 
-public interface IMenu {
-void menu();
+import javafx.stage.Stage;
+
+public interface IMenu 
+{
+	 void menu(Stage primaryStage);
 }

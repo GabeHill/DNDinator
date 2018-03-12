@@ -699,7 +699,8 @@ public class Show {
 
 	}
 
-	public static void displayMainMenu(Stage primaryStage) {
+	public static void displayMainMenu(Stage primaryStage) 
+	{
 		// bPane2.setCenter(thePane);
 		Button pm = new Button();
 		pm.setScaleX(3);
@@ -719,18 +720,20 @@ public class Show {
 		pm.setText("Player Menu");
 		dm.setText("Dungeon Master Menu");
 
-		pm.setOnAction(new EventHandler<ActionEvent>() {
+		pm.setOnAction(new EventHandler<ActionEvent>() 
+		{
 			@Override
-			public void handle(ActionEvent event) {
-				thePane.getChildren().clear();
-				displayPlayerMenu(primaryStage);
+			public void handle(ActionEvent event) 
+			{
+				PlayerUIController.menu(primaryStage);
 			}
 		});
-		dm.setOnAction(new EventHandler<ActionEvent>() {
+		dm.setOnAction(new EventHandler<ActionEvent>() 
+		{
 			@Override
-			public void handle(ActionEvent event) {
-				thePane.getChildren().clear();
-				displayDMMenu(primaryStage);
+			public void handle(ActionEvent event) 
+			{
+				
 			}
 		});
 
@@ -764,8 +767,7 @@ public class Show {
 			@Override
 			public void handle(ActionEvent arg0) 
 			{
-				thePane.getChildren().clear();
-				savePlayerChar(primaryStage,PlayerUIController.createCharacter(primaryStage));
+				
 			}
 		});
 		editChar.setOnAction(new EventHandler<ActionEvent>() {
@@ -785,8 +787,7 @@ public class Show {
 					@Override
 					public void handle(ActionEvent arg0) 
 					{
-						thePane.getChildren().clear();
-						displayFilledCharacterSheet(primaryStage,PlayerUIController.loadCharSheet("./", theChar.getText(), "dad"),true);
+						
 					}
 				});
 				thePane.getChildren().addAll(theChar, enterForLoad);

@@ -24,8 +24,6 @@ public class PlayerUIController implements IMenu
 
 	public static CharSheet createCharacter(Stage primaryStage) 
 	{
-		Show.displayCleanCharacterSheet(primaryStage);
-
 		CharSheet steve = new CharSheet();
 
 		steve.setItems(Show.getItems());
@@ -115,8 +113,9 @@ public class PlayerUIController implements IMenu
 		return d;
 	}
 
+
 	@Override
-	public void menu() 
+	public void menu(Stage primaryStage) 
 	{
 		
 	}

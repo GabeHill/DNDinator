@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import files.Writer;
 import iMenu.IMenu;
+import javafx.stage.Stage;
 import models.GameData;
 
 public class DungeonMasterUIController extends PlayerUIController implements IMenu {
@@ -37,7 +38,8 @@ public class DungeonMasterUIController extends PlayerUIController implements IMe
 		return "Save successful.";
 	}
 
-	private void setRules() {
+	private void setRules() 
+	{
 		options.addRule("");
 		options.addRule(null);
 	}
@@ -47,25 +49,8 @@ public class DungeonMasterUIController extends PlayerUIController implements IMe
 	}
 
 	@Override
-	public void menu() {
-		// TODO Auto-generated method stub
-		
-		switch (0) {
-		case 1:
-			setRules();
-			break;
-		case 2:
-			createGame(null);
-			break;
-		case 3:
-			saveRules(null, null);
-			break;
-		case 4:
-			loadRules(null, null);
-			break;
-		default:
-			break;
-		}
+	public void menu(Stage primaryStage) 
+	{
 		
 	}
 }
