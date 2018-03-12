@@ -42,7 +42,13 @@ public class PlayerUIController implements IMenu {
 		steve.changeAlignment(Main.primaryShow.getCharAlign());
 
 		steve.addOtherData("Hit Die", Main.primaryShow.getHd() + "");
-
+		steve.addOtherData("Traits", Main.primaryShow.getPerTraits());
+		steve.addOtherData("Ideals", Main.primaryShow.getPerIdeals());
+		steve.addOtherData("Bonds", Main.primaryShow.getPerBonds());
+		steve.addOtherData("Flaws", Main.primaryShow.getPerFlaws());
+		steve.addOtherData("Other", Main.primaryShow.getOtherPnL());
+		steve.addOtherData("Add", Main.primaryShow.getAdditionalTraits());
+		
 		int[] muns = Main.primaryShow.getCurrency();
 		steve.setMoney(Currency.CP, muns[0]);
 		steve.setMoney(Currency.EP, muns[1]);
