@@ -16,8 +16,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import logic.DungeonMasterUIController;
 import logic.PlayerUIController;
@@ -356,11 +359,15 @@ public class Show {
 		Circle c = new Circle(900, 400, 50, Paint.valueOf("Purple"));
 		RollDie rd = new RollDie();
 
-		TextField diceFace = new TextField("" + rd.roll(ds));
-		diceFace.setEditable(false);
-		diceFace.setLayoutX(875);
-		diceFace.setLayoutY(389.5);
-		diceFace.setPrefWidth(50);
+		Text diceFace = new Text();
+		diceFace.setText("" + rd.roll(ds));
+		diceFace.setLayoutX(890);
+		diceFace.setLayoutY(400);
+		diceFace.setFont(Font.font ("Verdana", 90));
+//		diceFace.setScaleX(4);
+//		diceFace.setScaleY(4);
+		diceFace.setFill(Color.WHITESMOKE);
+		diceFace.setStroke(Color.BLACK);
 		thePane.getChildren().addAll(c, diceFace);
 		primaryStage.setScene(theScene);
 		primaryStage.sizeToScene();
@@ -732,15 +739,25 @@ public class Show {
 	
 	public void displayPlayerMenu(Stage primaryStage)
 	{
-		bPane.setCenter(thePane);
+		bPane2.setCenter(thePane);
 		Button newChar = new Button();
+		newChar.setScaleX(3);
+		newChar.setScaleY(3);
 		Button editChar = new Button();
+		editChar.setScaleX(3);
+		editChar.setScaleY(3);
 		
-		newChar.setLayoutX(600);
-		editChar.setLayoutX(600);
+		newChar.setLayoutX(175);
+		editChar.setLayoutX(142);
 		
-		newChar.setLayoutY(400);
-		editChar.setLayoutY(425);
+		newChar.setLayoutY(50);
+		editChar.setLayoutY(130);
+		
+//		newChar.setLayoutX(600);
+//		editChar.setLayoutX(600);
+//		
+//		newChar.setLayoutY(400);
+//		editChar.setLayoutY(425);
 		
 		newChar.setText("Create Character");
 		editChar.setText("Edit Existing Character");
@@ -793,7 +810,7 @@ public class Show {
 		});
 		
 		thePane.getChildren().addAll(newChar,editChar);
-		primaryStage.setScene(theScene);
+		primaryStage.setScene(smallScene);
 		primaryStage.sizeToScene();
 		primaryStage.show();
 		exitButton(primaryStage);
