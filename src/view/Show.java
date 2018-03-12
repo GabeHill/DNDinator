@@ -1,8 +1,5 @@
 package view;
 
-import java.util.ArrayList;
-import java.util.Set;
-
 import enums.Alignment;
 import enums.Currency;
 import enums.DiceSides;
@@ -13,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -23,7 +21,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
@@ -49,6 +49,7 @@ public class Show {
 	private Text diceFace = new Text();
 	private boolean isDone;
 	private boolean isMilestone = false;
+	private CheckBox isMilestoneCheck;
 	private TextField characterNameField;
 	private TextField characterRaceField;
 	private ComboBox<String> charAlign;
@@ -114,10 +115,14 @@ public class Show {
 		charAlign.setPrefWidth(120);
 
 		charEXP = new TextField();
-		charEXP.setPromptText("Exp/Milestone");
+		charEXP.setPromptText("Exp");
 		charEXP.setLayoutX(490);
 		charEXP.setLayoutY(72);
 		charEXP.setPrefWidth(80);
+		
+		isMilestoneCheck = new CheckBox("Milestone Levelling");
+		isMilestoneCheck.setLayoutY(105);
+		isMilestoneCheck.setLayoutX(475);
 
 		charClass = new TextField();
 		charClass.setPromptText("Class");
@@ -360,7 +365,7 @@ public class Show {
 		});
 
 		thePane.getChildren().addAll(viewSheet, characterNameField, characterRaceField, charClass, charLevel, charAlign,
-				charEXP, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd, initiative, hp, hd, profBns,
+				charEXP, isMilestoneCheck, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd, initiative, hp, hd, profBns,
 				tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits, otherPnL, equipment,saveBut);
 
 		// adds each individual TextField[] inside of attack box to screen, as the
@@ -828,9 +833,10 @@ public class Show {
 	}
 
 	public void displayDMMenu(Stage primaryStage) {
-		
+		VBox tableOutside = new VBox();
+		HBox tableBottom = new HBox();
 		GameData gameData = new GameData("auto");
-		ObservableList<CharSheet> playerNames = FXCollections.observableArrayList();
+		ObservableList<CharSheet> playerNames = gameData.getCharList();
 
 		TableView playerList = new TableView();
 		TableColumn playerName = new TableColumn("Players");
@@ -907,7 +913,7 @@ public class Show {
 	}
 
 	public boolean getMilestone() {
-		return true;
+		return isMilestone;
 	}
 
 	public String getCharacterNameField() {
