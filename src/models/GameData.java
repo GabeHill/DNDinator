@@ -32,6 +32,17 @@ public class GameData {
 
 	/**
 	 *
+	 * @param rule
+	 * @param rule
+	 *
+	 *            Adds rule 'name' to the rules HashMap.
+	 */
+	public void addRule(String rule) {
+		rules += rule + "/n";
+	}
+
+	/**
+	 *
 	 * @return Current game's name.
 	 */
 	public String gameName() {
@@ -92,13 +103,12 @@ public class GameData {
 
 	/**
 	 *
-	 * @param rule
-	 * @param rule
+	 * @param rules
 	 *
-	 *            Adds rule 'name' to the rules HashMap.
+	 *            Sets class rules to parameter rules.
 	 */
-	public void setRule(String rule) {
-		rules += rule + "/n";
+	public void setRules(String rules) {
+		this.rules = rules;
 	}
 
 }
