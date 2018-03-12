@@ -710,14 +710,7 @@ public class Show {
 					@Override
 					public void handle(ActionEvent event) 
 					{
-						isDone = false;
-						thePane.getChildren().clear();
-						do 
-						{
-							displayPlayerMenu(primaryStage);
-							
-						}while(isDone == false);
-						isDone = false;
+						displayPlayerMenu(primaryStage);
 					}
 				});
 		dm.setOnAction(new EventHandler<ActionEvent>()
@@ -725,7 +718,6 @@ public class Show {
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				isDone = false;
 				thePane.getChildren().clear();
 			}
 		});
@@ -767,10 +759,7 @@ public class Show {
 					@Override
 					public void handle(ActionEvent arg0) 
 					{
-						isDone = false;
 						thePane.getChildren().clear();
-						do 
-						{
 							displayCleanCharacterSheet(primaryStage);
 							Button saveBut = new Button();
 							saveBut.setText("Save Character");
@@ -784,9 +773,6 @@ public class Show {
 									pui.saveCharSheet(cs, "./", "dad");
 								}
 							});
-							
-						}while(isDone == false);
-						isDone = false;
 					}
 				});
 		editChar.setOnAction(new EventHandler<ActionEvent>()
@@ -794,18 +780,12 @@ public class Show {
 			@Override
 			public void handle(ActionEvent arg0) 
 			{
-				isDone = false;
-				thePane.getChildren().clear();
-				do 
-				{
 					TextField theChar = new TextField();
 					theChar.setPromptText("Enter name of the character you wish to load");
 					theChar.setLayoutX(600);
 					theChar.setLayoutY(400);
 					theChar.setPrefWidth(300);
 					displayFilledCharacterSheet(primaryStage,pui.loadCharSheet("./", theChar.getText(), "dad"),true);
-				}while(isDone == false);
-				isDone = false;
 			}
 		});
 		
