@@ -562,7 +562,7 @@ public class Show {
 		spd.setLayoutY(142);
 		spd.setPrefWidth(35);
 
-		initiative = new TextField();
+//		initiative = new TextField();
 		initiative.setEditable(canEdit);
 		initiative.setLayoutX(285);
 		initiative.setLayoutY(142);
@@ -573,7 +573,7 @@ public class Show {
 		hp.setLayoutX(230);
 		hp.setLayoutY(200);
 
-		tempHp = new TextField();
+//		tempHp = new TextField();
 		tempHp.setEditable(canEdit);
 		tempHp.setLayoutX(230);
 		tempHp.setLayoutY(270);
