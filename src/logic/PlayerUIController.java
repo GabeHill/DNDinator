@@ -76,8 +76,10 @@ public class PlayerUIController implements IMenu {
 
 	public String saveCharSheet(CharSheet c, String path, String encryptKey) {
 		try {
-			ObjectOutputStream oot = new ObjectOutputStream(
-					new FileOutputStream(path + c.getCharacterName() + ".json"));
+			String nam = c.getCharacterName();
+			System.out.println(nam);
+			String out = path + nam + ".json";
+			ObjectOutputStream oot = new ObjectOutputStream(new FileOutputStream(out));
 			oot.writeObject(c);
 			oot.close();
 			// Writer.write(c, path + c.getCharacterName() + ".json", encryptKey);

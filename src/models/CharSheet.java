@@ -100,6 +100,9 @@ public class CharSheet implements Serializable {
 	 *         Returns the bonus value assigned to the stat.
 	 */
 	public int getBonus(BonusStat s) {
+		if (bonuses.get(s) == null) {
+			return 0;
+		}
 		return bonuses.get(s);
 	}
 
@@ -119,6 +122,9 @@ public class CharSheet implements Serializable {
 	 *         Returns the value associated with name.
 	 */
 	public int getCounter(String name) {
+		if (counters.get(name) == null) {
+			return 0;
+		}
 		return counters.get(name);
 	}
 
@@ -149,6 +155,9 @@ public class CharSheet implements Serializable {
 	 *         Uses piece to access the number of that piece of currency.
 	 */
 	public int getMoney(Currency piece) {
+		if (money.get(piece) == null) {
+			return 0;
+		}
 		return money.get(piece);
 	}
 
@@ -215,6 +224,9 @@ public class CharSheet implements Serializable {
 	 *         character.
 	 */
 	public int getStats(PrimaryStat s) {
+		if (stats.get(s) == null) {
+			return 0;
+		}
 		return stats.get(s);
 	}
 

@@ -81,9 +81,12 @@ public class Show {
 	private TextField hd = new TextField();
 	private TextField[] currency = new TextField[] { new TextField(), new TextField(), new TextField(), new TextField(),
 			new TextField() };
-	private TextField[] attackNames;
-	private TextField[] attackBonus;
-	private TextField[] attackDamage;
+	private TextField[] attackNames = new TextField[] { new TextField(), new TextField(), new TextField(),
+			new TextField(), new TextField(), new TextField(), new TextField() };
+	private TextField[] attackBonus = new TextField[] { new TextField(), new TextField(), new TextField(),
+			new TextField(), new TextField(), new TextField(), new TextField() };
+	private TextField[] attackDamage = new TextField[] { new TextField(), new TextField(), new TextField(),
+			new TextField(), new TextField(), new TextField(), new TextField() };
 	private Button[] dcButtons;
 
 	private ObservableList<String> alignlist = FXCollections.observableArrayList("Chaotic Evil", "Neutral Evil",
@@ -495,50 +498,51 @@ public class Show {
 		additionalTraits.setPrefHeight(382);
 		additionalTraits.setPrefWidth(170);
 
-		profBns = new TextField();
+		// profBns = new TextField();
+		profBns.setText("" + c.getStats(PrimaryStat.PROFICIENCY));
 		profBns.setEditable(canEdit);
 		profBns.setLayoutX(90);
 		profBns.setLayoutY(165);
 		profBns.setPrefWidth(35);
 
-		str = new TextField("" + c.getStats(PrimaryStat.STRENGTH));
+		// TODO
+		str.setText("" + c.getStats(PrimaryStat.STRENGTH));
 		str.setEditable(canEdit);
 		str.setLayoutX(40);
 		str.setLayoutY(155);
 		str.setPrefWidth(35);
 
-		dex = new TextField("" + c.getStats(PrimaryStat.DEXTERITY));
+		dex.setText("" + c.getStats(PrimaryStat.DEXTERITY));
 		dex.setEditable(canEdit);
 		dex.setLayoutX(40);
 		dex.setLayoutY(226);
 		dex.setPrefWidth(35);
 
-		con = new TextField("" + c.getStats(PrimaryStat.CONSTITUTION));
+		con.setText("" + c.getStats(PrimaryStat.CONSTITUTION));
 		con.setEditable(canEdit);
 		con.setLayoutX(40);
 		con.setLayoutY(298);
 		con.setPrefWidth(35);
 
-		intel = new TextField("" + c.getStats(PrimaryStat.INTELLIGENCE));
+		intel.setText("" + c.getStats(PrimaryStat.INTELLIGENCE));
 		intel.setEditable(canEdit);
 		intel.setLayoutX(40);
 		intel.setLayoutY(370);
 		intel.setPrefWidth(35);
 
-		wis = new TextField("" + c.getStats(PrimaryStat.WISDOM));
+		wis.setText("" + c.getStats(PrimaryStat.WISDOM));
 		wis.setEditable(canEdit);
 		wis.setLayoutX(40);
 		wis.setLayoutY(442);
 		wis.setPrefWidth(35);
 
-		chr = new TextField("" + c.getStats(PrimaryStat.CHARISMA));
+		chr.setText("" + c.getStats(PrimaryStat.CHARISMA));
 		chr.setEditable(canEdit);
 		chr.setLayoutX(40);
 		chr.setLayoutY(514);
 		chr.setPrefWidth(35);
 
-		// otherPnL = new TextField(c.getOtherData("Other Profficiencies and
-		// Languages"));
+		otherPnL.setText(c.getOtherData("Other Profficiencies and Languages"));
 		otherPnL.setEditable(canEdit);
 		otherPnL.setLayoutX(35);
 		otherPnL.setLayoutY(625);
@@ -552,19 +556,19 @@ public class Show {
 		equipment.setPrefHeight(173);
 		equipment.setPrefWidth(115);
 
-		armClass = new TextField("" + c.getStats(PrimaryStat.ARMOR_CLASS));
+		armClass.setText("" + c.getStats(PrimaryStat.ARMOR_CLASS));
 		armClass.setEditable(canEdit);
 		armClass.setLayoutX(232);
 		armClass.setLayoutY(142);
 		armClass.setPrefWidth(30);
 
-		spd = new TextField("" + c.getStats(PrimaryStat.SPEED));
+		spd.setText("" + c.getStats(PrimaryStat.SPEED));
 		spd.setEditable(canEdit);
 		spd.setLayoutX(345);
 		spd.setLayoutY(142);
 		spd.setPrefWidth(35);
 
-		initiative = new TextField();
+		// initiative = new TextField();
 		initiative.setEditable(canEdit);
 		initiative.setLayoutX(285);
 		initiative.setLayoutY(142);
@@ -589,7 +593,7 @@ public class Show {
 		// Sets an array for creating textfields within the equipment box for "currency"
 		// column
 		// 230 x, 590y (+30 for each iteration), 25 prefWidth
-		currency = new TextField[5];
+		// currency = new TextField[5];
 		int currencyY = 590;
 		for (int i = 0; i < currency.length; i++) {
 			int x = 0;
@@ -610,7 +614,7 @@ public class Show {
 				x = c.getMoney(Currency.EP);
 				xType = Currency.EP.toString();
 			}
-			currency[i] = new TextField(x + " " + xType);
+			currency[i].setText(x + " " + xType);
 			currency[i].setEditable(canEdit);
 			currency[i].setLayoutX(220);
 			currency[i].setLayoutY(currencyY);
@@ -621,42 +625,42 @@ public class Show {
 		// Sets an array for creating textfields within the attack box for "attack
 		// names" column
 		// 220 x, 385 y (+25 for each iteration), 70 prefWidth
-		attackNames = new TextField[7];
+		// attackNames = new TextField[7];
 		int atkNamesY = 385;
-		for (int i = 0; i < attackNames.length; i++) {
-			attackNames[i] = new TextField();
-			attackNames[i].setEditable(canEdit);
-			attackNames[i].setLayoutX(220);
-			attackNames[i].setPrefWidth(70);
-			attackNames[i].setLayoutY(atkNamesY);
+		for (TextField attackName : attackNames) {
+			// attackNames[i] = new TextField();
+			attackName.setEditable(canEdit);
+			attackName.setLayoutX(220);
+			attackName.setPrefWidth(70);
+			attackName.setLayoutY(atkNamesY);
 			atkNamesY += 25;
 		}
 
 		// Sets an array for creating textfields within the attack box for "attack
 		// bonus" column
 		// 290 x, 385 y (+25 for each iteration), 32 prefWidth
-		attackBonus = new TextField[7];
+		// attackBonus = new TextField[7];
 		int atkBnsY = 385;
-		for (int i = 0; i < attackBonus.length; i++) {
-			attackBonus[i] = new TextField();
-			attackBonus[i].setEditable(canEdit);
-			attackBonus[i].setLayoutX(290);
-			attackBonus[i].setPrefWidth(32);
-			attackBonus[i].setLayoutY(atkBnsY);
+		for (TextField attackBonu : attackBonus) {
+			// attackBonus[i] = new TextField();
+			attackBonu.setEditable(canEdit);
+			attackBonu.setLayoutX(290);
+			attackBonu.setPrefWidth(32);
+			attackBonu.setLayoutY(atkBnsY);
 			atkBnsY += 25;
 		}
 
 		// Sets an array for creating textfields within the attack box for "attack
 		// damage" column
 		// 322 x, 385 y (+25 for each iteration), 70 prefWidth
-		attackDamage = new TextField[7];
+		// attackDamage = new TextField[7];
 		int atkDmgY = 385;
-		for (int i = 0; i < attackDamage.length; i++) {
-			attackDamage[i] = new TextField();
-			attackDamage[i].setEditable(canEdit);
-			attackDamage[i].setLayoutX(322);
-			attackDamage[i].setPrefWidth(70);
-			attackDamage[i].setLayoutY(atkDmgY);
+		for (TextField element : attackDamage) {
+			// attackDamage[i] = new TextField();
+			element.setEditable(canEdit);
+			element.setLayoutX(322);
+			element.setPrefWidth(70);
+			element.setLayoutY(atkDmgY);
 			atkDmgY += 25;
 		}
 
