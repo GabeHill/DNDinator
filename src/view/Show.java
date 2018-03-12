@@ -714,8 +714,8 @@ public class Show {
 		});
 		dm.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
-			public void handle(ActionEvent event) {
-				thePane.getChildren().clear();
+			public void handle(ActionEvent event) 
+			{
 			}
 		});
 
@@ -750,21 +750,23 @@ public class Show {
 		newChar.setText("Create Character");
 		editChar.setText("Edit Existing Character");
 
-		newChar.setOnAction(new EventHandler<ActionEvent>() {
+		newChar.setOnAction(new EventHandler<ActionEvent>() 
+		{
 			@Override
 			public void handle(ActionEvent arg0) {
 				thePane.getChildren().clear();
-				displayCleanCharacterSheet(primaryStage);
 				Button saveBut = new Button();
 				saveBut.setText("Save Character");
 				saveBut.setLayoutX(650);
 				saveBut.setOnAction(new EventHandler<ActionEvent>() {
 					@Override
-					public void handle(ActionEvent arg0) {
+					public void handle(ActionEvent arg0) 
+					{
 						CharSheet cs = pui.createCharacter(primaryStage);
 						pui.saveCharSheet(cs, "./", "dad");
 					}
 				});
+				displayCleanCharacterSheet(primaryStage);
 			}
 		});
 		editChar.setOnAction(new EventHandler<ActionEvent>() {
