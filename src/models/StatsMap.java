@@ -1,5 +1,6 @@
 package models;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -7,7 +8,7 @@ import java.util.Set;
 
 import enums.Stat;
 
-public class StatsMap implements Map<Stat, Integer> {
+public class StatsMap implements Map<Stat, Integer>, Serializable {
 
 	private Map<Stat, Integer> m;
 

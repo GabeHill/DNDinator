@@ -82,8 +82,11 @@ public class PlayerUIController implements IMenu {
 			oot.close();
 			// Writer.write(c, path + c.getCharacterName() + ".json", encryptKey);
 		} catch (IOException e) {
+			e.printStackTrace();
+			System.out.println("fail");
 			return "Save unsuccessful. Check your path and try again.";
 		}
+		System.out.println("success");
 		return "Save successful.";
 	}
 
