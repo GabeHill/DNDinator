@@ -27,9 +27,12 @@ public class CharSheet {
 	 * Creates the object. Sets default values.
 	 */
 	public CharSheet() {
-		for (Currency c : Currency.values()) {
-			money.put(c, 0);
-		}
+		Currency[] c = Currency.values();
+		money.put(c[0], 0);
+		money.put(c[1], 0);
+		money.put(c[2], 0);
+		money.put(c[3], 0);
+		money.put(c[4], 0);
 	}
 
 	/**
