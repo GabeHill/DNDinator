@@ -823,17 +823,19 @@ public class Show {
 		new VBox();
 		new HBox();
 		GameData gameData = new GameData("auto");
-		gameData.getCharList();
+//		gameData.getCharList();
 
-		new GameData("auto");
-		FXCollections.observableArrayList();
+//		new GameData("auto");
+//		FXCollections.observableArrayList();
 		TableView playerList = new TableView();
 		TableColumn playerName = new TableColumn("Players");
 		playerList.setEditable(true);
 		playerList.getColumns().clear();
 		playerList.getColumns().addAll(playerName);
-		playerName.setCellFactory(new PropertyValueFactory<CharSheet, String>("playerName"));
+//		playerName.setCellFactory(new PropertyValueFactory<CharSheet, String>("playerName"));
 		playerList.setPlaceholder(new Label("No Players to Display"));
+		playerList.setLayoutX(50);
+		playerList.setLayoutY(160);
 
 		Button saveRule = new Button();
 		Button loadRule = new Button();
@@ -894,7 +896,7 @@ public class Show {
 			}
 		});
 
-		thePane.getChildren().addAll(saveRule, loadRule, ruleText, playerList);
+		thePane.getChildren().addAll(saveRule, loadRule, ruleText, playerList); 
 		primaryStage.setScene(theScene);
 		primaryStage.sizeToScene();
 		primaryStage.show();
