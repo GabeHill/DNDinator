@@ -6,7 +6,7 @@ import java.util.Set;
 public class GameData {
 
 	private HashMap<String, CharSheet> characters = new HashMap<>();
-	private String gameName;
+	private String gameName = "Game";
 	private String rules = "";
 
 	/**

@@ -8,13 +8,7 @@ import models.GameData;
 
 public class DungeonMasterUIController extends PlayerUIController implements IMenu {
 	private GameData options;
-	
-	public void methodSave(String name) {
-		methodReturn = name;
-	}
-	public String showTurn() {
-		return methodReturn;
-	}
+
 	private void createGame(String name) {
 		options = new GameData(name);
 	}
@@ -52,6 +46,10 @@ public class DungeonMasterUIController extends PlayerUIController implements IMe
 
 	}
 
+	public void methodSave(String name) {
+		methodReturn = name;
+	}
+
 	public String saveRules(String path, String encryptKey) {
 		try {
 			Writer.write(options, path + options.gameName() + ".json", encryptKey);
@@ -64,6 +62,10 @@ public class DungeonMasterUIController extends PlayerUIController implements IMe
 	private void setRules() {
 		options.addRule("");
 		options.addRule(null);
+	}
+
+	public String showTurn() {
+		return methodReturn;
 	}
 
 }
