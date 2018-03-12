@@ -8,7 +8,13 @@ import models.GameData;
 
 public class DungeonMasterUIController extends PlayerUIController implements IMenu {
 	private GameData options;
-
+	
+	public void methodSave(String name) {
+		methodReturn = name;
+	}
+	public String showTurn() {
+		return methodReturn;
+	}
 	private void createGame(String name) {
 		options = new GameData(name);
 	}
