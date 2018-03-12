@@ -12,15 +12,14 @@ import view.Show;
 
 public class PlayerUIController implements IMenu {
 	static Show show = new Show();
-	public String methodReturn =""; 
-	
+	public String methodReturn = "";
+
 	public void run() {
 
 	}
 
-	public static CharSheet createCharacter(Stage primaryStage) 
-	{
-		
+	public static CharSheet createCharacter(Stage primaryStage) {
+
 		CharSheet steve = new CharSheet();
 
 		steve.setItems(show.getItems());
@@ -38,10 +37,10 @@ public class PlayerUIController implements IMenu {
 		steve.setCharacterName(show.getCharacterNameField());
 
 		steve.changeAlignment(show.getCharAlign());
-		
-		steve.addOtherData("Hit Die",show.getHd()+"");
 
-		int[] muns = show.getCurrency();
+		// steve.addOtherData("Hit Die",show.getHd()+"");
+
+		Integer[] muns = show.getCurrency();
 		steve.setMoney(Currency.CP, muns[0]);
 		steve.setMoney(Currency.EP, muns[1]);
 		steve.setMoney(Currency.GP, muns[2]);
@@ -72,11 +71,8 @@ public class PlayerUIController implements IMenu {
 		}
 	}
 
-
-	public String saveCharSheet(CharSheet c, String path, String encryptKey) 
-	{
-		try 
-		{
+	public String saveCharSheet(CharSheet c, String path, String encryptKey) {
+		try {
 			Writer.write(c, path + c.getCharacterName() + ".json", encryptKey);
 		} catch (IOException e) {
 			return "Save unsuccessful. Check your path and try again.";
@@ -93,9 +89,9 @@ public class PlayerUIController implements IMenu {
 		}
 		return d;
 	}
+
 	@Override
-	public void menu() 
-	{
-		
+	public void menu() {
+
 	}
 }

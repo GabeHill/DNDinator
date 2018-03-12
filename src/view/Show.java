@@ -1,5 +1,7 @@
 package view;
 
+import java.util.LinkedList;
+
 import enums.Alignment;
 import enums.Currency;
 import enums.DiceSides;
@@ -280,7 +282,6 @@ public class Show {
 		int currencyY = 590;
 		for (int i = 0; i < currency.length; i++) {
 			currency[i] = new TextField();
-			currency[i].getText();
 			currency[i].setLayoutX(220);
 			currency[i].setLayoutY(currencyY);
 			currency[i].setPrefWidth(47);
@@ -562,7 +563,7 @@ public class Show {
 		spd.setLayoutY(142);
 		spd.setPrefWidth(35);
 
-//		initiative = new TextField();
+		initiative = new TextField();
 		initiative.setEditable(canEdit);
 		initiative.setLayoutX(285);
 		initiative.setLayoutY(142);
@@ -573,12 +574,12 @@ public class Show {
 		hp.setLayoutX(230);
 		hp.setLayoutY(200);
 
-//		tempHp = new TextField();
+		tempHp = new TextField();
 		tempHp.setEditable(canEdit);
 		tempHp.setLayoutX(230);
 		tempHp.setLayoutY(270);
 
-//		hd = new TextField();
+		// hd = new TextField();
 		hd.setEditable(canEdit);
 		hd.setLayoutX(230);
 		hd.setLayoutY(320);
@@ -759,11 +760,11 @@ public class Show {
 		editChar.setScaleX(3);
 		editChar.setScaleY(3);
 
-		newChar.setLayoutX(575);
-		editChar.setLayoutX(525);
+		newChar.setLayoutX(175);
+		editChar.setLayoutX(142);
 
-		newChar.setLayoutY(100);
-		editChar.setLayoutY(200);
+		newChar.setLayoutY(50);
+		editChar.setLayoutY(130);
 
 		// newChar.setLayoutX(600);
 		// editChar.setLayoutX(600);
@@ -902,7 +903,7 @@ public class Show {
 	public String getCharacterNameField() {
 		return nullCheck(characterNameField.getText());
 	}
-	//dus4 AwJway
+
 	public String getCharacterRaceField() {
 		return nullCheck(characterRaceField.getText());
 	}
@@ -915,7 +916,8 @@ public class Show {
 		}
 		return Alignment.TRUE_NEUTRAL;
 	}
-	
+
+	// ahhh
 	public int getCharEXP() {
 		return emptyCheck(charEXP.getText());
 	}
@@ -932,12 +934,16 @@ public class Show {
 		return nullCheck(charBG.getText());
 	}
 
-	public int[] getCurrency() {
-		int[] charCurrency = new int[5];
-		for (int i = 0; i < charCurrency.length; i++) {
-			charCurrency[i] = Integer.parseInt(currency[i].getText());
+	public Integer[] getCurrency() {
+		LinkedList<Integer> charCurrency = new LinkedList<>();
+
+		for (TextField i : currency) {
+			charCurrency.add(Integer.parseInt(i.getText()));
 		}
-		return charCurrency;
+		// for (int i = 0; i < charCurrency.length; i++) {
+		// charCurrency[i] = emptyCheck(nullCheck(currency[i].toString()));
+		// }
+		return (Integer[]) charCurrency.toArray();
 	}
 
 	public int getChr() {
@@ -960,8 +966,8 @@ public class Show {
 		return emptyCheck(armClass.getText());
 	}
 
-	public int getHd() {
-		return emptyCheck(hd.getText());
+	public String getHd() {
+		return hd.getText();
 	}
 
 	public int getMaxHp() {
