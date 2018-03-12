@@ -912,7 +912,7 @@ public class Show {
 	}
 
 	public boolean getMilestone() {
-		return isMilestone;
+		return isMilestoneCheck.selectedProperty() != null;
 	}
 
 	public String getCharacterNameField() {
