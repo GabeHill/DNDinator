@@ -914,7 +914,7 @@ public class Show {
 
 	public Alignment getCharAlign() {
 		for (Alignment a : Alignment.values()) {
-			if (a.toString().equalsIgnoreCase(charAlign.getValue().toString())) {
+			if (a.toString().equalsIgnoreCase(charAlign.getSelectionModel().toString())) {
 				return a;
 			}
 		}
