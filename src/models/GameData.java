@@ -97,6 +97,9 @@ public class GameData implements Serializable {
 	 * @return Set of character names.
 	 */
 	public Set<String> listCharacters() {
+		if (characters.keySet() == null) {
+			characters.put("None", null);
+		}
 		return characters.keySet();
 	}
 
