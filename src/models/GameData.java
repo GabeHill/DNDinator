@@ -7,7 +7,7 @@ public class GameData {
 
 	private HashMap<String, CharSheet> characters = new HashMap<>();
 	private String gameName;
-	private HashMap<String, String> rules = new HashMap<>();
+	private String rules = "";
 
 	/**
 	 *
@@ -28,17 +28,6 @@ public class GameData {
 	 */
 	public void addCharacter(CharSheet sheet) {
 		characters.put(sheet.getCharacterName(), sheet);
-	}
-
-	/**
-	 *
-	 * @param name
-	 * @param rule
-	 *
-	 *            Adds rule 'name' to the rules HashMap.
-	 */
-	public void addRule(String name, String rule) {
-		rules.put(name, rule);
 	}
 
 	/**
@@ -69,8 +58,8 @@ public class GameData {
 	 * 		Returns the rule description assicated with name, or null if there is
 	 *         no rule by that name.
 	 */
-	public String getRule(String name) {
-		return rules.get(name);
+	public String getRules() {
+		return rules;
 	}
 
 	/**
@@ -79,14 +68,6 @@ public class GameData {
 	 */
 	public Set<String> listCharacters() {
 		return characters.keySet();
-	}
-
-	/**
-	 *
-	 * @return Set of rule names.
-	 */
-	public Set<String> listRules() {
-		return rules.keySet();
 	}
 
 	/**
@@ -100,23 +81,24 @@ public class GameData {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param name
-	 * 
-	 *            Removes the rule at name.
-	 */
-	public void removeRule(String name) {
-		rules.remove(name);
-	}
-
-	/**
-	 * 
-	 * @param name
-	 * 
+	 *
 	 *            Used to change the game name.
 	 */
 	public void setGameName(String name) {
 		gameName = name;
+	}
+
+	/**
+	 *
+	 * @param rule
+	 * @param rule
+	 *
+	 *            Adds rule 'name' to the rules HashMap.
+	 */
+	public void setRule(String rule) {
+		rules += rule + "/n";
 	}
 
 }
