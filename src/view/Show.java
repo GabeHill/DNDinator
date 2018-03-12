@@ -1,6 +1,7 @@
 package view;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 import enums.Alignment;
 import enums.Currency;
@@ -13,7 +14,12 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -822,14 +828,26 @@ public class Show {
 	}
 
 	public void displayDMMenu(Stage primaryStage) {
+		
+		GameData gameData = new GameData("auto");
+		ObservableList<CharSheet> playerNames = FXCollections.observableArrayList();
 
+		TableView playerList = new TableView();
+		TableColumn playerName = new TableColumn("Players");
+		playerList.getColumns().clear();
+		playerList.getColumns().add(playerName);
+		playerName.setCellFactory(new PropertyValueFactory<CharSheet,String>("playerName"));
+		playerList.setPlaceholder(new Label("No Players to Display"));
+		
+		
 		Button saveRule = new Button();
 		Button loadRule = new Button();
-		TextField ruleText = new TextField();
+		TextArea ruleText = new TextArea();
 
 		ruleText.setPromptText("Enter Rules and Notes here");
-		ruleText.setScaleX(3);
-		ruleText.setScaleY(3);
+		ruleText.setWrapText(true);
+//		ruleText.setScaleX(3);
+//		ruleText.setScaleY(3);
 		ruleText.setLayoutX(550);
 		ruleText.setLayoutY(160);
 		ruleText.setPrefHeight(138);
@@ -838,10 +856,10 @@ public class Show {
 		saveRule.setLayoutX(600);
 		loadRule.setLayoutX(600);
 		
-		saveRule.setScaleX(2);
-		saveRule.setScaleY(2);
-		loadRule.setScaleX(2);
-		loadRule.setScaleY(2);
+//		saveRule.setScaleX(2);
+//		saveRule.setScaleY(2);
+//		loadRule.setScaleX(2);
+//		loadRule.setScaleY(2);
 		
 		saveRule.setLayoutY(500);
 		loadRule.setLayoutY(625);
@@ -860,14 +878,14 @@ public class Show {
 			public void handle(ActionEvent arg0) {
 				TextField path = new TextField();
 				path.setPromptText("Enter the File Path");
-				path.setScaleX(2);
-				path.setScaleY(2);
+//				path.setScaleX(2);
+//				path.setScaleY(2);
 				path.setLayoutX(565);
 				path.setLayoutY(680);
 				
 				Button submitPathBttn = new Button("Submit Path");
-				submitPathBttn.setScaleX(2);
-				submitPathBttn.setScaleY(2);
+//				submitPathBttn.setScaleX(2);
+//				submitPathBttn.setScaleY(2);
 				submitPathBttn.setLayoutX(595);
 				submitPathBttn.setLayoutY(735);
 				submitPathBttn.setOnAction(new EventHandler<ActionEvent>() {
@@ -878,13 +896,10 @@ public class Show {
 					}
 				});
 				thePane.getChildren().addAll(path,submitPathBttn);
-			}
-				
-//				ruleText.setText(loadData);
-			
+			}			
 		});
-
-		thePane.getChildren().addAll(saveRule, loadRule, ruleText);
+		
+		thePane.getChildren().addAll(saveRule, loadRule, ruleText, playerList);
 		primaryStage.setScene(theScene);
 		primaryStage.sizeToScene();
 		primaryStage.show();
