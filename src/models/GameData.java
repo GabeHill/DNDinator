@@ -4,9 +4,6 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Set;
 
-import javafx.collections.ObservableList;
-import javafx.collections.transformation.SortedList;
-
 public class GameData implements Serializable {
 
 	/**
@@ -69,17 +66,17 @@ public class GameData implements Serializable {
 		return characters.get(name);
 	}
 
-	/**
-	 *
-	 * @return ObservableList of Characters
-	 */
-	public ObservableList<CharSheet> getCharList() {
-		ObservableList<CharSheet> o = null;
-		ObservableList<CharSheet> p = null;
-		o = new SortedList<>(p);
-		o.addAll(characters.values());
-		return o;
-	}
+	// /**
+	// *
+	// * @return ObservableList of Characters
+	// */
+	// public ObservableList<CharSheet> getCharList() {
+	// ObservableList<CharSheet> o = null;
+	// ObservableList<CharSheet> p = null;
+	// o = new SortedList<>(p);
+	// o.addAll(characters.values());
+	// return o;
+	// }
 
 	/**
 	 *
