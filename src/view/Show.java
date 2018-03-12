@@ -960,7 +960,7 @@ public class Show {
 		return emptyCheck(armClass.getText());
 	}
 
-	public int get() {
+	public int getHd() {
 		return emptyCheck(hd.getText());
 	}
 
