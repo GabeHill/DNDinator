@@ -759,11 +759,11 @@ public class Show {
 		editChar.setScaleX(3);
 		editChar.setScaleY(3);
 
-		newChar.setLayoutX(175);
-		editChar.setLayoutX(142);
+		newChar.setLayoutX(575);
+		editChar.setLayoutX(525);
 
-		newChar.setLayoutY(50);
-		editChar.setLayoutY(130);
+		newChar.setLayoutY(100);
+		editChar.setLayoutY(200);
 
 		// newChar.setLayoutX(600);
 		// editChar.setLayoutX(600);
@@ -902,7 +902,7 @@ public class Show {
 	public String getCharacterNameField() {
 		return nullCheck(characterNameField.getText());
 	}
-
+	//dus4 AwJway
 	public String getCharacterRaceField() {
 		return nullCheck(characterRaceField.getText());
 	}
@@ -915,7 +915,7 @@ public class Show {
 		}
 		return Alignment.TRUE_NEUTRAL;
 	}
-//ahhh
+	
 	public int getCharEXP() {
 		return emptyCheck(charEXP.getText());
 	}
@@ -933,9 +933,9 @@ public class Show {
 	}
 
 	public int[] getCurrency() {
-		int[] charCurrency = new int[currency.length];
+		int[] charCurrency = new int[5];
 		for (int i = 0; i < charCurrency.length; i++) {
-			charCurrency[i] = Integer.parseInt(currency.toString());
+			charCurrency[i] = emptyCheck(currency[i].toString());
 		}
 		return charCurrency;
 	}
