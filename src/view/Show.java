@@ -578,7 +578,7 @@ public class Show {
 		tempHp.setLayoutX(230);
 		tempHp.setLayoutY(270);
 
-		hd = new TextField();
+//		hd = new TextField();
 		hd.setEditable(canEdit);
 		hd.setLayoutX(230);
 		hd.setLayoutY(320);
@@ -915,7 +915,7 @@ public class Show {
 		}
 		return Alignment.TRUE_NEUTRAL;
 	}
-
+//ahhh
 	public int getCharEXP() {
 		return emptyCheck(charEXP.getText());
 	}
@@ -960,7 +960,7 @@ public class Show {
 		return emptyCheck(armClass.getText());
 	}
 
-	public int getHd() {
+	public int get() {
 		return emptyCheck(hd.getText());
 	}
 

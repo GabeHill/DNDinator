@@ -23,7 +23,7 @@ public class PlayerUIController implements IMenu {
 		
 		CharSheet steve = new CharSheet();
 
-//		steve.setItems(show.getItems());
+		steve.setItems(show.getItems());
 
 		steve.setMilestoneLeveling(show.getMilestone());
 
