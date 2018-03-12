@@ -29,7 +29,6 @@ import logic.PlayerUIController;
 import logic.RollDie;
 import models.CharSheet;
 import models.GameData;
-
 public class Show {
 	private BorderPane bPane = new BorderPane();
 //	private BorderPane bPane2 = new BorderPane();
