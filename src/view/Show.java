@@ -1,5 +1,7 @@
 package view;
 
+import java.util.ArrayList;
+
 import enums.Alignment;
 import enums.Currency;
 import enums.DiceSides;
@@ -26,6 +28,7 @@ import logic.DungeonMasterUIController;
 import logic.PlayerUIController;
 import logic.RollDie;
 import models.CharSheet;
+import models.GameData;
 
 public class Show {
 	private BorderPane bPane = new BorderPane();
@@ -717,8 +720,9 @@ public class Show {
 		});
 		dm.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
-			public void handle(ActionEvent event) 
-			{
+			public void handle(ActionEvent event) {
+				thePane.getChildren().clear();
+				displayDMMenu(primaryStage);
 			}
 		});
 
@@ -799,16 +803,23 @@ public class Show {
 		TextField ruleText = new TextField();
 
 		ruleText.setPromptText("Enter Rules and Notes here");
-		ruleText.setLayoutX(35);
-		ruleText.setLayoutY(625);
+		ruleText.setScaleX(3);
+		ruleText.setScaleY(3);
+		ruleText.setLayoutX(550);
+		ruleText.setLayoutY(160);
 		ruleText.setPrefHeight(138);
 		ruleText.setPrefWidth(165);
 
 		saveRule.setLayoutX(600);
 		loadRule.setLayoutX(600);
-
-		saveRule.setLayoutY(400);
-		loadRule.setLayoutY(425);
+		
+		saveRule.setScaleX(2);
+		saveRule.setScaleY(2);
+		loadRule.setScaleX(2);
+		loadRule.setScaleY(2);
+		
+		saveRule.setLayoutY(500);
+		loadRule.setLayoutY(625);
 
 		saveRule.setText("Save Rules");
 		loadRule.setText("Load Rules");
@@ -822,8 +833,31 @@ public class Show {
 		loadRule.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-
+				TextField path = new TextField();
+				path.setPromptText("Enter the File Path");
+				path.setScaleX(2);
+				path.setScaleY(2);
+				path.setLayoutX(565);
+				path.setLayoutY(680);
+				
+				Button loadThis = new Button("Submit Path");
+				loadThis.setScaleX(2);
+				loadThis.setScaleY(2);
+				loadThis.setLayoutX(595);
+				loadThis.setLayoutY(735);
+				loadThis.setOnAction(new EventHandler<ActionEvent>() {
+					@Override
+					public void handle(ActionEvent arg0) {
+						GameData loadData = dui.loadRules(path.getText(), "encryptKey");
+						
+						ruleText.setText("a");
+					}
+				});
+				thePane.getChildren().addAll(path,loadThis);
 			}
+				
+//				ruleText.setText(loadData);
+			
 		});
 
 		thePane.getChildren().addAll(saveRule, loadRule, ruleText);
