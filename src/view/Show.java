@@ -297,7 +297,6 @@ public class Show {
 		// Sets an array for creating textfields within the attack box for "attack
 		// names" column
 		// 220 x, 385 y (+25 for each iteration), 70 prefWidth
-		attackNames = new TextField[7];
 		int atkNamesY = 385;
 		for (int i = 0; i < attackNames.length; i++) {
 			attackNames[i] = new TextField();
@@ -311,7 +310,6 @@ public class Show {
 		// Sets an array for creating textfields within the attack box for "attack
 		// bonus" column
 		// 290 x, 385 y (+25 for each iteration), 32 prefWidth
-		attackBonus = new TextField[7];
 		int atkBnsY = 385;
 		for (int i = 0; i < attackBonus.length; i++) {
 			attackBonus[i] = new TextField();
@@ -325,7 +323,6 @@ public class Show {
 		// Sets an array for creating textfields within the attack box for "attack
 		// damage" column
 		// 322 x, 385 y (+25 for each iteration), 70 prefWidth
-		attackDamage = new TextField[7];
 		int atkDmgY = 385;
 		for (int i = 0; i < attackDamage.length; i++) {
 			attackDamage[i] = new TextField();
@@ -657,6 +654,7 @@ public class Show {
 		int atkNamesY = 385;
 		for (TextField attackName : attackNames) {
 			// attackNames[i] = new TextField();
+			
 			attackName.setEditable(canEdit);
 			attackName.setLayoutX(220);
 			attackName.setPrefWidth(70);
@@ -730,7 +728,7 @@ public class Show {
 			}
 		});
 		thePane.getChildren().addAll(viewSheet, characterNameField, characterRaceField, charClass, charLevel, charAlign,
-				charEXP, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd, initiative, hp, hd, profBns,
+				charEXP, isMilestoneCheck, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd, initiative, hp, hd, profBns,
 				tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits, otherPnL, equipment, saveBut);
 
 		// adds each individual TextField[] inside of attack box to screen, as the
@@ -998,6 +996,10 @@ public class Show {
 			is[i] = (int) o[i];
 		}
 		return is;
+	}
+	
+	public String[] getAttackName() {
+		LinkedList<String> charAttackN = new Linked
 	}
 	
 	public String getAdditionalTraits() {
