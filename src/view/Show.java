@@ -756,17 +756,6 @@ public class Show {
 			@Override
 			public void handle(ActionEvent arg0) {
 				thePane.getChildren().clear();
-				Button saveBut = new Button();
-				saveBut.setText("Save Character");
-				saveBut.setLayoutX(650);
-				saveBut.setOnAction(new EventHandler<ActionEvent>() {
-					@Override
-					public void handle(ActionEvent arg0) 
-					{
-						CharSheet cs = pui.createCharacter(primaryStage);
-						pui.saveCharSheet(cs, "./", "dad");
-					}
-				});
 				displayCleanCharacterSheet(primaryStage);
 			}
 		});
