@@ -383,8 +383,10 @@ public class Show {
 	// the boolean that is passed in affects whether the text boxes can be edited or
 	// note
 	public void displayFilledCharacterSheet(Stage primaryStage, CharSheet c, boolean canEdit) {
+		thePane.getChildren().clear();
 		ImageView viewSheet = new ImageView();
 		viewSheet.setImage(new Image("file:Character Sheet (Official) - Copy_Page_1.png", 790, 790, true, true));
+		
 
 		characterNameField = new TextField(c.getCharacterName());
 		characterNameField.setEditable(canEdit);
@@ -765,12 +767,25 @@ public class Show {
 		editChar.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
+				thePane.getChildren().clear();
 				TextField theChar = new TextField();
 				theChar.setPromptText("Enter name of the character you wish to load");
-				theChar.setLayoutX(600);
+				theChar.setLayoutX(450);
 				theChar.setLayoutY(400);
 				theChar.setPrefWidth(300);
-				displayFilledCharacterSheet(primaryStage, pui.loadCharSheet("./", theChar.getText(), "dad"), true);
+				Button enterForLoad = new Button();
+				enterForLoad.setText("Load");
+				enterForLoad.setLayoutX(575);
+				enterForLoad.setLayoutY(425);
+				enterForLoad.setOnAction(new EventHandler<ActionEvent>()
+						{
+							@Override
+							public void handle(ActionEvent arg0) 
+							{
+								displayFilledCharacterSheet(primaryStage, pui.loadCharSheet("./", theChar.getText(), "dad"), true);
+							}
+						});
+				thePane.getChildren().addAll(theChar,enterForLoad);
 			}
 		});
 
