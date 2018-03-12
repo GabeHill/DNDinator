@@ -56,7 +56,7 @@ public class DungeonMasterUIController extends PlayerUIController implements IMe
 	}
 
 	private void setRules() {
-		options.addRule(show.get);
+		options.addRule(null);
 	}
 
 }
