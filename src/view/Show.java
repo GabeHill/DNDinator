@@ -279,7 +279,7 @@ public class Show {
 		// 230 x, 590y (+30 for each iteration), 25 prefWidth
 		int currencyY = 590;
 		for (int i = 0; i < currency.length; i++) {
-//		currency[i] = new TextField();
+			currency[i] = new TextField();
 			currency[i].setLayoutX(220);
 			currency[i].setLayoutY(currencyY);
 			currency[i].setPrefWidth(47);
