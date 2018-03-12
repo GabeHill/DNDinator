@@ -10,11 +10,11 @@ import enums.Currency;
 import enums.PrimaryStat;
 import iMenu.IMenu;
 import javafx.stage.Stage;
+import main.Main;
 import models.CharSheet;
-import view.Show;
+
 
 public class PlayerUIController implements IMenu {
-	static Show show = new Show();
 	public String methodReturn = "";
 
 	public void run() {
@@ -25,42 +25,42 @@ public class PlayerUIController implements IMenu {
 
 		CharSheet steve = new CharSheet();
 
-		steve.setItems(show.getItems());
+		steve.setItems(Main.primaryShow.getItems());
 
-		steve.setMilestoneLeveling(show.getMilestone());
+		steve.setMilestoneLeveling(Main.primaryShow.getMilestone());
 
-		steve.setOccupation(show.getCharClass());
+		steve.setOccupation(Main.primaryShow.getCharClass());
 
-		steve.setPlayerName(show.getPlayerName());
+		steve.setPlayerName(Main.primaryShow.getPlayerName());
 
-		steve.setRace(show.getCharacterRaceField());
+		steve.setRace(Main.primaryShow.getCharacterRaceField());
 
-		steve.setBackground(show.getCharBG());
+		steve.setBackground(Main.primaryShow.getCharBG());
 
-		steve.setCharacterName(show.getCharacterNameField());
+		steve.setCharacterName(Main.primaryShow.getCharacterNameField());
 
-		steve.changeAlignment(show.getCharAlign());
+		steve.changeAlignment(Main.primaryShow.getCharAlign());
 
-		steve.addOtherData("Hit Die", show.getHd() + "");
+		steve.addOtherData("Hit Die", Main.primaryShow.getHd() + "");
 
-		int[] muns = show.getCurrency();
+		int[] muns = Main.primaryShow.getCurrency();
 		steve.setMoney(Currency.CP, muns[0]);
 		steve.setMoney(Currency.EP, muns[1]);
 		steve.setMoney(Currency.GP, muns[2]);
 		steve.setMoney(Currency.PP, muns[3]);
 		steve.setMoney(Currency.SP, muns[4]);
 
-		steve.setStat(PrimaryStat.CHARISMA, show.getChr());
-		steve.setStat(PrimaryStat.CONSTITUTION, show.getCon());
-		steve.setStat(PrimaryStat.MAX_HEALTH, show.getMaxHp());
-		steve.setStat(PrimaryStat.INITIATIVE, show.getInitiative());
-		steve.setStat(PrimaryStat.INTELLIGENCE, show.getIntel());
-		steve.setStat(PrimaryStat.PROFICIENCY, show.getProfBns());
-		steve.setStat(PrimaryStat.SPEED, show.getSpd());
-		steve.setStat(PrimaryStat.STRENGTH, show.getStr());
-		steve.setStat(PrimaryStat.TEMPORARY_HEALTH, show.getTempHp());
-		steve.setStat(PrimaryStat.WISDOM, show.getWis());
-		steve.setStat(PrimaryStat.ARMOR_CLASS, show.getArmClass());
+		steve.setStat(PrimaryStat.CHARISMA, Main.primaryShow.getChr());
+		steve.setStat(PrimaryStat.CONSTITUTION, Main.primaryShow.getCon());
+		steve.setStat(PrimaryStat.MAX_HEALTH, Main.primaryShow.getMaxHp());
+		steve.setStat(PrimaryStat.INITIATIVE, Main.primaryShow.getInitiative());
+		steve.setStat(PrimaryStat.INTELLIGENCE, Main.primaryShow.getIntel());
+		steve.setStat(PrimaryStat.PROFICIENCY, Main.primaryShow.getProfBns());
+		steve.setStat(PrimaryStat.SPEED, Main.primaryShow.getSpd());
+		steve.setStat(PrimaryStat.STRENGTH, Main.primaryShow.getStr());
+		steve.setStat(PrimaryStat.TEMPORARY_HEALTH, Main.primaryShow.getTempHp());
+		steve.setStat(PrimaryStat.WISDOM, Main.primaryShow.getWis());
+		steve.setStat(PrimaryStat.ARMOR_CLASS, Main.primaryShow.getArmClass());
 
 		return steve;
 	}

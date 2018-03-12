@@ -7,7 +7,7 @@ import view.Show;
 
 public class Main extends Application
 {
-	
+	public static Show primaryShow = new Show();
 	public static void main(String[] args) 
 	{
 		launch(args);
@@ -16,7 +16,7 @@ public class Main extends Application
 	@Override
 	public void start(Stage primaryStage) throws Exception 
 	{
-		Show primaryShow = new Show();
+	
 		primaryShow.initDnDinatorDisplay(primaryStage);
 		primaryShow.displayMainMenu(primaryStage);
 //		primaryShow.displayCleanCharacterSheet(primaryStage);
