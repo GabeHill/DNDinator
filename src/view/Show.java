@@ -280,6 +280,7 @@ public class Show {
 		int currencyY = 590;
 		for (int i = 0; i < currency.length; i++) {
 			currency[i] = new TextField();
+			currency[i].getText();
 			currency[i].setLayoutX(220);
 			currency[i].setLayoutY(currencyY);
 			currency[i].setPrefWidth(47);
@@ -934,11 +935,7 @@ public class Show {
 	public int[] getCurrency() {
 		int[] charCurrency = new int[5];
 		for (int i = 0; i < charCurrency.length; i++) {
-<<<<<<< HEAD
 			charCurrency[i] = Integer.parseInt(currency[i].getText());
-=======
-			charCurrency[i] = emptyCheck(currency[i].toString());
->>>>>>> branch 'master' of https://github.com/GabeHill/DNDinator.git
 		}
 		return charCurrency;
 	}
