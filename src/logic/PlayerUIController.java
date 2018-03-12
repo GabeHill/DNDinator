@@ -12,9 +12,16 @@ import view.Show;
 
 public class PlayerUIController implements IMenu {
 	static Show show = new Show();
-
+	public String methodReturn =""; 
+	
 	public void run() {
 
+	}
+	public void methodSave(String name) {
+		methodReturn = name;
+	}
+	public String showTurn() {
+		return methodReturn;
 	}
 
 	public static CharSheet createCharacter(Stage primaryStage) 
