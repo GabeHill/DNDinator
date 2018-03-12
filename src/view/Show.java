@@ -421,41 +421,41 @@ public class Show {
 		ImageView viewSheet = new ImageView();
 		viewSheet.setImage(new Image("file:Character Sheet (Official) - Copy_Page_1.png", 790, 790, true, true));
 
-//		characterNameField = new TextField(c.getCharacterName());
+		// characterNameField = new TextField(c.getCharacterName());
 		characterNameField.setText(c.getCharacterName());
 		characterNameField.setEditable(canEdit);
 		characterNameField.setLayoutY(59);
 		characterNameField.setLayoutX(50);
 
-//		characterRaceField = new TextField(c.getRace());
+		// characterRaceField = new TextField(c.getRace());
 		characterRaceField.setText(c.getRace());
 		characterRaceField.setEditable(canEdit);
 		characterRaceField.setLayoutX(270);
 		characterRaceField.setLayoutY(72);
 		characterRaceField.setPrefWidth(100);
 
-//		charAlign = new ComboBox<>();
+		// charAlign = new ComboBox<>();
 		charAlign.setValue(getCharAlign().toString());
 		charAlign.setEditable(canEdit);
 		charAlign.setLayoutX(370);
 		charAlign.setLayoutY(72);
 		charAlign.setPrefWidth(100);
 
-//		charEXP = new TextField("" + c.getXp());
+		// charEXP = new TextField("" + c.getXp());
 		charEXP.setText("" + c.getXp());
 		charEXP.setEditable(canEdit);
 		charEXP.setLayoutX(470);
 		charEXP.setLayoutY(72);
 		charEXP.setPrefWidth(100);
 
-//		charClass = new TextField(c.getOccupation());
+		// charClass = new TextField(c.getOccupation());
 		charClass.setText(c.getOccupation());
 		charClass.setEditable(canEdit);
 		charClass.setLayoutX(270);
 		charClass.setLayoutY(47);
 		charClass.setPrefWidth(60);
 
-//		charLevel = new TextField("" + c.getLevel());
+		// charLevel = new TextField("" + c.getLevel());
 		charLevel.setText("" + c.getLevel());
 		charLevel.setEditable(canEdit);
 		charLevel.setLayoutX(330);
@@ -503,7 +503,7 @@ public class Show {
 		perBonds.setPrefHeight(45);
 
 		// perFlaws = new TextField(c.getOtherData("Flaws"));
-		perFlaws.setText(c.getOtherData("Flaws")); 
+		perFlaws.setText(c.getOtherData("Flaws"));
 		perFlaws.setWrapText(true);
 		perFlaws.setPrefWidth(148);
 		perFlaws.setEditable(canEdit);
@@ -603,7 +603,7 @@ public class Show {
 		hp.setLayoutX(230);
 		hp.setLayoutY(200);
 
-//		tempHp = new TextField();
+		// tempHp = new TextField();
 		tempHp.setEditable(canEdit);
 		tempHp.setLayoutX(230);
 		tempHp.setLayoutY(270);
@@ -621,24 +621,24 @@ public class Show {
 		int currencyY = 590;
 		for (int i = 0; i < currency.length; i++) {
 			int x = 0;
-			String xType;
-			if (i == 0) {
+			switch (i) {
+			case 0:
 				x = c.getMoney(Currency.CP);
-				xType = Currency.CP.toString();
-			} else if (i == 1) {
+				break;
+			case 1:
 				x = c.getMoney(Currency.SP);
-				xType = Currency.SP.toString();
-			} else if (i == 2) {
+				break;
+			case 2:
 				x = c.getMoney(Currency.GP);
-				xType = Currency.GP.toString();
-			} else if (i == 3) {
+				break;
+			case 3:
 				x = c.getMoney(Currency.PP);
-				xType = Currency.PP.toString();
-			} else {
+				break;
+			case 4:
 				x = c.getMoney(Currency.EP);
-				xType = Currency.EP.toString();
+				break;
 			}
-			currency[i].setText(x + " " + xType);
+			currency[i].setText(x + "");
 			currency[i].setEditable(canEdit);
 			currency[i].setLayoutX(220);
 			currency[i].setLayoutY(currencyY);
@@ -836,8 +836,8 @@ public class Show {
 				enterForLoad.setOnAction(new EventHandler<ActionEvent>() {
 					@Override
 					public void handle(ActionEvent arg0) {
-						displayFilledCharacterSheet(primaryStage, PlayerUIController.loadCharSheet("./", theChar.getText(), "dad"),
-								true);
+						displayFilledCharacterSheet(primaryStage,
+								PlayerUIController.loadCharSheet("./", theChar.getText(), "dad"), true);
 					}
 				});
 				thePane.getChildren().addAll(theChar, enterForLoad);
@@ -855,26 +855,26 @@ public class Show {
 
 		new VBox();
 		new HBox();
-		GameData gameData = new GameData("auto");
-//		gameData.getCharList();
+		new GameData("auto");
 
-//		new GameData("auto");
-//		FXCollections.observableArrayList();
+		// new GameData("auto");
+		// FXCollections.observableArrayList();
 		TableView playerList = new TableView();
 		TableColumn playerName = new TableColumn("Players");
 		playerList.setEditable(true);
 		playerList.getColumns().clear();
 		playerList.getColumns().addAll(playerName);
-//		playerName.setCellFactory(new PropertyValueFactory<CharSheet, String>("playerName"));
+		// playerName.setCellFactory(new PropertyValueFactory<CharSheet,
+		// String>("playerName"));
 		playerList.setPlaceholder(new Label("No Players to Display"));
 		playerList.setLayoutX(50);
 		playerList.setLayoutY(160);
 
 		Button saveRule = new Button();
 		Button loadRule = new Button();
-		Button addCharToList = new Button();
-		Button saveCharList = new Button();
-		Button removeCharFromList = new Button();
+		new Button();
+		new Button();
+		new Button();
 		TextArea ruleText = new TextArea();
 
 		ruleText.setPromptText("Enter Rules and Notes here");
@@ -932,7 +932,7 @@ public class Show {
 			}
 		});
 
-		thePane.getChildren().addAll(saveRule, loadRule, ruleText, playerList); 
+		thePane.getChildren().addAll(saveRule, loadRule, ruleText, playerList);
 		primaryStage.setScene(theScene);
 		primaryStage.sizeToScene();
 		primaryStage.show();
