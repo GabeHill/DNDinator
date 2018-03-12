@@ -46,6 +46,11 @@ public class CharSheet implements Serializable {
 		}
 	}
 
+	@Override
+	public String toString() {
+		return characterName + ":" + playerName;
+	}
+
 	/**
 	 *
 	 * @param name

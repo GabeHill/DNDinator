@@ -41,7 +41,7 @@ public class PlayerUIController implements IMenu {
 
 		steve.changeAlignment(show.getCharAlign());
 
-		// steve.addOtherData("Hit Die", show.getHd() + "");
+		steve.addOtherData("Hit Die", show.getHd() + "");
 
 		int[] muns = show.getCurrency();
 		steve.setMoney(Currency.CP, muns[0]);
@@ -95,12 +95,15 @@ public class PlayerUIController implements IMenu {
 	public CharSheet loadCharSheet(String path, String charName, String encryptKey) {
 		CharSheet d = null;
 		try {
-			ObjectInputStream iin = new ObjectInputStream(new FileInputStream(path + charName + ".json"));
+			String p = path + charName + ".json";
+			ObjectInputStream iin = new ObjectInputStream(new FileInputStream(p));
 			d = (CharSheet) iin.readObject();
+			System.out.println(d);
 			iin.close();
 			// d = (CharSheet) Writer.read(path + charName + ".json", encryptKey,
 			// CharSheet.class);
 		} catch (IOException e) {
+			System.out.println("fff");
 			return new CharSheet();
 		} catch (ClassNotFoundException e) {
 			return null;
