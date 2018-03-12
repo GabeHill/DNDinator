@@ -151,6 +151,7 @@ public class Show {
 
 		// perTraits = new TextField();
 		perTraits.setPromptText("Personality Traits");
+		perTraits.setWrapText(true);
 		perTraits.setMaxWidth(148);
 		perTraits.setLayoutX(420);
 		perTraits.setLayoutY(140);
@@ -158,6 +159,7 @@ public class Show {
 
 		// perIdeals = new TextField();
 		perIdeals.setPromptText("Ideals");
+		perIdeals.setWrapText(true);
 		perIdeals.setMaxWidth(148);
 		perIdeals.setLayoutX(420);
 		perIdeals.setLayoutY(207);
@@ -165,6 +167,7 @@ public class Show {
 
 		// perBonds = new TextField();
 		perBonds.setPromptText("Bonds");
+		perBonds.setWrapText(true);
 		perBonds.setMaxWidth(148);
 		perBonds.setLayoutX(420);
 		perBonds.setLayoutY(264);
@@ -172,6 +175,7 @@ public class Show {
 
 		// perFlaws = new TextField();
 		perFlaws.setPromptText("Flaws");
+		perFlaws.setWrapText(true);
 		perFlaws.setMaxWidth(148);
 		perFlaws.setLayoutX(420);
 		perFlaws.setLayoutY(321);
@@ -179,6 +183,7 @@ public class Show {
 
 		// additionalTraits = new TextField();
 		additionalTraits.setPromptText("Additional Traits");
+		additionalTraits.setWrapText(true);
 		additionalTraits.setMaxWidth(165);
 		additionalTraits.setLayoutX(410);
 		additionalTraits.setLayoutY(380);
@@ -229,6 +234,7 @@ public class Show {
 
 		// otherPnL = new TextField();
 		otherPnL.setPromptText("Other Profficiencies and Languages");
+		otherPnL.setWrapText(true);
 		otherPnL.setLayoutX(35);
 		otherPnL.setLayoutY(625);
 		otherPnL.setPrefHeight(138);
@@ -471,6 +477,8 @@ public class Show {
 
 		// perTraits = new TextField(c.getOtherData("Personality Traits"));
 		perTraits.setText(c.getOtherData("Personality Traits"));
+		perTraits.setWrapText(true);
+		perTraits.setPrefWidth(148);
 		perTraits.setEditable(canEdit);
 		perTraits.setLayoutX(420);
 		perTraits.setLayoutY(140);
@@ -478,6 +486,8 @@ public class Show {
 
 		// perIdeals = new TextField(c.getOtherData("Ideals"));
 		perIdeals.setText(c.getOtherData("Ideals"));
+		perIdeals.setWrapText(true);
+		perIdeals.setPrefWidth(148);
 		perIdeals.setEditable(canEdit);
 		perIdeals.setLayoutX(420);
 		perIdeals.setLayoutY(207);
@@ -485,6 +495,8 @@ public class Show {
 
 		// perBonds = new TextField(c.getOtherData("Bonds"));
 		perBonds.setText(c.getOtherData("Bonds"));
+		perBonds.setWrapText(true);
+		perBonds.setPrefWidth(148);
 		perBonds.setEditable(canEdit);
 		perBonds.setLayoutX(420);
 		perBonds.setLayoutY(264);
@@ -492,12 +504,15 @@ public class Show {
 
 		// perFlaws = new TextField(c.getOtherData("Flaws"));
 		perFlaws.setText(c.getOtherData("Flaws")); 
+		perFlaws.setWrapText(true);
+		perFlaws.setPrefWidth(148);
 		perFlaws.setEditable(canEdit);
 		perFlaws.setLayoutX(420);
 		perFlaws.setLayoutY(321);
 		perFlaws.setPrefHeight(45);
 
 		additionalTraits.setText(c.getOtherData("Additional Traits"));
+		additionalTraits.setWrapText(true);
 		additionalTraits.setEditable(canEdit);
 		additionalTraits.setLayoutX(410);
 		additionalTraits.setLayoutY(380);
@@ -549,6 +564,7 @@ public class Show {
 		chr.setPrefWidth(35);
 
 		otherPnL.setText(c.getOtherData("Other Profficiencies and Languages"));
+		otherPnL.setWrapText(true);
 		otherPnL.setEditable(canEdit);
 		otherPnL.setLayoutX(35);
 		otherPnL.setLayoutY(625);
@@ -557,6 +573,7 @@ public class Show {
 
 		// equipment = new TextArea();
 		equipment.setText("" + c.getItems());
+		equipment.setWrapText(true);
 		equipment.setEditable(canEdit);
 		equipment.setLayoutX(268);
 		equipment.setLayoutY(590);
@@ -672,13 +689,22 @@ public class Show {
 		}
 
 		DiceSides[] sides = DiceSides.values();
-		int sidesY = 0;
+		int sidesY = 300;
+		boolean left = true;
 		dcButtons = new Button[sides.length];
 		for (int i = 0; i < dcButtons.length; i++) {
 			dcButtons[i] = new Button();
 			dcButtons[i].setText(sides[i].toString());
-			dcButtons[i].setLayoutX(615);
-			dcButtons[i].setLayoutY(sidesY);
+			if (left) {
+				dcButtons[i].setLayoutX(615);
+				sidesY += 25;
+				dcButtons[i].setLayoutY(sidesY);
+				dcButtons[i].setMinWidth(75);
+			} else {
+				dcButtons[i].setLayoutX(690);
+				dcButtons[i].setLayoutY(sidesY);
+				dcButtons[i].setMinWidth(75);
+			}
 			DiceSides s = sides[i];
 			dcButtons[i].setOnAction(new EventHandler<ActionEvent>() {
 				@Override
@@ -686,7 +712,7 @@ public class Show {
 					displayDice(s, primaryStage);
 				}
 			});
-			sidesY += 25;
+			left = !left;
 			thePane.getChildren().add(dcButtons[i]);
 		}
 		Button saveBut = new Button();
