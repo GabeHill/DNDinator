@@ -50,6 +50,7 @@ public class PlayerUIController implements IMenu {
 		for (int i = 0; i<Main.primaryShow.getAtkBns().length;i++) {	
 			steve.addOtherData("AttackBns"+i, Main.primaryShow.getAtkBns()[i]);
 		}
+		//ahh
 
 		steve.addOtherData("Hit Die", Main.primaryShow.getHd() + "");
 		steve.addOtherData("Traits", Main.primaryShow.getPerTraits());
