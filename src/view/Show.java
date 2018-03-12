@@ -47,10 +47,7 @@ public class Show {
 	private static PlayerUIController pui;
 	private static DungeonMasterUIController dui;
 
-
 	private Text diceFace = new Text();
-	private boolean isDone;
-	private boolean isMilestone = false;
 	private CheckBox isMilestoneCheck = new CheckBox("Milestone Levelling");
 	private TextField characterNameField = new TextField();
 	private TextField characterRaceField = new TextField();
@@ -67,17 +64,17 @@ public class Show {
 	private TextArea additionalTraits = new TextArea();
 	private TextField profBns = new TextField();
 	private TextField str = new TextField();
-	private TextField dex = new TextField() ;
-	private TextField con= new TextField();
-	private TextField intel= new TextField();
-	private TextField wis= new TextField();
-	private TextField chr= new TextField();
+	private TextField dex = new TextField();
+	private TextField con = new TextField();
+	private TextField intel = new TextField();
+	private TextField wis = new TextField();
+	private TextField chr = new TextField();
 	private TextArea otherPnL = new TextArea();
 	private TextArea equipment = new TextArea();
 	private TextField armClass = new TextField();
 	private TextField spd = new TextField();
 	private TextField initiative = new TextField();
-	private TextField hp= new TextField();
+	private TextField hp = new TextField();
 	private TextField tempHp = new TextField();
 	private TextField hd = new TextField();
 	private TextField[] currency;
@@ -98,89 +95,87 @@ public class Show {
 		ImageView viewSheet = new ImageView();
 		viewSheet.setImage(new Image("file:Character Sheet (Official) - Copy_Page_1.png", 790, 790, true, true));
 
-		//characterNameField = new TextField();
+		// characterNameField = new TextField();
 		characterNameField.setPromptText("Name");
 		characterNameField.setLayoutY(59);
 		characterNameField.setLayoutX(50);
 
-		//characterRaceField = new TextField();
+		// characterRaceField = new TextField();
 		characterRaceField.setPromptText("Race");
 		characterRaceField.setLayoutX(270);
 		characterRaceField.setLayoutY(72);
 		characterRaceField.setPrefWidth(100);
 
-		//charAlign = new ComboBox<>();
+		// charAlign = new ComboBox<>();
 		charAlign.setItems(alignlist);
 		charAlign.setPromptText("Alignment");
 		charAlign.setLayoutX(370);
 		charAlign.setLayoutY(72);
 		charAlign.setPrefWidth(120);
 
-
-		//charEXP = new TextField();
+		// charEXP = new TextField();
 		charEXP.setPromptText("Exp");
 		charEXP.setLayoutX(490);
 		charEXP.setLayoutY(72);
 		charEXP.setPrefWidth(80);
-		
 
-		//isMilestoneCheck = new CheckBox("Milestone Levelling");
+		// isMilestoneCheck = new CheckBox("Milestone Levelling");
 		isMilestoneCheck.setLayoutY(105);
 		isMilestoneCheck.setLayoutX(475);
 
-		//charClass = new TextField();
+		// charClass = new TextField();
 		charClass.setPromptText("Class");
 		charClass.setLayoutX(270);
 		charClass.setLayoutY(47);
 		charClass.setPrefWidth(60);
 
-		//charLevel = new TextField();
+		// charLevel = new TextField();
 		charLevel.setPromptText("Level");
 		charLevel.setLayoutX(330);
 		charLevel.setLayoutY(47);
 		charLevel.setPrefWidth(40);
 
-		//charBG = new TextField();
+		// charBG = new TextField();
 		charBG.setPromptText("Background");
 		charBG.setLayoutX(370);
 		charBG.setLayoutY(47);
 		charBG.setPrefWidth(100);
 
-		//playerName = new TextField();
+		// playerName = new TextField();
 		playerName.setPromptText("Player Name");
 		playerName.setLayoutX(470);
 		playerName.setLayoutY(47);
 		playerName.setPrefWidth(100);
 
-		//perTraits = new TextField();
+		// perTraits = new TextField();
 		perTraits.setPromptText("Personality Traits");
 		perTraits.setMaxWidth(148);
 		perTraits.setLayoutX(420);
 		perTraits.setLayoutY(140);
 		perTraits.setPrefHeight(55);
 
-		//perIdeals = new TextField();
+		// perIdeals = new TextField();
 		perIdeals.setPromptText("Ideals");
 		perIdeals.setMaxWidth(148);
 		perIdeals.setLayoutX(420);
 		perIdeals.setLayoutY(207);
 		perIdeals.setPrefHeight(45);
 
-		//perBonds = new TextField();
+		// perBonds = new TextField();
 		perBonds.setPromptText("Bonds");
 		perBonds.setMaxWidth(148);
 		perBonds.setLayoutX(420);
 		perBonds.setLayoutY(264);
 		perBonds.setPrefHeight(45);
 
-		//perFlaws = new TextField();
+		// perFlaws = new TextField();
 		perFlaws.setPromptText("Flaws");
 		perFlaws.setMaxWidth(148);
 		perFlaws.setLayoutX(420);
 		perFlaws.setLayoutY(321);
 		perFlaws.setPrefHeight(45);
 
-		//additionalTraits = new TextField();
+		// additionalTraits = new TextField();
 		additionalTraits.setPromptText("Additional Traits");
 		additionalTraits.setMaxWidth(165);
 		additionalTraits.setLayoutX(410);
@@ -188,56 +183,56 @@ public class Show {
 		additionalTraits.setPrefHeight(382);
 		additionalTraits.setPrefWidth(170);
 
-		//profBns = new TextField();
+		// profBns = new TextField();
 		profBns.setPromptText("Prof");
 		profBns.setLayoutX(90);
 		profBns.setLayoutY(165);
 		profBns.setPrefWidth(35);
 
-		//str = new TextField();
+		// str = new TextField();
 		str.setPromptText("Str");
 		str.setLayoutX(40);
 		str.setLayoutY(155);
 		str.setPrefWidth(35);
 
-		//dex = new TextField();
+		// dex = new TextField();
 		dex.setPromptText("Dex");
 		dex.setLayoutX(40);
 		dex.setLayoutY(226);
 		dex.setPrefWidth(35);
 
-		//con = new TextField();
+		// con = new TextField();
 		con.setPromptText("Con");
 		con.setLayoutX(40);
 		con.setLayoutY(298);
 		con.setPrefWidth(35);
 
-		//intel = new TextField();
+		// intel = new TextField();
 		intel.setPromptText("Int");
 		intel.setLayoutX(40);
 		intel.setLayoutY(370);
 		intel.setPrefWidth(35);
 
-		//wis = new TextField();
+		// wis = new TextField();
 		wis.setPromptText("Wis");
 		wis.setLayoutX(40);
 		wis.setLayoutY(442);
 		wis.setPrefWidth(35);
 
-		//chr = new TextField();
+		// chr = new TextField();
 		chr.setPromptText("Cha");
 		chr.setLayoutX(40);
 		chr.setLayoutY(514);
 		chr.setPrefWidth(35);
 
-		//otherPnL = new TextField();
+		// otherPnL = new TextField();
 		otherPnL.setPromptText("Other Profficiencies and Languages");
 		otherPnL.setLayoutX(35);
 		otherPnL.setLayoutY(625);
 		otherPnL.setPrefHeight(138);
 		otherPnL.setPrefWidth(165);
 
-		//equipment = new TextField();
+		// equipment = new TextField();
 		equipment.setWrapText(true);
 		equipment.setPromptText("Equipment");
 		equipment.setLayoutX(268);
@@ -245,35 +240,35 @@ public class Show {
 		equipment.setPrefHeight(173);
 		equipment.setPrefWidth(115);
 
-		//armClass = new TextField();
+		// armClass = new TextField();
 		armClass.setPromptText("AC");
 		armClass.setLayoutX(232);
 		armClass.setLayoutY(142);
 		armClass.setPrefWidth(30);
 
-		//spd = new TextField();
+		// spd = new TextField();
 		spd.setPromptText("Spd");
 		spd.setLayoutX(345);
 		spd.setLayoutY(142);
 		spd.setPrefWidth(35);
 
-		//initiative = new TextField();
+		// initiative = new TextField();
 		initiative.setPromptText("Init");
 		initiative.setLayoutX(285);
 		initiative.setLayoutY(142);
 		initiative.setPrefWidth(35);
 
-		//hp = new TextField();
+		// hp = new TextField();
 		hp.setPromptText("Hp");
 		hp.setLayoutX(230);
 		hp.setLayoutY(200);
 
-		//tempHp = new TextField();
+		// tempHp = new TextField();
 		tempHp.setPromptText("Temporary HP");
 		tempHp.setLayoutX(230);
 		tempHp.setLayoutY(270);
 
-		//hd = new TextField();
+		// hd = new TextField();
 		hd.setPromptText("Hit Dice");
 		hd.setLayoutX(230);
 		hd.setLayoutY(320);
@@ -373,10 +368,10 @@ public class Show {
 			}
 		});
 
-
 		thePane.getChildren().addAll(viewSheet, characterNameField, characterRaceField, charClass, charLevel, charAlign,
-				charEXP, isMilestoneCheck, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd, initiative, hp, hd, profBns,
-				tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits, otherPnL, equipment,saveBut);
+				charEXP, isMilestoneCheck, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd,
+				initiative, hp, hd, profBns, tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits,
+				otherPnL, equipment, saveBut);
 
 		// adds each individual TextField[] inside of attack box to screen, as the
 		// arrays are all the same size as each other
@@ -455,7 +450,7 @@ public class Show {
 		charLevel.setLayoutY(47);
 		charLevel.setPrefWidth(40);
 
-//		charBG = new TextField("" + c.getBackground());
+		// charBG = new TextField("" + c.getBackground());
 		charBG.setEditable(canEdit);
 		charBG.setLayoutX(370);
 		charBG.setLayoutY(47);
@@ -467,31 +462,31 @@ public class Show {
 		playerName.setLayoutY(47);
 		playerName.setPrefWidth(100);
 
-//		perTraits = new TextField(c.getOtherData("Personality Traits"));
+		// perTraits = new TextField(c.getOtherData("Personality Traits"));
 		perTraits.setEditable(canEdit);
 		perTraits.setLayoutX(420);
 		perTraits.setLayoutY(140);
 		perTraits.setPrefHeight(55);
 
-//		perIdeals = new TextField(c.getOtherData("Ideals"));
+		// perIdeals = new TextField(c.getOtherData("Ideals"));
 		perIdeals.setEditable(canEdit);
 		perIdeals.setLayoutX(420);
 		perIdeals.setLayoutY(207);
 		perIdeals.setPrefHeight(45);
 
-//		perBonds = new TextField(c.getOtherData("Bonds"));
+		// perBonds = new TextField(c.getOtherData("Bonds"));
 		perBonds.setEditable(canEdit);
 		perBonds.setLayoutX(420);
 		perBonds.setLayoutY(264);
 		perBonds.setPrefHeight(45);
 
-//		perFlaws = new TextField(c.getOtherData("Flaws"));
+		// perFlaws = new TextField(c.getOtherData("Flaws"));
 		perFlaws.setEditable(canEdit);
 		perFlaws.setLayoutX(420);
 		perFlaws.setLayoutY(321);
 		perFlaws.setPrefHeight(45);
 
-//		additionalTraits = new TextField(c.getOtherData("Additional Traits"));
+		// additionalTraits = new TextField(c.getOtherData("Additional Traits"));
 		additionalTraits.setEditable(canEdit);
 		additionalTraits.setLayoutX(410);
 		additionalTraits.setLayoutY(380);
@@ -540,14 +535,15 @@ public class Show {
 		chr.setLayoutY(514);
 		chr.setPrefWidth(35);
 
-//		otherPnL = new TextField(c.getOtherData("Other Profficiencies and Languages"));
+		// otherPnL = new TextField(c.getOtherData("Other Profficiencies and
+		// Languages"));
 		otherPnL.setEditable(canEdit);
 		otherPnL.setLayoutX(35);
 		otherPnL.setLayoutY(625);
 		otherPnL.setPrefHeight(138);
 		otherPnL.setPrefWidth(165);
 
-//		equipment = new TextArea();
+		// equipment = new TextArea();
 		equipment.setEditable(canEdit);
 		equipment.setLayoutX(268);
 		equipment.setLayoutY(590);
@@ -588,7 +584,6 @@ public class Show {
 		hd.setLayoutY(320);
 		hd.setPrefWidth(65);
 
-		
 		// Sets an array for creating textfields within the equipment box for "currency"
 		// column
 		// 230 x, 590y (+30 for each iteration), 25 prefWidth
@@ -819,10 +814,10 @@ public class Show {
 
 	public void displayDMMenu(Stage primaryStage) {
 
-		VBox tableOutside = new VBox();
-		HBox tableBottom = new HBox();
+		new VBox();
+		new HBox();
 		GameData gameData = new GameData("auto");
-		ObservableList<CharSheet> playerNames = gameData.getCharList();
+		gameData.getCharList();
 
 		new GameData("auto");
 		FXCollections.observableArrayList();
@@ -920,7 +915,7 @@ public class Show {
 		}
 		return Alignment.TRUE_NEUTRAL;
 	}
-
+//ahhh
 	public int getCharEXP() {
 		return emptyCheck(charEXP.getText());
 	}
@@ -1041,14 +1036,19 @@ public class Show {
 	}
 
 	private int emptyCheck(String s) {
-		s = nullCheck(s);
+		String y = nullCheck(s);
 		int ret = 0;
-		if (!s.equals("Empty")) {
-			ret = Integer.parseInt(s);
+		if (y.equals("Empty")) {
+			return 0;
+		} else {
+			try {
+				ret = Integer.parseInt(y);
+			} catch (NumberFormatException e) {
+				return 0;
+			}
+			return ret;
 		}
-		return ret;
 	}
-	
 
 	public void exitButton(Stage primaryStage) {
 
