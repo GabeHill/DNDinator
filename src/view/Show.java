@@ -41,6 +41,7 @@ public class Show {
 	private static PlayerUIController pui;
 	private static DungeonMasterUIController dui;
 
+	private Text diceFace = new Text();
 	private boolean isDone;
 	private boolean isMilestone = false;
 	private TextField characterNameField;
@@ -340,10 +341,22 @@ public class Show {
 			left = !left;
 			thePane.getChildren().add(dcButtons[i]);
 		}
+		
+		Button saveBut = new Button();
+		saveBut.setText("Save Character");
+		saveBut.setLayoutX(650);
+		saveBut.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) 
+			{
+				CharSheet cs = pui.createCharacter(primaryStage);
+				pui.saveCharSheet(cs, "./", "dad");
+			}
+		});
 
 		thePane.getChildren().addAll(viewSheet, characterNameField, characterRaceField, charClass, charLevel, charAlign,
 				charEXP, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd, initiative, hp, hd, profBns,
-				tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits, otherPnL, equipment);
+				tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits, otherPnL, equipment,saveBut);
 
 		// adds each individual TextField[] inside of attack box to screen, as the
 		// arrays are all the same size as each other
@@ -360,8 +373,6 @@ public class Show {
 		primaryStage.show();
 		exitButton(primaryStage);
 	}
-
-	Text diceFace = new Text();
 
 	public void displayDice(DiceSides ds, Stage primaryStage) {
 		Circle c = new Circle(900, 400, 75, Paint.valueOf("Purple"));
@@ -386,8 +397,10 @@ public class Show {
 	// the boolean that is passed in affects whether the text boxes can be edited or
 	// note
 	public void displayFilledCharacterSheet(Stage primaryStage, CharSheet c, boolean canEdit) {
+		thePane.getChildren().clear();
 		ImageView viewSheet = new ImageView();
 		viewSheet.setImage(new Image("file:Character Sheet (Official) - Copy_Page_1.png", 790, 790, true, true));
+		
 
 		characterNameField = new TextField(c.getCharacterName());
 		characterNameField.setEditable(canEdit);
@@ -670,10 +683,20 @@ public class Show {
 			sidesY += 25;
 			thePane.getChildren().add(dcButtons[i]);
 		}
-
+		Button saveBut = new Button();
+		saveBut.setText("Save Character");
+		saveBut.setLayoutX(650);
+		saveBut.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) 
+			{
+				CharSheet cs = pui.createCharacter(primaryStage);
+				pui.saveCharSheet(cs, "./", "dad");
+			}
+		});
 		thePane.getChildren().addAll(viewSheet, characterNameField, characterRaceField, charClass, charLevel, charAlign,
 				charEXP, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd, initiative, hp, hd, profBns,
-				tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits, otherPnL, equipment);
+				tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits, otherPnL, equipment,saveBut);
 
 		// adds each individual TextField[] inside of attack box to screen, as the
 		// arrays are all the same size as each other
@@ -689,6 +712,7 @@ public class Show {
 		primaryStage.sizeToScene();
 		primaryStage.show();
 		exitButton(primaryStage);
+		
 	}
 
 	public void displayMainMenu(Stage primaryStage) {
@@ -763,29 +787,31 @@ public class Show {
 			@Override
 			public void handle(ActionEvent arg0) {
 				thePane.getChildren().clear();
-				Button saveBut = new Button();
-				saveBut.setText("Save Character");
-				saveBut.setLayoutX(650);
-				saveBut.setOnAction(new EventHandler<ActionEvent>() {
-					@Override
-					public void handle(ActionEvent arg0) 
-					{
-						CharSheet cs = pui.createCharacter(primaryStage);
-						pui.saveCharSheet(cs, "./", "dad");
-					}
-				});
 				displayCleanCharacterSheet(primaryStage);
 			}
 		});
 		editChar.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
+				thePane.getChildren().clear();
 				TextField theChar = new TextField();
 				theChar.setPromptText("Enter name of the character you wish to load");
-				theChar.setLayoutX(600);
+				theChar.setLayoutX(450);
 				theChar.setLayoutY(400);
 				theChar.setPrefWidth(300);
-				displayFilledCharacterSheet(primaryStage, pui.loadCharSheet("./", theChar.getText(), "dad"), true);
+				Button enterForLoad = new Button();
+				enterForLoad.setText("Load");
+				enterForLoad.setLayoutX(575);
+				enterForLoad.setLayoutY(425);
+				enterForLoad.setOnAction(new EventHandler<ActionEvent>()
+						{
+							@Override
+							public void handle(ActionEvent arg0) 
+							{
+								displayFilledCharacterSheet(primaryStage, pui.loadCharSheet("./", theChar.getText(), "dad"), true);
+							}
+						});
+				thePane.getChildren().addAll(theChar,enterForLoad);
 			}
 		});
 
