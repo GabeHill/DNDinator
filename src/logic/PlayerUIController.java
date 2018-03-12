@@ -17,7 +17,6 @@ public class PlayerUIController implements IMenu {
 	public void run() {
 
 	}
-	
 
 	public static CharSheet createCharacter(Stage primaryStage) 
 	{
@@ -73,11 +72,6 @@ public class PlayerUIController implements IMenu {
 		}
 	}
 
-	@Override
-	public void menu() 
-	{
-		
-	}
 
 	public String saveCharSheet(CharSheet c, String path, String encryptKey) 
 	{
@@ -98,5 +92,10 @@ public class PlayerUIController implements IMenu {
 			return new CharSheet();
 		}
 		return d;
+	}
+	@Override
+	public void menu() 
+	{
+		
 	}
 }

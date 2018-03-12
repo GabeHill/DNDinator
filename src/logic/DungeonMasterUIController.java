@@ -23,28 +23,6 @@ public class DungeonMasterUIController extends PlayerUIController implements IMe
 		return d;
 	}
 
-	@Override
-	public void menu() {
-		// TODO Auto-generated method stub
-
-		switch (0) {
-		case 1:
-			setRules();
-			break;
-		case 2:
-			createGame(null);
-			break;
-		case 3:
-			saveRules(null, null);
-			break;
-		case 4:
-			loadRules(null, null);
-			break;
-		default:
-			break;
-		}
-
-	}
 
 	public void methodSave(String name) {
 		methodReturn = name;
@@ -68,4 +46,26 @@ public class DungeonMasterUIController extends PlayerUIController implements IMe
 		return methodReturn;
 	}
 
+	@Override
+	public void menu() {
+		// TODO Auto-generated method stub
+		
+		switch (0) {
+		case 1:
+			setRules();
+			break;
+		case 2:
+			createGame(null);
+			break;
+		case 3:
+			saveRules(null, null);
+			break;
+		case 4:
+			loadRules(null, null);
+			break;
+		default:
+			break;
+		}
+		
+	}
 }
