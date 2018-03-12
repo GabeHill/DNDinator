@@ -447,6 +447,10 @@ public class Show {
 		charEXP.setLayoutX(470);
 		charEXP.setLayoutY(72);
 		charEXP.setPrefWidth(100);
+		
+		isMilestoneCheck.setSelected(c.isMilestoneLeveling());
+		isMilestoneCheck.setLayoutY(105);
+		isMilestoneCheck.setLayoutX(475);
 
 //		charClass = new TextField(c.getOccupation());
 		charClass.setText(c.getOccupation());
@@ -476,7 +480,7 @@ public class Show {
 		playerName.setPrefWidth(100);
 
 		// perTraits = new TextField(c.getOtherData("Personality Traits"));
-		perTraits.setText(c.getOtherData("Personality Traits"));
+		perTraits.setText(c.getOtherData("Traits"));
 		perTraits.setWrapText(true);
 		perTraits.setPrefWidth(148);
 		perTraits.setEditable(canEdit);
@@ -511,7 +515,7 @@ public class Show {
 		perFlaws.setLayoutY(321);
 		perFlaws.setPrefHeight(45);
 
-		additionalTraits.setText(c.getOtherData("Additional Traits"));
+		additionalTraits.setText(c.getOtherData("Add"));
 		additionalTraits.setWrapText(true);
 		additionalTraits.setEditable(canEdit);
 		additionalTraits.setLayoutX(410);
@@ -563,7 +567,7 @@ public class Show {
 		chr.setLayoutY(514);
 		chr.setPrefWidth(35);
 
-		otherPnL.setText(c.getOtherData("Other Profficiencies and Languages"));
+		otherPnL.setText(c.getOtherData("Other"));
 		otherPnL.setWrapText(true);
 		otherPnL.setEditable(canEdit);
 		otherPnL.setLayoutX(35);
@@ -995,7 +999,11 @@ public class Show {
 		}
 		return is;
 	}
-
+	
+	public String getAdditionalTraits() {
+		return nullCheck(additionalTraits.getText());
+	}
+	
 	public int getChr() {
 		return emptyCheck(chr.getText());
 	}
