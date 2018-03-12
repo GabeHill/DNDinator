@@ -75,7 +75,8 @@ public class GameData implements Serializable {
 	 */
 	public ObservableList<CharSheet> getCharList() {
 		ObservableList<CharSheet> o = null;
-		o = new SortedList<>(o);
+		ObservableList<CharSheet> p = null;
+		o = new SortedList<>(p);
 		o.addAll(characters.values());
 		return o;
 	}
