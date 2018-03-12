@@ -761,11 +761,11 @@ public class Show {
 		editChar.setScaleX(3);
 		editChar.setScaleY(3);
 
-		newChar.setLayoutX(175);
-		editChar.setLayoutX(142);
+		newChar.setLayoutX(575);
+		editChar.setLayoutX(525);
 
-		newChar.setLayoutY(50);
-		editChar.setLayoutY(130);
+		newChar.setLayoutY(100);
+		editChar.setLayoutY(200);
 
 		// newChar.setLayoutX(600);
 		// editChar.setLayoutX(600);
