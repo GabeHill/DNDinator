@@ -866,20 +866,19 @@ public class Show {
 				path.setLayoutX(565);
 				path.setLayoutY(680);
 				
-				Button loadThis = new Button("Submit Path");
-				loadThis.setScaleX(2);
-				loadThis.setScaleY(2);
-				loadThis.setLayoutX(595);
-				loadThis.setLayoutY(735);
-				loadThis.setOnAction(new EventHandler<ActionEvent>() {
+				Button submitPathBttn = new Button("Submit Path");
+				submitPathBttn.setScaleX(2);
+				submitPathBttn.setScaleY(2);
+				submitPathBttn.setLayoutX(595);
+				submitPathBttn.setLayoutY(735);
+				submitPathBttn.setOnAction(new EventHandler<ActionEvent>() {
 					@Override
 					public void handle(ActionEvent arg0) {
 						GameData loadData = dui.loadRules(path.getText(), "encryptKey");
-						
-						ruleText.setText("a");
+						ruleText.setText(loadData.getRules());
 					}
 				});
-				thePane.getChildren().addAll(path,loadThis);
+				thePane.getChildren().addAll(path,submitPathBttn);
 			}
 				
 //				ruleText.setText(loadData);
