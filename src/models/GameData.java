@@ -3,6 +3,9 @@ package models;
 import java.util.HashMap;
 import java.util.Set;
 
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.SortedList;
+
 public class GameData {
 
 	private HashMap<String, CharSheet> characters = new HashMap<>();
@@ -59,6 +62,17 @@ public class GameData {
 	 */
 	public CharSheet getCharacter(String name) {
 		return characters.get(name);
+	}
+
+	/**
+	 * 
+	 * @return ObservableList of Characters
+	 */
+	public ObservableList<CharSheet> getCharList() {
+		ObservableList<CharSheet> o = null;
+		o = new SortedList<>(o);
+		o.addAll(characters.values());
+		return o;
 	}
 
 	/**
