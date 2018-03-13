@@ -1217,7 +1217,7 @@ public class Show {
 	}
 
 	public void exitButton(Stage primaryStage) {
-
+//
 		Button exit = new Button();
 		exit.setLayoutX(1100);
 		exit.setText("Back to Main");
