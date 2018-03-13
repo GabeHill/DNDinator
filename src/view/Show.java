@@ -696,12 +696,13 @@ public class Show {
 		// 220 x, 385 y (+25 for each iteration), 70 prefWidth
 		// attackNames = new TextField[7];
 		int atkNamesY = 385;
-		for (TextField attackName : attackNames) {
+		for (int i = 0; i < attackNames.length; i++) {
 			// attackNames[i] = new TextField();
-			attackName.setEditable(canEdit);
-			attackName.setLayoutX(220);
-			attackName.setPrefWidth(70);
-			attackName.setLayoutY(atkNamesY);
+			attackNames[i].setText(c.getOtherData("AttackName" + i));
+			attackNames[i].setEditable(canEdit);
+			attackNames[i].setLayoutX(220);
+			attackNames[i].setPrefWidth(70);
+			attackNames[i].setLayoutY(atkNamesY);
 			atkNamesY += 25;
 		}
 
@@ -710,12 +711,13 @@ public class Show {
 		// 290 x, 385 y (+25 for each iteration), 32 prefWidth
 		// attackBonus = new TextField[7];
 		int atkBnsY = 385;
-		for (TextField attackBonu : attackBonus) {
+		for (int i = 0; i < attackBonus.length; i ++) {
 			// attackBonus[i] = new TextField();
-			attackBonu.setEditable(canEdit);
-			attackBonu.setLayoutX(290);
-			attackBonu.setPrefWidth(32);
-			attackBonu.setLayoutY(atkBnsY);
+			attackBonus[i].setText(c.getOtherData("AttackBns" + i));
+			attackBonus[i].setEditable(canEdit);
+			attackBonus[i].setLayoutX(290);
+			attackBonus[i].setPrefWidth(32);
+			attackBonus[i].setLayoutY(atkBnsY);
 			atkBnsY += 25;
 		}
 
@@ -724,12 +726,13 @@ public class Show {
 		// 322 x, 385 y (+25 for each iteration), 70 prefWidth
 		// attackDamage = new TextField[7];
 		int atkDmgY = 385;
-		for (TextField element : attackDamage) {
+		for (int i = 0; i < attackDamage.length; i ++) {
 			// attackDamage[i] = new TextField();
-			element.setEditable(canEdit);
-			element.setLayoutX(322);
-			element.setPrefWidth(70);
-			element.setLayoutY(atkDmgY);
+			attackDamage[i].setText(c.getOtherData("AttackDmg" + i));
+			attackDamage[i].setEditable(canEdit);
+			attackDamage[i].setLayoutX(322);
+			attackDamage[i].setPrefWidth(70);
+			attackDamage[i].setLayoutY(atkDmgY);
 			atkDmgY += 25;
 		}
 
@@ -1006,7 +1009,6 @@ public class Show {
 		return Alignment.TRUE_NEUTRAL;
 	}
 
-	// ahhh
 	public int getCharEXP() {
 		return emptyCheck(charEXP.getText());
 	}
