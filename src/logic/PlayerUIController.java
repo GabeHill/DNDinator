@@ -44,11 +44,11 @@ public class PlayerUIController implements IMenu {
 		for (int i = 0; i<Main.primaryShow.getAtkName().length;i++) {	
 			steve.addOtherData("AttackName"+i, Main.primaryShow.getAtkName()[i]);
 		}
-		for (int i = 0; i<Main.primaryShow.getAtkDmg().length;i++) {	
-			steve.addOtherData("AttackDmg"+i, Main.primaryShow.getAtkDmg()[i]);
-		}
 		for (int i = 0; i<Main.primaryShow.getAtkBns().length;i++) {	
 			steve.addOtherData("AttackBns"+i, Main.primaryShow.getAtkBns()[i]);
+		}
+		for (int i = 0; i<Main.primaryShow.getAtkDmg().length;i++) {	
+			steve.addOtherData("AttackDmg"+i, Main.primaryShow.getAtkDmg()[i]);
 		}
 		//ahh
 

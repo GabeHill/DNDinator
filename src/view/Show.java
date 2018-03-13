@@ -698,8 +698,7 @@ public class Show {
 		int atkNamesY = 385;
 		for (int i = 0; i < attackNames.length; i++) {
 			// attackNames[i] = new TextField();
-			String[] tempName = getAtkName();
-			attackNames[i].setText(tempName[i]);
+			attackNames[i].setText(c.getOtherData("AttackName" + i));
 			attackNames[i].setEditable(canEdit);
 			attackNames[i].setLayoutX(220);
 			attackNames[i].setPrefWidth(70);
@@ -714,8 +713,7 @@ public class Show {
 		int atkBnsY = 385;
 		for (int i = 0; i < attackBonus.length; i ++) {
 			// attackBonus[i] = new TextField();
-			String[] tempBonus = getAtkBns();
-			attackBonus[i].setText(tempBonus[i]);
+			attackBonus[i].setText(c.getOtherData("AttackBns" + i));
 			attackBonus[i].setEditable(canEdit);
 			attackBonus[i].setLayoutX(290);
 			attackBonus[i].setPrefWidth(32);
@@ -730,8 +728,7 @@ public class Show {
 		int atkDmgY = 385;
 		for (int i = 0; i < attackDamage.length; i ++) {
 			// attackDamage[i] = new TextField();
-			String[] tempDamage = getAtkDmg();
-			attackDamage[i].setText(tempDamage[i]);
+			attackDamage[i].setText(c.getOtherData("AttackDmg" + i));
 			attackDamage[i].setEditable(canEdit);
 			attackDamage[i].setLayoutX(322);
 			attackDamage[i].setPrefWidth(70);
