@@ -1011,7 +1011,6 @@ public class Show {
 		saveRule.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-//				File savefile = fileChooser.showSaveDialog(primaryStage);
 				DungeonMasterUIController.saveRules("./", "encryptKey");
 			}
 		});
@@ -1296,10 +1295,7 @@ public class Show {
 	public void exitButton(Stage primaryStage) {
 		//
 		Button exit = new Button();
-		exit.setLayoutX(1050);
-		exit.setLayoutY(20);
-		exit.setScaleX(1.5);
-		exit.setScaleY(1.5);
+		exit.setLayoutX(1100);
 		exit.setText("Back to Main");
 		exit.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
