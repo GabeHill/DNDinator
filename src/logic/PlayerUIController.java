@@ -15,7 +15,7 @@ import models.CharSheet;
 
 
 public class PlayerUIController implements IMenu {
-	public String methodReturn = "";
+	public static String methodReturn = "";
 
 	public void run() {
 
