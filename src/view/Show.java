@@ -1025,34 +1025,7 @@ public class Show {
 			}
 		});
 
-		DiceSides[] sides = DiceSides.values();
-		int sidesY = 300;
-		boolean left = true;
-		dcButtons = new Button[sides.length];
-		for (int i = 0; i < dcButtons.length; i++) {
-			dcButtons[i] = new Button();
-			dcButtons[i].setText(sides[i].toString());
-			if (left) {
-				dcButtons[i].setLayoutX(990);
-				sidesY += 25;
-				dcButtons[i].setLayoutY(sidesY);
-				dcButtons[i].setMinWidth(75);
-			} else {
-				dcButtons[i].setLayoutX(1075);
-				dcButtons[i].setLayoutY(sidesY);
-				dcButtons[i].setMinWidth(75);
-			}
-			DiceSides s = sides[i];
-			dcButtons[i].setOnAction(new EventHandler<ActionEvent>() {
-				@Override
-				public void handle(ActionEvent arg0) {
-					displayDice(s, primaryStage);
-				}
-			});
-			left = !left;
-			thePane.getChildren().add(dcButtons[i]);
-		}
-		thePane.getChildren().addAll(ruleOutside, ruleChoice); // charListThing
+		thePane.getChildren().addAll(ruleOutside, ruleChoice, charListThing);
 		primaryStage.setScene(theScene);
 		primaryStage.sizeToScene();
 		primaryStage.show();
