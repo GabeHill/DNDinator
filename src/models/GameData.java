@@ -1,6 +1,7 @@
 package models;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -25,6 +26,14 @@ public class GameData implements Serializable {
 	 */
 	public GameData(String name) {
 		setGameName(name);
+	}
+
+	/**
+	 *
+	 * @return Collection of CharSheets.
+	 */
+	public Collection<CharSheet> getAllChars() {
+		return characters.values();
 	}
 
 	/**

@@ -2,6 +2,7 @@ package view;
 
 import java.io.File;
 import java.util.LinkedList;
+
 import enums.Alignment;
 import enums.Currency;
 import enums.DiceSides;
@@ -916,6 +917,20 @@ public class Show {
 	public void displayDMMenu(Stage primaryStage) {
 
 		GameData local = new GameData("local");
+		ObservableList<CharSheet> l = FXCollections.observableArrayList();
+		TableView<CharSheet> playerList = new TableView<>();
+		playerList.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+		playerList.setEditable(true);
+		// playerList.getColumns().clear();
+		playerList.setPlaceholder(new Label("No Players to Display"));
+		playerList.setPrefWidth(250);
+		TableColumn playerName = new TableColumn("playerName");
+		playerName.setCellFactory(new PropertyValueFactory<CharSheet, String>("playerName"));
+		TableColumn charName = new TableColumn("characterName");
+		charName.setCellFactory(new PropertyValueFactory<CharSheet, String>("characterName"));
+
+		playerList.setItems(l);
+		playerList.getColumns().addAll(playerName, charName);
 
 		VBox charListThing = new VBox();
 		HBox bottomThing = new HBox();
@@ -936,9 +951,12 @@ public class Show {
 					// System.out.println(thisCharName.length);
 					CharSheet tempSheet = PlayerUIController.loadCharSheet("./", thisCharName[0], "dad");
 					local.addCharacter(tempSheet);
+					l.addAll(tempSheet);
 				}
 			}
 		});
+		charListThing.getChildren().addAll(playerList, bottomThing);
+
 		Button removeChar = new Button();
 		removeChar.setText("Remove a Character");
 		removeChar.setWrapText(true);
@@ -950,20 +968,6 @@ public class Show {
 				local.removeCharacter("name");
 			}
 		});
-
-		TableView<CharSheet> playerList = new TableView<CharSheet>();
-		playerList.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-		playerList.setEditable(true);
-		// playerList.getColumns().clear();
-		playerList.setPlaceholder(new Label("No Players to Display"));
-		playerList.setPrefWidth(250);
-		TableColumn playerName = new TableColumn("playerName");
-		playerName.setCellFactory(new PropertyValueFactory<CharSheet, String>("playerName"));
-		TableColumn charName = new TableColumn("characterName");
-		charName.setCellFactory(new PropertyValueFactory<CharSheet, String>("characterName"));
-		playerList.getColumns().addAll(playerName, charName);
-
-		charListThing.getChildren().addAll(playerList, bottomThing);
 		bottomThing.getChildren().addAll(addChar, removeChar);
 
 		Button loadRule = new Button();
@@ -971,31 +975,31 @@ public class Show {
 		TextArea ruleText = new TextArea();
 		VBox ruleOutside = new VBox();
 		HBox ruleChoice = new HBox();
-		
+
 		ruleOutside.getChildren().addAll(ruleText);
 		ruleOutside.setLayoutX(300);
-		ruleChoice.getChildren().addAll(saveRule,loadRule);
+		ruleChoice.getChildren().addAll(saveRule, loadRule);
 		ruleChoice.setLayoutX(300);
 		ruleChoice.setLayoutY(750);
 		ruleText.setPromptText("Enter Rules and Notes here");
 		ruleText.setWrapText(true);
-//		ruleText.setScaleX(3);
-//		ruleText.setScaleY(3);
+		// ruleText.setScaleX(3);
+		// ruleText.setScaleY(3);
 		ruleText.setLayoutX(275);
-//		ruleText.setLayoutY(10);
+		// ruleText.setLayoutY(10);
 		ruleText.setPrefHeight(475);
 		ruleText.setPrefWidth(500);
 
-//		saveRule.setLayoutX(300);
-//		loadRule.setLayoutX(700);
+		// saveRule.setLayoutX(300);
+		// loadRule.setLayoutX(700);
 
-//		saveRule.setScaleX(1.25);
-//		saveRule.setScaleY(1.25);
-//		loadRule.setScaleX(1.25);
-//		loadRule.setScaleY(1.25);
+		// saveRule.setScaleX(1.25);
+		// saveRule.setScaleY(1.25);
+		// loadRule.setScaleX(1.25);
+		// loadRule.setScaleY(1.25);
 
-//		saveRule.setLayoutY(500);
-//		loadRule.setLayoutY(500);
+		// saveRule.setLayoutY(500);
+		// loadRule.setLayoutY(500);
 
 		saveRule.setText("Save Rules");
 		saveRule.setMaxHeight(50);
@@ -1027,9 +1031,9 @@ public class Show {
 		primaryStage.show();
 		exitButton(primaryStage);
 	}
-	
+
 	public void displayFilledDMMenu(Stage primaryStage, GameData loadThis) {
-		
+
 	}
 
 	public boolean getMilestone() {
