@@ -917,7 +917,7 @@ public class Show {
 	public void displayDMMenu(Stage primaryStage) {
 
 		GameData local = new GameData("local");
-		ObservableList<CharSheet> l = FXCollections.observableArrayList();
+		// ObservableList<CharSheet> l = FXCollections.observableArrayList();
 		TableView<CharSheet> playerList = new TableView<>();
 		playerList.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 		playerList.setEditable(true);
@@ -929,7 +929,7 @@ public class Show {
 		TableColumn charName = new TableColumn("characterName");
 		charName.setCellFactory(new PropertyValueFactory<CharSheet, String>("characterName"));
 
-		playerList.setItems(l);
+		// playerList.setItems(l);
 		playerList.getColumns().addAll(playerName, charName);
 
 		VBox charListThing = new VBox();
@@ -951,7 +951,7 @@ public class Show {
 					// System.out.println(thisCharName.length);
 					CharSheet tempSheet = PlayerUIController.loadCharSheet("./", thisCharName[0], "dad");
 					local.addCharacter(tempSheet);
-					l.addAll(tempSheet);
+					// l.addAll(tempSheet);
 				}
 			}
 		});
