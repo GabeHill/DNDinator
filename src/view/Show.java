@@ -198,6 +198,8 @@ public class Show {
 		profBns.setPrefWidth(35);
 
 		// str = new TextField();
+		
+		//** here
 		str.setPromptText("Str");
 		str.setLayoutX(40);
 		str.setLayoutY(155);
@@ -242,8 +244,8 @@ public class Show {
 		otherPnL.setPrefWidth(165);
 
 		// equipment = new TextField();
-		equipment.setWrapText(true);
 		equipment.setPromptText("Equipment");
+		equipment.setWrapText(true);
 		equipment.setLayoutX(268);
 		equipment.setLayoutY(590);
 		equipment.setPrefHeight(173);
@@ -423,12 +425,15 @@ public class Show {
 		viewSheet.setImage(new Image("file:Character Sheet (Official) - Copy_Page_1.png", 790, 790, true, true));
 
 		// characterNameField = new TextField(c.getCharacterName());
+
+		characterNameField.setPromptText("Name");
 		characterNameField.setText(c.getCharacterName());
 		characterNameField.setEditable(canEdit);
 		characterNameField.setLayoutY(59);
 		characterNameField.setLayoutX(50);
 
 		// characterRaceField = new TextField(c.getRace());
+		characterRaceField.setPromptText("Race");
 		characterRaceField.setText(c.getRace());
 		characterRaceField.setEditable(canEdit);
 		characterRaceField.setLayoutX(270);
@@ -436,6 +441,7 @@ public class Show {
 		characterRaceField.setPrefWidth(100);
 
 		// charAlign = new ComboBox<>();
+		charAlign.setPromptText("Alignment");
 		charAlign.setValue(getCharAlign().toString());
 		charAlign.setEditable(canEdit);
 		charAlign.setLayoutX(370);
@@ -443,6 +449,8 @@ public class Show {
 		charAlign.setPrefWidth(100);
 
 		// charEXP = new TextField("" + c.getXp());
+
+		charEXP.setPromptText("Exp");
 		charEXP.setText("" + c.getXp());
 		charEXP.setEditable(canEdit);
 		charEXP.setLayoutX(470);
@@ -454,6 +462,8 @@ public class Show {
 		isMilestoneCheck.setLayoutX(475);
 
 		// charClass = new TextField(c.getOccupation());
+
+		charClass.setPromptText("Class");
 		charClass.setText(c.getOccupation());
 		charClass.setEditable(canEdit);
 		charClass.setLayoutX(270);
@@ -461,6 +471,8 @@ public class Show {
 		charClass.setPrefWidth(60);
 
 		// charLevel = new TextField("" + c.getLevel());
+
+		charLevel.setPromptText("Level");
 		charLevel.setText("" + c.getLevel());
 		charLevel.setEditable(canEdit);
 		charLevel.setLayoutX(330);
@@ -468,12 +480,16 @@ public class Show {
 		charLevel.setPrefWidth(40);
 
 		// charBG = new TextField("" + c.getBackground());
+
+		charBG.setPromptText("Background");
 		charBG.setText("" + c.getBackground());
 		charBG.setEditable(canEdit);
 		charBG.setLayoutX(370);
 		charBG.setLayoutY(47);
 		charBG.setPrefWidth(100);
+		
 
+		playerName.setPromptText("Player Name");
 		playerName.setText(c.getPlayerName());
 		playerName.setEditable(canEdit);
 		playerName.setLayoutX(470);
@@ -481,6 +497,8 @@ public class Show {
 		playerName.setPrefWidth(100);
 
 		// perTraits = new TextField(c.getOtherData("Personality Traits"));
+
+		perTraits.setPromptText("Personality Traits");
 		perTraits.setText(c.getOtherData("Traits"));
 		perTraits.setWrapText(true);
 		perTraits.setPrefWidth(148);
@@ -490,6 +508,7 @@ public class Show {
 		perTraits.setPrefHeight(55);
 
 		// perIdeals = new TextField(c.getOtherData("Ideals"));
+		perIdeals.setPromptText("Ideals");
 		perIdeals.setText(c.getOtherData("Ideals"));
 		perIdeals.setWrapText(true);
 		perIdeals.setPrefWidth(148);
@@ -499,6 +518,8 @@ public class Show {
 		perIdeals.setPrefHeight(45);
 
 		// perBonds = new TextField(c.getOtherData("Bonds"));
+
+		perBonds.setPromptText("Bonds");
 		perBonds.setText(c.getOtherData("Bonds"));
 		perBonds.setWrapText(true);
 		perBonds.setPrefWidth(148);
@@ -508,6 +529,8 @@ public class Show {
 		perBonds.setPrefHeight(45);
 
 		// perFlaws = new TextField(c.getOtherData("Flaws"));
+
+		perFlaws.setPromptText("Flaws");
 		perFlaws.setText(c.getOtherData("Flaws"));
 		perFlaws.setWrapText(true);
 		perFlaws.setPrefWidth(148);
@@ -515,7 +538,8 @@ public class Show {
 		perFlaws.setLayoutX(420);
 		perFlaws.setLayoutY(321);
 		perFlaws.setPrefHeight(45);
-
+		
+		additionalTraits.setPromptText("Additional Traits");
 		additionalTraits.setText(c.getOtherData("Add"));
 		additionalTraits.setWrapText(true);
 		additionalTraits.setEditable(canEdit);
@@ -525,6 +549,8 @@ public class Show {
 		additionalTraits.setPrefWidth(170);
 
 		// profBns = new TextField();
+
+		profBns.setPromptText("Prof");
 		profBns.setText("" + c.getStats(PrimaryStat.PROFICIENCY));
 		profBns.setEditable(canEdit);
 		profBns.setLayoutX(90);
@@ -533,42 +559,49 @@ public class Show {
 
 	
 		str.setText("" + c.getStats(PrimaryStat.STRENGTH));
+		str.setPromptText("Str");
 		str.setEditable(canEdit);
 		str.setLayoutX(40);
 		str.setLayoutY(155);
 		str.setPrefWidth(35);
 
 		dex.setText("" + c.getStats(PrimaryStat.DEXTERITY));
+		dex.setPromptText("Dex");
 		dex.setEditable(canEdit);
 		dex.setLayoutX(40);
 		dex.setLayoutY(226);
 		dex.setPrefWidth(35);
 
 		con.setText("" + c.getStats(PrimaryStat.CONSTITUTION));
+		con.setPromptText("Con");
 		con.setEditable(canEdit);
 		con.setLayoutX(40);
 		con.setLayoutY(298);
 		con.setPrefWidth(35);
 
 		intel.setText("" + c.getStats(PrimaryStat.INTELLIGENCE));
+		intel.setPromptText("Int");
 		intel.setEditable(canEdit);
 		intel.setLayoutX(40);
 		intel.setLayoutY(370);
 		intel.setPrefWidth(35);
 
 		wis.setText("" + c.getStats(PrimaryStat.WISDOM));
+		wis.setPromptText("Wis");
 		wis.setEditable(canEdit);
 		wis.setLayoutX(40);
 		wis.setLayoutY(442);
 		wis.setPrefWidth(35);
 
 		chr.setText("" + c.getStats(PrimaryStat.CHARISMA));
+		chr.setPromptText("Cha");
 		chr.setEditable(canEdit);
 		chr.setLayoutX(40);
 		chr.setLayoutY(514);
 		chr.setPrefWidth(35);
 
 		otherPnL.setText(c.getOtherData("Other"));
+		otherPnL.setPromptText("Other Profficiencies and Languages");
 		otherPnL.setWrapText(true);
 		otherPnL.setEditable(canEdit);
 		otherPnL.setLayoutX(35);
@@ -578,6 +611,7 @@ public class Show {
 
 		// equipment = new TextArea();
 		equipment.setText("" + c.getItems());
+		equipment.setPromptText("Equipment");
 		equipment.setWrapText(true);
 		equipment.setEditable(canEdit);
 		equipment.setLayoutX(268);
@@ -586,12 +620,14 @@ public class Show {
 		equipment.setPrefWidth(115);
 
 		armClass.setText("" + c.getStats(PrimaryStat.ARMOR_CLASS));
+		armClass.setPromptText("AC");
 		armClass.setEditable(canEdit);
 		armClass.setLayoutX(232);
 		armClass.setLayoutY(142);
 		armClass.setPrefWidth(30);
 
 		spd.setText("" + c.getStats(PrimaryStat.SPEED));
+		spd.setPromptText("Spd");
 		spd.setEditable(canEdit);
 		spd.setLayoutX(345);
 		spd.setLayoutY(142);
@@ -599,21 +635,25 @@ public class Show {
 
 		// initiative = new TextField();
 		initiative.setEditable(canEdit);
+		initiative.setPromptText("Init");
 		initiative.setLayoutX(285);
 		initiative.setLayoutY(142);
 		initiative.setPrefWidth(35);
 
 		hp.setText("" + c.getStats(PrimaryStat.MAX_HEALTH));
+		hp.setPromptText("Hp");
 		hp.setEditable(canEdit);
 		hp.setLayoutX(230);
 		hp.setLayoutY(200);
 
 		// tempHp = new TextField();
+		tempHp.setPromptText("Temporary HP");
 		tempHp.setEditable(canEdit);
 		tempHp.setLayoutX(230);
 		tempHp.setLayoutY(270);
 
 		// hd = new TextField();
+		hd.setPromptText("Hit Dice");
 		hd.setEditable(canEdit);
 		hd.setLayoutX(230);
 		hd.setLayoutY(320);
