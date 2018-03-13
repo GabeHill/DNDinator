@@ -41,9 +41,6 @@ public class DungeonMasterUIController extends PlayerUIController implements IMe
 		// return d;
 	}
 
-	public void methodSave(String name) {
-		methodReturn = name;
-	}
 
 	public static String saveRules(String path, String encryptKey) {
 		try {
@@ -71,7 +68,10 @@ public class DungeonMasterUIController extends PlayerUIController implements IMe
 		options.addRule(null);
 	}
 
-	public String showTurn() {
+	public static  void methodSave(String name) {
+		methodReturn = name;
+	}
+	public static String showTurn() {
 		return methodReturn;
 	}
 

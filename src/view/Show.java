@@ -10,6 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -530,7 +531,7 @@ public class Show {
 		profBns.setLayoutY(165);
 		profBns.setPrefWidth(35);
 
-		// TODO
+	
 		str.setText("" + c.getStats(PrimaryStat.STRENGTH));
 		str.setEditable(canEdit);
 		str.setLayoutX(40);
@@ -750,7 +751,7 @@ public class Show {
 
 	}
 
-	public void displayMainMenu(Stage primaryStage) {
+	public Parent displayMainMenu(Stage primaryStage) {
 		// bPane2.setCenter(thePane);
 		Button pm = new Button();
 		pm.setScaleX(3);
@@ -790,6 +791,7 @@ public class Show {
 		primaryStage.sizeToScene();
 		primaryStage.setResizable(false);
 		primaryStage.show();
+		return pm;
 	}
 
 	public void displayPlayerMenu(Stage primaryStage) {
@@ -1176,12 +1178,14 @@ public class Show {
 
 		Button exit = new Button();
 		exit.setLayoutX(1100);
-		exit.setText("Exit");
+		exit.setText("Back to Main");
 		exit.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
 				thePane.getChildren().clear();
 				setIsDone(true);
+				exit.getScene().setRoot(displayMainMenu(primaryStage)); 
+			 
 			}
 		});
 		thePane.getChildren().add(exit);
