@@ -6,6 +6,7 @@ import enums.Alignment;
 import enums.Currency;
 import enums.DiceSides;
 import enums.PrimaryStat;
+import javafx.beans.property.BooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -457,6 +458,7 @@ public class Show {
 		charEXP.setLayoutY(72);
 		charEXP.setPrefWidth(100);
 
+		System.out.println(c.isMilestoneLeveling());
 		isMilestoneCheck.setSelected(c.isMilestoneLeveling());
 		isMilestoneCheck.setLayoutY(105);
 		isMilestoneCheck.setLayoutX(475);
@@ -774,7 +776,7 @@ public class Show {
 			}
 		});
 		thePane.getChildren().addAll(viewSheet, characterNameField, characterRaceField, charClass, charLevel, charAlign,
-				charEXP, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd, initiative, hp, hd, profBns,
+				charEXP, isMilestoneCheck, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd, initiative, hp, hd, profBns,
 				tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits, otherPnL, equipment, saveBut);
 
 		// adds each individual TextField[] inside of attack box to screen, as the
@@ -989,7 +991,8 @@ public class Show {
 	}
 
 	public boolean getMilestone() {
-		return isMilestoneCheck.selectedProperty() != null;
+		BooleanProperty returnThis = isMilestoneCheck.selectedProperty();
+		return returnThis.getValue();
 	}
 
 	public String getCharacterNameField() {
