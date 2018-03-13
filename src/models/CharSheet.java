@@ -182,7 +182,10 @@ public class CharSheet implements Serializable {
 	 *         Returns the data associated with the inputted string.
 	 */
 	public String getOtherData(String name) {
-		return otherData.get(name);
+		if (otherData.size() > 0) {
+			return otherData.get(name);
+		}
+		return "";
 	}
 
 	/**
