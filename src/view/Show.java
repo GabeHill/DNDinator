@@ -791,7 +791,7 @@ public class Show {
 
 	}
 
-	public Parent displayMainMenu(Stage primaryStage) {
+	public Scene displayMainMenu(Stage primaryStage) {
 		// bPane2.setCenter(thePane);
 		Button pm = new Button();
 		pm.setScaleX(3);
@@ -831,7 +831,7 @@ public class Show {
 		primaryStage.sizeToScene();
 		primaryStage.setResizable(false);
 		primaryStage.show();
-		return pm;
+		return theScene;
 	}
 
 	public void displayPlayerMenu(Stage primaryStage) {
@@ -1221,11 +1221,16 @@ public class Show {
 		exit.setText("Back to Main");
 		exit.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
-			public void handle(ActionEvent arg0) {
+			public void handle(ActionEvent e) {
 				thePane.getChildren().clear();
 				setIsDone(true);
-				exit.getScene().setRoot(displayMainMenu(primaryStage)); 
-			 
+				 
+				{
+			        if (e.getSource()==exit)
+			            primaryStage.setScene(displayMainMenu(primaryStage));
+			        else
+			            System.out.println("no change");
+			    }
 			}
 		});
 		thePane.getChildren().add(exit);
