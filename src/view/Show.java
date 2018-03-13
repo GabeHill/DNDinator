@@ -462,7 +462,7 @@ public class Show {
 		charEXP.setLayoutY(72);
 		charEXP.setPrefWidth(100);
 
-//		System.out.println(c.isMilestoneLeveling());
+		System.out.println(c.isMilestoneLeveling());
 		isMilestoneCheck.setSelected(c.isMilestoneLeveling());
 		isMilestoneCheck.setLayoutY(105);
 		isMilestoneCheck.setLayoutX(475);
@@ -980,7 +980,7 @@ public class Show {
 		ruleOutside.setLayoutX(300);
 		ruleChoice.getChildren().addAll(saveRule, loadRule);
 		ruleChoice.setLayoutX(300);
-		ruleChoice.setLayoutY(650);
+		ruleChoice.setLayoutY(750);
 		ruleText.setPromptText("Enter Rules and Notes here");
 		ruleText.setWrapText(true);
 		// ruleText.setScaleX(3);
@@ -1025,7 +1025,7 @@ public class Show {
 			}
 		});
 
-		thePane.getChildren().addAll(ruleOutside, ruleChoice, charListThing);
+		thePane.getChildren().addAll(ruleOutside, charListThing);
 		primaryStage.setScene(theScene);
 		primaryStage.sizeToScene();
 		primaryStage.show();
