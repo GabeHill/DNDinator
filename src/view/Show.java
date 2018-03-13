@@ -969,29 +969,40 @@ public class Show {
 		Button loadRule = new Button();
 		Button saveRule = new Button();
 		TextArea ruleText = new TextArea();
-
+		VBox ruleOutside = new VBox();
+		HBox ruleChoice = new HBox();
+		
+		ruleOutside.getChildren().addAll(ruleText);
+		ruleOutside.setLayoutX(300);
+		ruleChoice.getChildren().addAll(saveRule,loadRule);
+		ruleChoice.setLayoutX(300);
+		ruleChoice.setLayoutY(750);
 		ruleText.setPromptText("Enter Rules and Notes here");
 		ruleText.setWrapText(true);
-		ruleText.setScaleX(3);
-		ruleText.setScaleY(3);
-		ruleText.setLayoutX(550);
-		ruleText.setLayoutY(160);
-		ruleText.setPrefHeight(138);
-		ruleText.setPrefWidth(165);
+//		ruleText.setScaleX(3);
+//		ruleText.setScaleY(3);
+		ruleText.setLayoutX(275);
+//		ruleText.setLayoutY(10);
+		ruleText.setPrefHeight(475);
+		ruleText.setPrefWidth(500);
 
-		saveRule.setLayoutX(600);
-		loadRule.setLayoutX(600);
+//		saveRule.setLayoutX(300);
+//		loadRule.setLayoutX(700);
 
-		saveRule.setScaleX(2);
-		saveRule.setScaleY(2);
-		loadRule.setScaleX(2);
-		loadRule.setScaleY(2);
+//		saveRule.setScaleX(1.25);
+//		saveRule.setScaleY(1.25);
+//		loadRule.setScaleX(1.25);
+//		loadRule.setScaleY(1.25);
 
-		saveRule.setLayoutY(500);
-		loadRule.setLayoutY(625);
+//		saveRule.setLayoutY(500);
+//		loadRule.setLayoutY(500);
 
 		saveRule.setText("Save Rules");
+		saveRule.setMaxHeight(50);
+		saveRule.setMinWidth(250);
 		loadRule.setText("Load Rules");
+		loadRule.setMaxHeight(50);
+		loadRule.setMinWidth(250);
 
 		saveRule.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -1002,34 +1013,23 @@ public class Show {
 		loadRule.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-				TextField path = new TextField();
-				path.setPromptText("Enter the File Path");
-				// path.setScaleX(2);
-				// path.setScaleY(2);
-				path.setLayoutX(565);
-				path.setLayoutY(680);
-
-				Button submitPathBttn = new Button("Submit Path");
-				// submitPathBttn.setScaleX(2);
-				// submitPathBttn.setScaleY(2);
-				submitPathBttn.setLayoutX(595);
-				submitPathBttn.setLayoutY(735);
-				submitPathBttn.setOnAction(new EventHandler<ActionEvent>() {
-					@Override
-					public void handle(ActionEvent arg0) {
-						GameData loadData = DungeonMasterUIController.loadRules(path.getText(), "encryptKey");
-						ruleText.setText(loadData.getRules());
-					}
-				});
-				thePane.getChildren().addAll(path, submitPathBttn);
+				File file = fileChooser.showOpenDialog(primaryStage);
+				if (file != null) {
+					GameData loaded = DungeonMasterUIController.loadRules("./" + file.getName(), "encryptKey");
+					displayFilledDMMenu(primaryStage, loaded);
+				}
 			}
 		});
 
-		thePane.getChildren().addAll(saveRule, loadRule, ruleText, charListThing);
+		thePane.getChildren().addAll(ruleOutside, charListThing);
 		primaryStage.setScene(theScene);
 		primaryStage.sizeToScene();
 		primaryStage.show();
 		exitButton(primaryStage);
+	}
+	
+	public void displayFilledDMMenu(Stage primaryStage, GameData loadThis) {
+		
 	}
 
 	public boolean getMilestone() {
