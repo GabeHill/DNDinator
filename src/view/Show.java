@@ -1,7 +1,7 @@
 package view;
 
+import java.io.File;
 import java.util.LinkedList;
-
 import enums.Alignment;
 import enums.Currency;
 import enums.DiceSides;
@@ -20,6 +20,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -31,6 +32,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import logic.DungeonMasterUIController;
 import logic.PlayerUIController;
@@ -42,11 +44,13 @@ public class Show {
 	private BorderPane bPane = new BorderPane();
 	// private BorderPane bPane2 = new BorderPane();
 	private Pane thePane = new Pane();
+	// private Pane thePane2 = new Pane();
 	private int[] windowSize = { 800, 1200 };
 	// private int[] windowSize2 = { 200, 415 };
 	private Scene theScene = new Scene(bPane, windowSize[1], windowSize[0]);
 	// private Scene smallScene = new Scene(bPane2, windowSize2[1], windowSize2[0]);
 	private Text diceFace = new Text();
+	private FileChooser fileChooser = new FileChooser();
 	private CheckBox isMilestoneCheck = new CheckBox("Milestone Levelling");
 	private TextField characterNameField = new TextField();
 	private TextField characterRaceField = new TextField();
@@ -773,8 +777,9 @@ public class Show {
 			}
 		});
 		thePane.getChildren().addAll(viewSheet, characterNameField, characterRaceField, charClass, charLevel, charAlign,
-				charEXP, isMilestoneCheck, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd, initiative, hp, hd, profBns,
-				tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits, otherPnL, equipment, saveBut);
+				charEXP, isMilestoneCheck, charBG, playerName, str, dex, con, intel, wis, chr, armClass, spd,
+				initiative, hp, hd, profBns, tempHp, perTraits, perIdeals, perBonds, perFlaws, additionalTraits,
+				otherPnL, equipment, saveBut);
 
 		// adds each individual TextField[] inside of attack box to screen, as the
 		// arrays are all the same size as each other
@@ -871,24 +876,33 @@ public class Show {
 		editChar.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-				thePane.getChildren().clear();
-				TextField theChar = new TextField();
-				theChar.setPromptText("Enter name of the character you wish to load");
-				theChar.setLayoutX(450);
-				theChar.setLayoutY(400);
-				theChar.setPrefWidth(300);
-				Button enterForLoad = new Button();
-				enterForLoad.setText("Load");
-				enterForLoad.setLayoutX(575);
-				enterForLoad.setLayoutY(425);
-				enterForLoad.setOnAction(new EventHandler<ActionEvent>() {
-					@Override
-					public void handle(ActionEvent arg0) {
-						displayFilledCharacterSheet(primaryStage,
-								PlayerUIController.loadCharSheet("./", theChar.getText(), "dad"), true);
-					}
-				});
-				thePane.getChildren().addAll(theChar, enterForLoad);
+				// thePane.getChildren().clear();
+				File file = fileChooser.showOpenDialog(primaryStage);
+				if (file != null) {
+					// System.out.println(file.getName());
+					String[] thisCharName = file.getName().split("\\.");
+					// for(String temp : thisCharName) {System.out.println(temp);}
+					// System.out.println(thisCharName.length);
+					displayFilledCharacterSheet(primaryStage,
+							PlayerUIController.loadCharSheet("./", thisCharName[0], "dad"), true);
+				}
+				// TextField theChar = new TextField();
+				// theChar.setPromptText("Enter name of the character you wish to load");
+				// theChar.setLayoutX(450);
+				// theChar.setLayoutY(400);
+				// theChar.setPrefWidth(300);
+				// Button enterForLoad = new Button();
+				// enterForLoad.setText("Load");
+				// enterForLoad.setLayoutX(575);
+				// enterForLoad.setLayoutY(425);
+				// enterForLoad.setOnAction(new EventHandler<ActionEvent>() {
+				// @Override
+				// public void handle(ActionEvent arg0) {
+				// displayFilledCharacterSheet(primaryStage,
+				// PlayerUIController.loadCharSheet("./", theChar.getText(), "dad"), true);
+				// }
+				// });
+				// thePane.getChildren().addAll(theChar, enterForLoad);
 			}
 		});
 
@@ -901,34 +915,65 @@ public class Show {
 
 	public void displayDMMenu(Stage primaryStage) {
 
-		new VBox();
-		new HBox();
-		new GameData("auto");
+		GameData local = new GameData("local");
 
-		// new GameData("auto");
-		// FXCollections.observableArrayList();
-		TableView playerList = new TableView();
-		TableColumn playerName = new TableColumn("Players");
+		VBox charListThing = new VBox();
+		HBox bottomThing = new HBox();
+		Button addChar = new Button();
+		addChar.setText("Add a Character");
+		addChar.setWrapText(true);
+		addChar.setMinWidth(125);
+		addChar.setMaxWidth(125);
+		addChar.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				// local.addCharacter(sheet);
+				File file = fileChooser.showOpenDialog(primaryStage);
+				if (file != null) {
+					// System.out.println(file.getName());
+					String[] thisCharName = file.getName().split("\\.");
+					// for(String temp : thisCharName) {System.out.println(temp);}
+					// System.out.println(thisCharName.length);
+					CharSheet tempSheet = PlayerUIController.loadCharSheet("./", thisCharName[0], "dad");
+					local.addCharacter(tempSheet);
+				}
+			}
+		});
+		Button removeChar = new Button();
+		removeChar.setText("Remove a Character");
+		removeChar.setWrapText(true);
+		removeChar.setMinWidth(125);
+		removeChar.setMaxWidth(125);
+		removeChar.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				local.removeCharacter("name");
+			}
+		});
+
+		TableView<CharSheet> playerList = new TableView<CharSheet>();
+		playerList.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 		playerList.setEditable(true);
-		playerList.getColumns().clear();
-		playerList.getColumns().addAll(playerName);
-		// playerName.setCellFactory(new PropertyValueFactory<CharSheet,
-		// String>("playerName"));
+		// playerList.getColumns().clear();
 		playerList.setPlaceholder(new Label("No Players to Display"));
-		playerList.setLayoutX(50);
-		playerList.setLayoutY(160);
+		playerList.setPrefWidth(250);
+		TableColumn playerName = new TableColumn("playerName");
+		playerName.setCellFactory(new PropertyValueFactory<CharSheet, String>("playerName"));
+		TableColumn charName = new TableColumn("characterName");
+		charName.setCellFactory(new PropertyValueFactory<CharSheet, String>("characterName"));
+		playerList.getColumns().addAll(playerName, charName);
 
-		Button saveRule = new Button();
+		charListThing.getChildren().addAll(playerList, bottomThing);
+		bottomThing.getChildren().addAll(addChar, removeChar);
+
 		Button loadRule = new Button();
-		new Button();
-		new Button();
-		new Button();
+		Button saveRule = new Button();
 		TextArea ruleText = new TextArea();
 
 		ruleText.setPromptText("Enter Rules and Notes here");
 		ruleText.setWrapText(true);
-		// ruleText.setScaleX(3);
-		// ruleText.setScaleY(3);
+		ruleText.setScaleX(3);
+		ruleText.setScaleY(3);
 		ruleText.setLayoutX(550);
 		ruleText.setLayoutY(160);
 		ruleText.setPrefHeight(138);
@@ -937,10 +982,10 @@ public class Show {
 		saveRule.setLayoutX(600);
 		loadRule.setLayoutX(600);
 
-		// saveRule.setScaleX(2);
-		// saveRule.setScaleY(2);
-		// loadRule.setScaleX(2);
-		// loadRule.setScaleY(2);
+		saveRule.setScaleX(2);
+		saveRule.setScaleY(2);
+		loadRule.setScaleX(2);
+		loadRule.setScaleY(2);
 
 		saveRule.setLayoutY(500);
 		loadRule.setLayoutY(625);
@@ -980,7 +1025,7 @@ public class Show {
 			}
 		});
 
-		thePane.getChildren().addAll(saveRule, loadRule, ruleText, playerList);
+		thePane.getChildren().addAll(saveRule, loadRule, ruleText, charListThing);
 		primaryStage.setScene(theScene);
 		primaryStage.sizeToScene();
 		primaryStage.show();
@@ -1217,7 +1262,7 @@ public class Show {
 	}
 
 	public void exitButton(Stage primaryStage) {
-//
+		//
 		Button exit = new Button();
 		exit.setLayoutX(1100);
 		exit.setText("Back to Main");
