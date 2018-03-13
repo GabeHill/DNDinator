@@ -2,6 +2,7 @@ package main;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import models.CharSheet;
 import view.Show;
 
 public class Main extends Application
