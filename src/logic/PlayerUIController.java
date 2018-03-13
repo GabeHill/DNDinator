@@ -16,7 +16,7 @@ import models.CharSheet;
 
 public class PlayerUIController implements IMenu {
 	public static String methodReturn = "";
-
+ 
 	public void run() {
 
 	}
@@ -115,7 +115,7 @@ public class PlayerUIController implements IMenu {
 			String p = path + charName + ".json";
 			ObjectInputStream iin = new ObjectInputStream(new FileInputStream(p));
 			d = (CharSheet) iin.readObject();
-			System.out.println(d);
+			System.out.println(d + "Loaded");
 			iin.close();
 			// d = (CharSheet) Writer.read(path + charName + ".json", encryptKey,
 			// CharSheet.class);

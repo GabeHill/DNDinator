@@ -11,7 +11,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -199,8 +198,8 @@ public class Show {
 		profBns.setPrefWidth(35);
 
 		// str = new TextField();
-		
-		//** here
+
+		// ** here
 		str.setPromptText("Str");
 		str.setLayoutX(40);
 		str.setLayoutY(155);
@@ -489,7 +488,6 @@ public class Show {
 		charBG.setLayoutX(370);
 		charBG.setLayoutY(47);
 		charBG.setPrefWidth(100);
-		
 
 		playerName.setPromptText("Player Name");
 		playerName.setText(c.getPlayerName());
@@ -540,7 +538,7 @@ public class Show {
 		perFlaws.setLayoutX(420);
 		perFlaws.setLayoutY(321);
 		perFlaws.setPrefHeight(45);
-		
+
 		additionalTraits.setPromptText("Additional Traits");
 		additionalTraits.setText(c.getOtherData("Add"));
 		additionalTraits.setWrapText(true);
@@ -559,7 +557,6 @@ public class Show {
 		profBns.setLayoutY(165);
 		profBns.setPrefWidth(35);
 
-	
 		str.setText("" + c.getStats(PrimaryStat.STRENGTH));
 		str.setPromptText("Str");
 		str.setEditable(canEdit);
@@ -713,7 +710,7 @@ public class Show {
 		// 290 x, 385 y (+25 for each iteration), 32 prefWidth
 		// attackBonus = new TextField[7];
 		int atkBnsY = 385;
-		for (int i = 0; i < attackBonus.length; i ++) {
+		for (int i = 0; i < attackBonus.length; i++) {
 			// attackBonus[i] = new TextField();
 			attackBonus[i].setText(c.getOtherData("AttackBns" + i));
 			attackBonus[i].setEditable(canEdit);
@@ -728,7 +725,7 @@ public class Show {
 		// 322 x, 385 y (+25 for each iteration), 70 prefWidth
 		// attackDamage = new TextField[7];
 		int atkDmgY = 385;
-		for (int i = 0; i < attackDamage.length; i ++) {
+		for (int i = 0; i < attackDamage.length; i++) {
 			// attackDamage[i] = new TextField();
 			attackDamage[i].setText(c.getOtherData("AttackDmg" + i));
 			attackDamage[i].setEditable(canEdit);
@@ -1044,7 +1041,7 @@ public class Show {
 		for (int i = 0; i < o.length; i++) {
 			is[i] = (int) o[i];
 		}
-		
+
 		return is;
 	}
 
@@ -1201,13 +1198,13 @@ public class Show {
 		if (s != null) {
 			return s;
 		}
-		return "Empty";
+		return "";
 	}
 
 	private int emptyCheck(String s) {
 		String y = nullCheck(s);
 		int ret = 0;
-		if (y.equals("Empty")) {
+		if (y.equals("")) {
 			return 0;
 		} else {
 			try {
@@ -1220,7 +1217,7 @@ public class Show {
 	}
 
 	public void exitButton(Stage primaryStage) {
-
+//
 		Button exit = new Button();
 		exit.setLayoutX(1100);
 		exit.setText("Back to Main");
@@ -1229,13 +1226,14 @@ public class Show {
 			public void handle(ActionEvent e) {
 				thePane.getChildren().clear();
 				setIsDone(true);
-				 
+
 				{
-			        if (e.getSource()==exit)
-			            primaryStage.setScene(displayMainMenu(primaryStage));
-			        else
-			            System.out.println("no change");
-			    }
+					if (e.getSource() == exit) {
+						primaryStage.setScene(displayMainMenu(primaryStage));
+					} else {
+						System.out.println("no change");
+					}
+				}
 			}
 		});
 		thePane.getChildren().add(exit);
